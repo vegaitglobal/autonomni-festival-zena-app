@@ -1,7 +1,7 @@
 # AFŽ
 
 A website for the Autonomous Women's Festival (originally "Autonomni Festival
-Žensk") or AFŽ.
+Žena") or AFŽ.
 
 ## 🚀 Quick Start
 

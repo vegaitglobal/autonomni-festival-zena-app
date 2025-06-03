@@ -7,9 +7,8 @@ A website for the Autonomous Women's Festival (originally "Autonomni Festival
 
 1. Install [Docker](https://www.docker.com/) and
    [Docker Compose](https://docs.docker.com/compose/).
-   <br/><br/>
 
-2. Start the container:
+2. Start the containers:
 
    ```bash
    docker compose up -d

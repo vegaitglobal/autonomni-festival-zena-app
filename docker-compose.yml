@@ -34,7 +34,8 @@ services:
       context: ./frontend
       dockerfile: Dockerfile.nextjs
     environment:
-      - NEXT_PUBLIC_STRAPI_API_URL=http://localhost:1337
+      - NEXT_PUBLIC_API_URL=http://localhost:1337/api
+      - NEXT_PUBLIC_API_TOKEN=a3b81011f7e538c259dc4fc96b8eca1c5c6f667878d35bfd0a36737a83d71e63855bb3e19ebf8d7f0716b6464091494bf81dcc2ed713995ad8e9359b8d069cf4acfd215c63d530a47aedd91189a435c979ae9f6987e93383d39f850eca26887161d11922ea7607c574013ae7a5d5952ffd6e1c360ba8a2e3898500a31054abd2
       - NODE_ENV=development
     ports:
       - "3000:3000"

@@ -5,19 +5,8 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile.strapi
-    environment:
-      - DATABASE_CLIENT=postgres
-      - DATABASE_HOST=postgres
-      - DATABASE_PORT=5432
-      - DATABASE_NAME=afz
-      - DATABASE_USERNAME=afz
-      - DATABASE_PASSWORD=afz
-      - DATABASE_SSL=false
-      - JWT_SECRET=8f4d9b2e-3c7a-4e1b-9a0d-6f5c2e8b7d3a
-      - ADMIN_JWT_SECRET=c9e3a7d1-2b4f-4c8e-9b6a-1d3f5e7c0a2b
-      - APP_KEYS=9b3e7d1a-4c8f-4b2a-9e6c-2f5d8a3e7b1c,6a2e9c4b-3d7f-4e1b-8c5a-0f9d2e7b6a3c
-      - API_TOKEN_SALT=7a9e4c2b-5d8f-4b1a-8e3c-0f6d9a2e5c7b
-      - NODE_ENV=development
+    env_file:
+      - .env
     ports:
       - "1337:1337"
     depends_on:
@@ -33,10 +22,8 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile.nextjs
-    environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:1337/api
-      - NEXT_PUBLIC_API_TOKEN=a3b81011f7e538c259dc4fc96b8eca1c5c6f667878d35bfd0a36737a83d71e63855bb3e19ebf8d7f0716b6464091494bf81dcc2ed713995ad8e9359b8d069cf4acfd215c63d530a47aedd91189a435c979ae9f6987e93383d39f850eca26887161d11922ea7607c574013ae7a5d5952ffd6e1c360ba8a2e3898500a31054abd2
-      - NODE_ENV=development
+    env_file:
+      - .env
     ports:
       - "3000:3000"
     volumes:
@@ -49,10 +36,8 @@ services:
   postgres:
     container_name: afz-postgres
     image: postgres:15
-    environment:
-      - POSTGRES_DB=afz
-      - POSTGRES_USER=afz
-      - POSTGRES_PASSWORD=afz
+    env_file:
+      - .env
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:

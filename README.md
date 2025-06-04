@@ -1,4 +1,4 @@
-# AFŽ
+# Autonomni Festival Žena
 
 A website for the Autonomous Women's Festival (originally "Autonomni Festival
 Žena") or AFŽ.

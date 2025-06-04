@@ -9,3 +9,6 @@
 !.vscode/extensions.json
 .vscode/**/*
 *.code-workspace
+
+# Environment files
+.env

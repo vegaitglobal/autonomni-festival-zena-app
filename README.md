@@ -5,8 +5,10 @@ A website for the Autonomous Women's Festival (originally "Autonomni Festival
 
 ## 🚀 Quick Start
 
-1. Install [Docker](https://www.docker.com/) and
-   [Docker Compose](https://docs.docker.com/compose/).
+1. Install [Docker Engine](https://docs.docker.com/engine/) and
+   [Docker Compose](https://docs.docker.com/compose/) if you're using
+   Linux, or [Docker Desktop](https://docs.docker.com/desktop/) if you're
+   using Windows or macOS.
    <br/><br/>
 
 2. Create a `.env` file based on the provided `.env.example` file:

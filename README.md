@@ -11,7 +11,24 @@ A website for the Autonomous Women's Festival (originally "Autonomni Festival
    using Windows or macOS.
    <br/><br/>
 
-2. Create a `.env` file based on the provided `.env.example` file:
+2. Clone the repository:
+
+   ```bash
+   git clone git@github.com:vegaitglobal/autonomni-festival-zena-app.git
+   ```
+
+   If you don't have SSH access to the repository, you can use HTTPS:
+
+    ```bash
+    git clone https://github.com/vegaitglobal/autonomni-festival-zena-app.git
+    ```
+3. Change into the project directory:
+
+   ```bash
+   cd autonomni-festival-zena-app
+   ```
+
+4. Create a `.env` file based on the provided `.env.example` file:
 
    ```bash
    cp .env.example .env
@@ -21,7 +38,7 @@ A website for the Autonomous Women's Festival (originally "Autonomni Festival
    defaults should work fine for most users.
    <br/><br/>
 
-3. Start the containers:
+5. Start the containers:
 
    ```bash
    docker compose up -d

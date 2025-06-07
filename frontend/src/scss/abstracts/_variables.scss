@@ -1,0 +1,50 @@
+// ----------  variables
+// ------------------------------------------------------------------------------
+
+$font-default: var(--font-lexend), "Lexend", sans-serif;
+$font-secondary: var(--font-montserrat), "Montserrat", sans-serif;
+
+// Font weight
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+
+// Primary
+$white: #fff;
+$black: #000;
+$british-blue: #007faa;
+$british-blue-dark: #017299;
+$red: #f00;
+$green-light: #02874B;
+$pink-light: #EB7676;
+$orange: #FF7B5C;
+// Secondary
+$yellow: #fff5b2;
+$pink: #ffd7cd;
+$blue: #006de7;
+$green: #00645a;
+$navy: #233265;
+
+// Neutral
+$grey-lighter: #f8f8f8;
+$grey-light: #5b6770;
+$grey: #bfbfbf;
+$grey-dark: #999;
+$grey-darker: #4d4d4d;
+$blue-light: #edf6f9;
+$green-landing: #eef4f3;
+$blue-landing: #eef5fd;
+$pink-landing: #feefeb;
+$green-form: #049f13;
+$black-2: #282828;
+
+// Transitions
+$dur: 0.3s;
+$dur-long: 0.5s;
+$ease: ease;
+$dur-extra-long: 1.2s;
+$dur-long-animation: 1.6s;
+$duration-animation: 2.3s;
+$ease-in-out: ease-in-out;

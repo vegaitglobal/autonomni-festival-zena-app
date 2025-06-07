@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Lexend, Montserrat } from "next/font/google";
+import "../scss/styles.scss";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const lexend = Lexend({
+  variable: "--font-lexend",
+  subsets: ["latin", "latin-ext"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const montserrat = Montserrat({
+  variable: "--font-montserrat", 
+  subsets: ["latin", "latin-ext"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -23,8 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${lexend.variable} ${montserrat.variable}`}>
         {children}
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur perspiciatis dolorum quis at nemo? Magnam asperiores error minima ipsa? Ratione dolore possimus nihil odit soluta voluptate maiores mollitia iure voluptates!</h1>
       </body>
     </html>
   );

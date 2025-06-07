@@ -1,0 +1,28 @@
+@use "../abstracts" as *;
+
+// --------------------------------------------------------------
+// # Card PRIMER SAMO
+// body {
+//     background-color: rgba($black, 0.3);
+//     Primer BREAKPOINTS
+//        @include media-breakpoint-up(xl) {
+//         background-color: red;  // Iznad 1200px
+//        } 
+//     @include media-breakpoint-up(lg) {
+//         background-color: blue; // Iznad 992px
+//     }
+//     @include media-breakpoint-up(md) {
+//         background-color: yellow; // Iznad 768px
+//     }
+//     @include media-breakpoint-up(sm) {
+//         background-color: green; // Iznad 576px
+//     }
+//     @include media-breakpoint-between(md, lg) {
+//         background-color: orange; // Između 768px i 1200px
+//     }
+
+//     0-768px mobile
+//     768-1200px tablet
+//     1200+ desktop
+
+// }

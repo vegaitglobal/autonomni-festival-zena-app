@@ -1,29 +1,25 @@
 {
   "kind": "singleType",
-  "collectionName": "home_pages",
+  "collectionName": "about_pages",
   "info": {
-    "singularName": "home-page",
-    "pluralName": "home-pages",
-    "displayName": "Home page"
+    "singularName": "about-page",
+    "pluralName": "about-pages",
+    "displayName": "About page"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
-      "type": "string",
-      "required": true
-    },
     "Hero": {
       "type": "component",
       "component": "content.hero-section",
       "repeatable": false
     },
-    "textImage": {
+    "textComponent": {
       "type": "component",
-      "component": "content.text-image",
-      "repeatable": true
+      "component": "content.about-text",
+      "repeatable": false
     }
   }
 }

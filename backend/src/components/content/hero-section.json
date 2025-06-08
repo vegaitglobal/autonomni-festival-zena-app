@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_content_hero_sections",
+  "info": {
+    "displayName": "Hero section",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "ctaLink": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

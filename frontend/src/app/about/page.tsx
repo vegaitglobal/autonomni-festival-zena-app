@@ -1,22 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { fetchHomePage } from "@/services/pageService";
+import { fetchAboutPage } from "@/services/pageService";
 import { DynamicContent } from "@/components/hoc/DynamicContent";
 
-
-export default function Home() {
-  const [content, setContent] = useState<any>(null); // Tipove moram srediti
+export default function AboutPage() {
+  const [content, setContent] = useState<any>(null);
 
   useEffect(() => {
     if (!content) {
-      getHomePageData();
+      getAboutPageData();
     }
   }, [content]);
 
-  async function getHomePageData() {
+  async function getAboutPageData() {
     try {
-      const data = await fetchHomePage();
+      const data = await fetchAboutPage();
       setContent(data);
     } catch (error) {
       setContent({ error: error instanceof Error ? error.message : 'An unknown error occurred' });
@@ -27,7 +26,6 @@ export default function Home() {
     return <div>Loading...</div>;
   }
 
-
   if (content.error) {
     return <div>Error: {content.error}</div>;
   }
@@ -35,8 +33,6 @@ export default function Home() {
   return (
     <div>
       <DynamicContent pageData={content.data} />
-      {/* trebamo dodati ZA SEO i ovde bi dodao HEADER I FOOTER */}
-      
 
       <details>
         <summary>Debug JSON</summary>

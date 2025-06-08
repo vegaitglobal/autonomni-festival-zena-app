@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_content_about_texts",
+  "info": {
+    "displayName": "about-text",
+    "icon": "arrowDown"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    },
+    "date": {
+      "type": "date"
+    },
+    "textEditor": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

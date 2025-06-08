@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_content_text_images",
+  "info": {
+    "displayName": "Text-image",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    },
+    "email": {
+      "type": "email"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "showText": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

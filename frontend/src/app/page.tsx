@@ -1,32 +1,27 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { fetchHomePage } from "@/services/pageService";
+import { DynamicContent } from "@/components/hoc/DynamicContent";
+import { log } from "console";
+
+
 
 export default function Home() {
-  const [content, setContent] = useState<object | null>(null);
+  const [content, setContent] = useState<any>(null); // Tipove moram srediti
 
   useEffect(() => {
     if (!content) {
-      fetchHomePageData();
+      getHomePageData();
     }
   }, [content]);
 
-  async function fetchHomePageData() {
-    console.log("NEXT_PUBLIC_API_URL:", process.env.NEXT_PUBLIC_API_URL);
-    console.log("NEXT_PUBLIC_API_TOKEN:", process.env.NEXT_PUBLIC_API_TOKEN);
-
+  async function getHomePageData() {
     try {
-      const response = await fetch(`${ process.env.NEXT_PUBLIC_API_URL }/home-page`, {
-        method: "GET",
-        headers: {
-          "Authorization": `Bearer ${ process.env.NEXT_PUBLIC_API_TOKEN }`,
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await response.json();
+      const data = await fetchHomePage();
       setContent(data);
     } catch (error) {
-      setContent({ error: error.message });
+      setContent({ error: error instanceof Error ? error.message : 'An unknown error occurred' });
     }
   }
 
@@ -34,9 +29,24 @@ export default function Home() {
     return <div>Loading...</div>;
   }
 
+
+  if (content.error) {
+    return <div>Error: {content.error}</div>;
+  }
+
+
+  console.log("Home page content:", content);
   return (
-      <div>
-        <pre><code>{ JSON.stringify(content, null, 2) }</code></pre>
-      </div>
+    <div>
+      
+      <DynamicContent pageData={content} />
+      {/* trebamo dodati ZA SEO i ovde bi dodao HEADER I FOOTER */}
+      
+
+      <details>
+        <summary>Debug JSON</summary>
+        <pre><code>{JSON.stringify(content, null, 2)}</code></pre>
+      </details>
+    </div>
   );
 }

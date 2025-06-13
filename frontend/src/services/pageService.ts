@@ -21,10 +21,7 @@ const fetchPageWithComponents = async <K extends keyof PageMap>(
 		return response.data.data;
 	} catch (error) {
 		console.error(`Failed to fetch ${pageName} data:`, error);
-		const fallbackResponse = await api.get<{ data: PageMap[K] }>(
-			`/${pageName}?populate=*`
-		);
-		return fallbackResponse.data.data;
+		throw error;
 	}
 };
 

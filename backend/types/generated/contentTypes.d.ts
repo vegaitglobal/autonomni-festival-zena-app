@@ -384,7 +384,7 @@ export interface ApiAboutUsPageAboutUsPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Content: Schema.Attribute.RichText;
+    content: Schema.Attribute.RichText;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

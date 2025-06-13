@@ -1,0 +1,27 @@
+// ----------  button
+// ------------------------------------------------------------------------------
+@use "../abstracts" as *;
+
+button,
+input[type='button'],
+input[type='submit'] {
+	background: none;
+	border: 0;
+	cursor: pointer;
+	outline: none;
+	padding: 0;
+}
+
+a,
+div,
+button,
+input {
+	appearance: none;
+	outline: none;
+	font-family: $font-default;
+	@include focus {
+		outline: 1px dashed $grey-light;
+	}
+}
+
+

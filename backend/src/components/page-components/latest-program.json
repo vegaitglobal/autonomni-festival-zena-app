@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_page_components_latest_programs",
+  "info": {
+    "displayName": "Latest Program",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

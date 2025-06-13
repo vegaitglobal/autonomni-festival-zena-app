@@ -1,37 +1,35 @@
-"use client";
+'use client';
 
-
-import { fetchHomePage } from "@/services/pageService";
-import { DynamicContent } from "@/components/hoc/DynamicContent";
-import { usePage } from "@/hooks/usePage";
-import { BasePage } from "@/types/pages/BasePage";
-
-
+import { fetchHomePage } from '@/services/pageService';
+import { DynamicContent } from '@/components/hoc/DynamicContent';
+import { usePage } from '@/hooks/usePage';
+import { BasePage } from '@/types/pages/BasePage';
 
 export default function Home() {
-  
-  const { content, loading, error } = usePage<BasePage>(fetchHomePage);
+	const { content, loading, error } = usePage<BasePage>(fetchHomePage);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+	if (loading) {
+		return <div>Loading...</div>;
+	}
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+	if (error) {
+		return <div>Error: {error}</div>;
+	}
 
-  if (!content) {
-    return <div>No content available</div>;
-  }
-  
-  return (
-    <div>
-      <DynamicContent pageData={content} />
-      
-      <details>
-        <summary>Debug JSON</summary>
-        <pre><code>{JSON.stringify(content, null, 2)}</code></pre>
-      </details>
-    </div>
-  );
+	if (!content) {
+		return <div>No content available</div>;
+	}
+
+	return (
+		<div>
+			<DynamicContent pageData={content} />
+
+			<details>
+				<summary>Debug JSON</summary>
+				<pre>
+					<code>{JSON.stringify(content, null, 2)}</code>
+				</pre>
+			</details>
+		</div>
+	);
 }

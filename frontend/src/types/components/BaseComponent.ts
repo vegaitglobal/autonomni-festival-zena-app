@@ -1,4 +1,4 @@
 export interface BaseComponent {
-  __component: string;
-  id: number;
+	__component: string;
+	id: number;
 }

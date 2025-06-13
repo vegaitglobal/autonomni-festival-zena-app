@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_layout_headers",
+  "info": {
+    "displayName": "header",
+    "icon": "doctor"
+  },
+  "options": {},
+  "attributes": {
+    "headerLogo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "listLinks": {
+      "type": "component",
+      "component": "shared.list-links",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

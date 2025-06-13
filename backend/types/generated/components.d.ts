@@ -10,7 +10,13 @@ export interface LayoutFooter extends Struct.ComponentSchema {
     email: Schema.Attribute.String;
     links: Schema.Attribute.Component<'shared.link', true>;
     logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    policies: Schema.Attribute.Component<'shared.file-link', true>;
+    policies: Schema.Attribute.Component<'shared.file-link', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 2;
+        },
+        number
+      >;
     SocialLinks: Schema.Attribute.Component<'shared.icon-link', true>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;

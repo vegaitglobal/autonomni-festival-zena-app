@@ -8,7 +8,8 @@
     "policies": {
       "type": "component",
       "component": "shared.file-link",
-      "repeatable": true
+      "repeatable": true,
+      "max": 2
     },
     "logo": {
       "type": "media",

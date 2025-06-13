@@ -1,12 +1,13 @@
 'use client';
 
-import { fetchHomePage } from '@/services/pageService';
 import { DynamicContent } from '@/components/hoc/DynamicContent';
+import { fetchAboutPage } from '@/services/pageService';
+
 import { usePage } from '@/hooks/usePage';
 import { BasePage } from '@/types/pages/BasePage';
 
-export default function Home() {
-	const { content, loading, error } = usePage<BasePage>(fetchHomePage);
+export default function About() {
+	const { content, loading, error } = usePage<BasePage>(fetchAboutPage);
 
 	if (loading) {
 		return <div>Loading...</div>;
@@ -23,13 +24,6 @@ export default function Home() {
 	return (
 		<div>
 			<DynamicContent pageData={content} />
-
-			<details>
-				<summary>Debug JSON</summary>
-				<pre>
-					<code>{JSON.stringify(content, null, 2)}</code>
-				</pre>
-			</details>
 		</div>
 	);
 }

@@ -1,5 +1,7 @@
-export interface HeroComponent {
-  id: number;
+import { BaseComponent } from "./BaseComponent";
+
+
+export interface HeroComponent extends BaseComponent {
   title: string;
   backgroundImage: {
     id: number;

@@ -1,4 +1,4 @@
-import { HeroComponent } from "@/types/components/hero";
+import { HeroComponent } from "@/types/components/HeroComponent";
 
 interface HeroSectionProps {
   data: HeroComponent;

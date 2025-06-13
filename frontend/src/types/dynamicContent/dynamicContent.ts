@@ -1,9 +1,10 @@
-import { HeroComponent } from "../components/hero";
+import { HeroComponent } from "../components/HeroComponent";
+import { TextComponentData } from "../components/TextComponent";
 
-export type ComponentData = HeroComponent;
+export type ComponentData = HeroComponent | TextComponentData;
 
-export type ComponentType = 'hero';
+export type ComponentType = 'hero' | 'text';
 
 export interface PageData {
-  Hero?: HeroComponent | HeroComponent[];
+ components: ComponentData[];
 }

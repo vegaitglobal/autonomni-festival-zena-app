@@ -1,11 +1,11 @@
-import { HeroComponent } from "../components/hero";
+import { ComponentData } from "../dynamicContent/dynamicContent";
 
-export interface HomePage {
+export interface BasePage {
   id: number;
   documentId: string;
   Title: string;
 
-  Hero?: HeroComponent;
+  components: ComponentData[]
   // Metadata
   createdAt: string;
   updatedAt: string;

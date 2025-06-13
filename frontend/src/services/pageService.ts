@@ -1,16 +1,20 @@
 import { api } from "@/libs/axios";
-import { HomePage } from "@/types/pages/homepage";
+import {BasePage } from "@/types/pages/BasePage";
 
 interface PageMap {
-  'home-page': HomePage;
-//   'about-page': AboutPage;
+  'home-page': BasePage;
+  'about-page': BasePage;
 }
 
 
+const DEFAULT_POPULATE_CONFIG = [
+  'populate[components][populate]=*'
+];
 
 const fetchPageWithComponents = async <K extends keyof PageMap>(
   pageName: K, 
-  populateConfig: string[]
+  
+  populateConfig: string[] = DEFAULT_POPULATE_CONFIG
 ): Promise<PageMap[K]> => {  
   try {
     const populateQuery = populateConfig.join('&');
@@ -26,9 +30,11 @@ const fetchPageWithComponents = async <K extends keyof PageMap>(
   }
 };
 
-export const fetchHomePage = (): Promise<HomePage> => {  
-  const populateConfig = [
-    'populate[Hero][populate]=*',
-  ];
-  return fetchPageWithComponents('home-page', populateConfig);
+
+export const fetchHomePage = (): Promise<BasePage> => {  
+  return fetchPageWithComponents('home-page');
+};
+
+export const fetchAboutPage = (): Promise<BasePage> => {  
+  return fetchPageWithComponents('about-page');
 };

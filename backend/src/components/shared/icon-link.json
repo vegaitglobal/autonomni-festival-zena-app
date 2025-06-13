@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_icon_links",
+  "info": {
+    "displayName": "SocialLink"
+  },
+  "options": {},
+  "attributes": {
+    "href": {
+      "type": "string"
+    },
+    "altText": {
+      "type": "string"
+    },
+    "SocialNetwork": {
+      "type": "enumeration",
+      "enum": [
+        "Instagram",
+        "Facebook"
+      ]
+    }
+  },
+  "config": {}
+}

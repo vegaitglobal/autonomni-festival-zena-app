@@ -1,0 +1,47 @@
+{
+  "collectionName": "components_layout_footers",
+  "info": {
+    "displayName": "Footer"
+  },
+  "options": {},
+  "attributes": {
+    "policies": {
+      "type": "component",
+      "component": "shared.file-link",
+      "repeatable": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "links": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": true
+    },
+    "designedByLink": {
+      "type": "richtext"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "SocialLinks": {
+      "type": "component",
+      "component": "shared.icon-link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

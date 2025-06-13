@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_burger_menus",
+  "info": {
+    "displayName": "BurgerMenu"
+  },
+  "options": {},
+  "attributes": {
+    "links": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

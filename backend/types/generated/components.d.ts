@@ -9,7 +9,7 @@ export interface LayoutFooter extends Struct.ComponentSchema {
     designedByLink: Schema.Attribute.RichText;
     email: Schema.Attribute.String;
     links: Schema.Attribute.Component<'shared.link', true>;
-    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    logo: Schema.Attribute.Media<'images'>;
     policies: Schema.Attribute.Component<'shared.file-link', true> &
       Schema.Attribute.SetMinMax<
         {
@@ -29,7 +29,7 @@ export interface LayoutHeader extends Struct.ComponentSchema {
     displayName: 'Header';
   };
   attributes: {
-    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    logo: Schema.Attribute.Media<'images'>;
     menu: Schema.Attribute.Component<'shared.burger-menu', false>;
   };
 }

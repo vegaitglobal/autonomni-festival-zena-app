@@ -134,6 +134,10 @@
 }
 .footer__img-logo-link {
 	padding-right: 30px;
+	.footer__img-logo {
+		width: 115px;
+		height: 130px;
+	}
 	@include media-breakpoint-down(md) {
 		padding-right: 0;
 		.footer__img-logo {

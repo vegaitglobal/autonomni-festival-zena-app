@@ -1,8 +1,8 @@
 'use client';
 
-import AboutUs from '@/components/modules/AboutUs/AboutUs';
 import { fetchAboutUsPage } from '@/services/pageService';
 
+import SimpleText from '@/components/modules/SimpleText/SimpleText';
 import { useResource } from '@/hooks/usePage';
 import { AboutUsPage } from '@/types/apiModels/AboutUsPage';
 import { useRouter } from 'next/navigation';
@@ -16,5 +16,5 @@ export default function About() {
 	if (!content) {
 		router.push('/not-found');
 	}
-	return <AboutUs {...content?.components} />;
+	return <SimpleText {...content?.components} />;
 }

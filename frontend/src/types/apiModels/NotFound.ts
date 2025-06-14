@@ -1,4 +1,5 @@
 import { BaseAPIModel } from './BaseAPIModel';
 
-export interface NotFound extends BaseAPIModel {}
-``;
+export interface NotFoundPage extends BaseAPIModel {
+	content: string;
+}

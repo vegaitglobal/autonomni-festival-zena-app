@@ -1,3 +1,8 @@
 import { fetchResource } from './apiService';
 
-export const fetchPrograms = () => fetchResource('programs');
+export const fetchPrograms = () => {
+	const queryParams = [
+		'populate[components][on][program-components.about-program][populate]=*',
+	];
+	return fetchResource('programs', queryParams);
+};

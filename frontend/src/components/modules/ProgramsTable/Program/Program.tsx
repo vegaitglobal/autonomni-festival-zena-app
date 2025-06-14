@@ -14,7 +14,7 @@ interface ProgramCardProps {
 }
 
 export default function Program({ program, color }: ProgramCardProps) {
-	const aboutProgram = program.components[0] as AbutProgram;
+	const aboutProgram = program.components[0] as AboutProgram;
 
 	return (
 		<a

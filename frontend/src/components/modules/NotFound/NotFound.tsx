@@ -21,7 +21,7 @@ export default function NotFound({ ...props }) {
 							}}
 						></button>
 					</div>
-					<h1 className="errorCode">{props.title}</h1>
+					<h1 className="errorCode">404</h1>
 					<ReactMarkdown>{props.content}</ReactMarkdown>
 				</div>
 			</div>

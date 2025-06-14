@@ -11,8 +11,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "content": {
-      "type": "richtext"
+    "components": {
+      "type": "dynamiczone",
+      "components": [
+        "page-components.large-rich-text"
+      ],
+      "required": false
     }
   }
 }

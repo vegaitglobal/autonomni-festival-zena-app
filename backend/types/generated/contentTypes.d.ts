@@ -384,7 +384,9 @@ export interface ApiAboutUsPageAboutUsPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    content: Schema.Attribute.RichText;
+    components: Schema.Attribute.DynamicZone<
+      ['page-components.large-rich-text']
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -412,7 +414,9 @@ export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    content: Schema.Attribute.RichText;
+    components: Schema.Attribute.DynamicZone<
+      ['page-components.small-rich-text']
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

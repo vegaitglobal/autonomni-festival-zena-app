@@ -3,7 +3,7 @@ import { ComponentData } from '../dynamicContent';
 
 type ProgramTheme = 'green' | 'pink';
 
-export interface AbutProgram {
+export interface AboutProgram {
 	title: string;
 	description: string;
 }

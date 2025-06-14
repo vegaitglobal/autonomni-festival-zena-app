@@ -11,8 +11,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "content": {
-      "type": "richtext"
+    "components": {
+      "type": "dynamiczone",
+      "components": [
+        "page-components.small-rich-text"
+      ]
     }
   }
 }

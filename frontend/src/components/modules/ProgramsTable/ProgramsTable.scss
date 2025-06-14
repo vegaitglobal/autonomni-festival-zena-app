@@ -1,10 +1,27 @@
 @use '../../../scss/abstracts' as *;
 
+.programs__title {
+	color: white;
+	font-weight: $semi-bold;
+	width: 80%;
+	margin: 10px auto;
+	font-size: 36px;
+	font-family: $font-secondary;
+	margin-bottom: 15px;
+
+	@include media-breakpoint-down(md) {
+		font-size: 28px;
+	}
+	@include media-breakpoint-down(sm) {
+		width: 90%;
+	}
+}
+
 .programs-table {
 	background-color: $green;
 	width: 100%;
-	padding: 20px 0;
-	border-radius: 10;
+	padding: 40px 0;
+	border-radius: 26;
 	min-height: 500px;
 	display: flex;
 	flex-direction: column;

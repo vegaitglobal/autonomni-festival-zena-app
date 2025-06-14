@@ -1,15 +1,17 @@
 @use '../../../../scss/abstracts' as *;
 
 .program-card {
+	position: relative;
 	background-color: yellow;
 	width: 80%;
 	margin: 10px auto;
-	padding: 20px;
+	padding: 30px 50px 50px;
 	border-radius: 10;
 	color: black;
 
 	@include media-breakpoint-down(sm) {
 		width: 90%;
+		padding: 30px 20px 50px;
 	}
 }
 
@@ -44,4 +46,10 @@
 	font-size: 18;
 	font-weight: 300;
 	text-align: center;
+}
+
+.program-card__arrow {
+	position: absolute;
+	bottom: 10;
+	right: 20;
 }

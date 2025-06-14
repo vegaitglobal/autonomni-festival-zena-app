@@ -1,6 +1,8 @@
 'use client';
 
 import { Program as ProgramModel } from '@/types/apiModels/Program';
+import arrowRight from '@/assets/arrow-right.png';
+import Image from 'next/image';
 import './Program.scss';
 
 interface ProgramCardProps {
@@ -19,7 +21,15 @@ export default function Program({ program, color }: ProgramCardProps) {
 				TODO: program. aboutProgram. description program. aboutProgram. description
 				program. aboutProgram. description program. aboutProgram. description
 				program. aboutProgram. description program. aboutProgram. description
+				dfasdfasdf
 			</p>
+			<Image
+				className="program-card__arrow"
+				src={arrowRight}
+				alt="arrow"
+				width={50}
+				height={25}
+			/>
 		</a>
 	);
 }

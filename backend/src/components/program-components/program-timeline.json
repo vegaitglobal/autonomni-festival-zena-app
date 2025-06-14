@@ -4,6 +4,12 @@
     "displayName": "programTimeline"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "schedule": {
+      "type": "component",
+      "component": "program-components.day-schedule",
+      "repeatable": true
+    }
+  },
   "config": {}
 }

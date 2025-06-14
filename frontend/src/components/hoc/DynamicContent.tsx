@@ -7,6 +7,8 @@ import { HeroSection } from '../modules/HeroSection';
 import { HeroComponent } from '@/types/components/HeroComponent';
 import { TextComponent } from '../modules/Text';
 import { TextComponentData } from '@/types/components/TextComponent';
+import { HeroVideoTypes } from '@/types/components/HeroVideo';
+import { HeroVideo } from '../modules/HeroVideo/HeroVideo';
 
 const renderComponent = (componentData: ComponentData, index: number) => {
 	const componentType = componentData.__component.split('.')[1] as ComponentType;
@@ -21,6 +23,13 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 				<TextComponent
 					key={`text-${index}`}
 					data={componentData as TextComponentData}
+				/>
+			);
+		case 'hero-video':
+			return (
+				<HeroVideo
+					key={`hero-video-${index}`}
+					data={componentData as HeroVideoTypes}
 				/>
 			);
 		default:

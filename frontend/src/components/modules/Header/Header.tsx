@@ -22,7 +22,7 @@ export default function Header({ header }: HeaderProps) {
 	};
 
 	const headerLogo = header?.headerLogo;
-	const listLinks = header?.listLinks;
+	const menuLinks = header?.menuLinks;
 
 	if (!header) {
 		console.error('Header data not found in layout');
@@ -57,10 +57,10 @@ export default function Header({ header }: HeaderProps) {
 						<span className="sr-only">Toggle menu</span>
 					</button>
 
-					{listLinks?.links && (
+					{menuLinks?.links && (
 						<nav className="nav">
 							<ul className="nav__list" role="menubar">
-								{listLinks.links.map((link) => (
+								{menuLinks.links.map((link) => (
 									<li key={link.id} className="nav__item" role="menuitem">
 										<Link className="nav__link" href={link.href} onClick={closeMenu}>
 											{link.label}

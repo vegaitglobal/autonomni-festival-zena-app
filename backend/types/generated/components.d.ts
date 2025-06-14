@@ -60,21 +60,6 @@ export interface PageComponentsHeroVideo extends Struct.ComponentSchema {
   };
 }
 
-export interface PageComponentsLargeRichText extends Struct.ComponentSchema {
-  collectionName: 'components_page_components_large_rich_texts';
-  info: {
-    displayName: 'Large Rich Text';
-    icon: 'file';
-  };
-  attributes: {
-    content: Schema.Attribute.RichText &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 770;
-      }>;
-    title: Schema.Attribute.String;
-  };
-}
-
 export interface PageComponentsLatestProgram extends Struct.ComponentSchema {
   collectionName: 'components_page_components_latest_programs';
   info: {
@@ -98,31 +83,17 @@ export interface PageComponentsLatestProgramTimeline
   };
 }
 
-export interface PageComponentsMediumRichText extends Struct.ComponentSchema {
-  collectionName: 'components_page_components_medium_rich_texts';
+export interface PageComponentsRichText extends Struct.ComponentSchema {
+  collectionName: 'components_page_components_rich_texts';
   info: {
-    displayName: 'Medium Rich Text';
-    icon: 'file';
+    displayName: 'Rich Text';
+    icon: 'alien';
   };
   attributes: {
-    content: Schema.Attribute.RichText &
+    color: Schema.Attribute.Enumeration<['beige', 'green', 'pink']>;
+    text: Schema.Attribute.RichText &
       Schema.Attribute.SetMinMaxLength<{
-        maxLength: 650;
-      }>;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface PageComponentsSmallRichText extends Struct.ComponentSchema {
-  collectionName: 'components_page_components_small_rich_texts';
-  info: {
-    displayName: 'Small Rich Text';
-    icon: 'file';
-  };
-  attributes: {
-    content: Schema.Attribute.RichText &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 300;
+        maxLength: 700;
       }>;
     title: Schema.Attribute.String;
   };
@@ -243,11 +214,9 @@ declare module '@strapi/strapi' {
       'layout.header': LayoutHeader;
       'page-components.animation-separator': PageComponentsAnimationSeparator;
       'page-components.hero-video': PageComponentsHeroVideo;
-      'page-components.large-rich-text': PageComponentsLargeRichText;
       'page-components.latest-program': PageComponentsLatestProgram;
       'page-components.latest-program-timeline': PageComponentsLatestProgramTimeline;
-      'page-components.medium-rich-text': PageComponentsMediumRichText;
-      'page-components.small-rich-text': PageComponentsSmallRichText;
+      'page-components.rich-text': PageComponentsRichText;
       'program-components.about-program': ProgramComponentsAboutProgram;
       'program-components.day-schedule': ProgramComponentsDaySchedule;
       'program-components.dialogue-slider': ProgramComponentsDialogueSlider;

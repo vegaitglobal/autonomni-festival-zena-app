@@ -384,9 +384,7 @@ export interface ApiAboutUsPageAboutUsPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    components: Schema.Attribute.DynamicZone<
-      ['page-components.large-rich-text']
-    >;
+    components: Schema.Attribute.DynamicZone<['page-components.rich-text']>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -414,9 +412,7 @@ export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    components: Schema.Attribute.DynamicZone<
-      ['page-components.small-rich-text']
-    >;
+    components: Schema.Attribute.DynamicZone<['page-components.rich-text']>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -448,11 +444,9 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
       [
         'page-components.hero-video',
         'page-components.latest-program-timeline',
-        'page-components.small-rich-text',
-        'page-components.medium-rich-text',
         'page-components.latest-program',
-        'page-components.large-rich-text',
         'page-components.animation-separator',
+        'page-components.rich-text',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

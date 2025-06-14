@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_layout_footers",
+  "info": {
+    "displayName": "footer",
+    "icon": "write"
+  },
+  "options": {},
+  "attributes": {
+    "policy": {
+      "type": "component",
+      "component": "shared.file-link",
+      "repeatable": true,
+      "max": 2
+    },
+    "footerLogo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "listLinks": {
+      "type": "component",
+      "component": "shared.list-links",
+      "repeatable": false
+    },
+    "footerTitle": {
+      "type": "string"
+    },
+    "footerSubtitle": {
+      "type": "string"
+    },
+    "emailLink": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
+    },
+    "footerSocialLinks": {
+      "type": "component",
+      "component": "shared.social-links",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

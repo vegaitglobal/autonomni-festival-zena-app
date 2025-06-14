@@ -1,7 +1,7 @@
 'use client';
 
 import {
-	AbutProgram,
+	AboutProgram,
 	Program as ProgramModel,
 } from '@/types/apiModels/Program';
 import arrowRight from '@/assets/arrow-right.png';

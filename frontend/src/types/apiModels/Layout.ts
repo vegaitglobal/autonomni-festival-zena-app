@@ -1,9 +1,14 @@
 import { BaseAPIModel } from './BaseAPIModel';
 
-interface HeaderLink {
+interface MenuLink {
 	id: number;
 	label: string;
 	href: string;
+}
+
+interface MenuLinks {
+	id: number;
+	links: MenuLink[];
 }
 
 interface HeaderLogo {
@@ -15,15 +20,10 @@ interface HeaderLogo {
 	height: number;
 }
 
-interface ListLinks {
-	id: number;
-	links: HeaderLink[];
-}
-
 export interface Header {
 	id: number;
 	headerLogo: HeaderLogo;
-	listLinks: ListLinks;
+	menuLinks: MenuLinks;
 }
 
 interface FooterLink {
@@ -39,11 +39,6 @@ interface FooterLogo {
 	url: string;
 	width: number;
 	height: number;
-}
-
-interface ListLinks {
-	id: number;
-	links: FooterLink[];
 }
 
 interface PolicyItem {
@@ -69,7 +64,7 @@ export interface Footer {
 	id: number;
 	footerTitle: string;
 	footerSubtitle: string;
-	listLinks: ListLinks;
+	listLinks: MenuLinks;
 	footerLogo: FooterLogo;
 	policy: PolicyItem[];
 	emailLink: EmailLink;

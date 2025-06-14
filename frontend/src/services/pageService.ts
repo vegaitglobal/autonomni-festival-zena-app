@@ -1,11 +1,10 @@
-import { NotFoundPageProps } from '@/app/not-found';
 import { api } from '@/libs/axios';
 import { BasePage } from '@/types/pages/BasePage';
 
 interface PageMap {
 	'home-page': BasePage;
-	'about-page': BasePage;
-	'not-found-page': NotFoundPageProps;
+	'about-us-page': BasePage;
+	'not-found-page': BasePage;
 }
 
 const DEFAULT_DEEP_POPULATE = ['populate[components][populate]=*'];
@@ -28,6 +27,7 @@ const fetchPage = async <K extends keyof PageMap>(
 export const fetchHomePage = () =>
 	fetchPage('home-page', DEFAULT_DEEP_POPULATE);
 
-export const fetchAboutPage = () => fetchPage('about-page');
+export const fetchAboutPage = () =>
+	fetchPage('about-us-page', DEFAULT_DEEP_POPULATE);
 
 export const fetchNotFoundPage = () => fetchPage('not-found-page');

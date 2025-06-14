@@ -1,8 +1,9 @@
-@use '../scss/abstracts' as *;
+@use '../../../scss/abstracts' as *;
 
 .outer__wrapper {
   height: 100vh;
 }
+
 .container {
   position: relative;
   width: 100%;
@@ -42,8 +43,10 @@
   }
 }
 
-.richText {
-  p {
+.wrapper {
+  z-index: 1;
+
+   p {
     font-size: 48px;
     color: #333;
     margin-top: 1.2rem;
@@ -57,10 +60,6 @@
         font-size: 22px;
     }
   }
-}
-
-.wrapper {
-  z-index: 1;
 }
 
 .imagesHolder {
@@ -85,7 +84,7 @@
   }
 
   .img1 {
-    background-image: url('../assets/orangeDrawing.svg');
+    background-image: url('../../../assets/orangeDrawing.svg');
     top: 10%;
     left: 30%;
 
@@ -105,7 +104,7 @@
   }
 
   .img2 {
-    background-image: url('../assets/coralDrawing.svg');
+    background-image: url('../../../assets/coralDrawing.svg');
     top: 47%;
     left: 15%;
 
@@ -128,7 +127,7 @@
   }
 
   .img3 {
-    background-image: url('../assets/greenDrawing.svg');
+    background-image: url('../../../assets/greenDrawing.svg');
     top: 30%;
     right: 15%;
 
@@ -146,7 +145,7 @@
   }
 
   .img4 {
-    background-image: url('../assets/yellowDrawing.svg');
+    background-image: url('../../../assets/yellowDrawing.svg');
     top: 15%;
     right: 30%;
 
@@ -164,7 +163,7 @@
   }
 
   .img5 {
-    background-image: url('../assets/backArrow.svg');
+    background-image: url('../../../assets/backArrow.svg');
     top: 75%;
     right: 20%;
     cursor: pointer;

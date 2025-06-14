@@ -16,7 +16,7 @@
       "required": false
     },
     "content": {
-      "type": "blocks"
+      "type": "richtext"
     }
   }
 }

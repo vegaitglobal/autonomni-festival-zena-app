@@ -13,7 +13,9 @@
   "attributes": {
     "components": {
       "type": "dynamiczone",
-      "components": [],
+      "components": [
+        "page-components.rich-text"
+      ],
       "required": false
     }
   }

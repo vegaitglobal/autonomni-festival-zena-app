@@ -1,8 +1,4 @@
-import {
-	ComponentData,
-	ComponentType,
-	PageData,
-} from '@/types/dynamicContent/dynamicContent';
+import { ComponentData, ComponentType } from '@/types/dynamicContent';
 import { HeroSection } from '../modules/HeroSection';
 import { HeroComponent } from '@/types/components/HeroComponent';
 import { TextComponent } from '../modules/Text';
@@ -37,10 +33,14 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 	}
 };
 
-export const DynamicContent = ({ pageData }: { pageData: PageData }) => {
+interface DynamicContentProps {
+	components: ComponentData[];
+}
+
+export const DynamicContent = ({ components }: DynamicContentProps) => {
 	return (
 		<>
-			{pageData.components?.map((component: ComponentData, index: number) =>
+			{components?.map((component: ComponentData, index: number) =>
 				renderComponent(component, index)
 			)}
 		</>

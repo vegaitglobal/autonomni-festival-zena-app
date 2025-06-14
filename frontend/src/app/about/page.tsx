@@ -1,13 +1,11 @@
 'use client';
 
-import { DynamicContent } from '@/components/hoc/DynamicContent';
-import { fetchAboutPage } from '@/services/pageService';
+import { useResource } from '@/hooks/usePage';
+import { fetchAboutUsPage } from '@/services/pageService';
+import { AboutUsPage } from '@/types/apiModels/AboutUsPage';
 
-import { usePage } from '@/hooks/usePage';
-import { BasePage } from '@/types/pages/BasePage';
-
-export default function About() {
-	const { content, loading, error } = usePage<BasePage>(fetchAboutPage);
+export default function AboutUs() {
+	const { content, loading, error } = useResource<AboutUsPage>(fetchAboutUsPage);
 
 	if (loading) {
 		return <div>Loading...</div>;
@@ -21,9 +19,5 @@ export default function About() {
 		return <div>No content available</div>;
 	}
 
-	return (
-		<div>
-			<DynamicContent pageData={content} />
-		</div>
-	);
+	return <div style={{ color: 'white' }}>TODO: ABOUT US CONTENT</div>;
 }

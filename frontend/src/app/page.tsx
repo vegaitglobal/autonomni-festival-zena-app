@@ -1,12 +1,14 @@
 'use client';
 
 import { DynamicContent } from '@/components/hoc/DynamicContent';
-import { usePage } from '@/hooks/usePage';
+import { useResource } from '@/hooks/usePage';
 import { fetchHomePage } from '@/services/pageService';
-import { BasePage } from '@/types/pages/BasePage';
+import { HomePage } from '@/types/apiModels/HomePage';
 
 export default function Home() {
-	const { content, loading, error } = usePage<BasePage>(fetchHomePage);
+	const { content, loading, error } = useResource<HomePage>(fetchHomePage);
+
+	console.log('home content', content);
 
 	if (loading) {
 		return <div>Loading...</div>;
@@ -22,7 +24,7 @@ export default function Home() {
 
 	return (
 		<>
-			<DynamicContent pageData={content} />
+			<DynamicContent components={content.components} />
 		</>
 	);
 }

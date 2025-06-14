@@ -6,73 +6,14 @@ import Up from '@/assets/up.svg';
 import BrushEmail from '@/assets/brush-email.svg';
 import FacebookIcon from '@/assets/facebook.svg';
 import InstagramIcon from '@/assets/instagram.svg';
+import { Footer as FooterModel } from '@/types/apiModels/Layout';
 import './Footer.scss';
 
-interface FooterLink {
-	id: number;
-	label: string;
-	href: string;
-}
-
-interface FooterLogo {
-	id: number;
-	name: string;
-	alternativeText: string | null;
-	url: string;
-	width: number;
-	height: number;
-}
-
-interface ListLinks {
-	id: number;
-	links: FooterLink[];
-}
-
-interface PolicyItem {
-	id: number;
-	label: string;
-	file: string | null;
-}
-
-interface SocialLink {
-	id: number;
-	href: string;
-	altText: string;
-	socialNetwork: string;
-}
-
-interface EmailLink {
-	id: number;
-	label: string;
-	href: string;
-}
-
-interface Footer {
-	id: number;
-	footerTitle: string;
-	footerSubtitle: string;
-	listLinks: ListLinks;
-	footerLogo: FooterLogo;
-	policy: PolicyItem[];
-	emailLink: EmailLink;
-	footerSocialLinks: SocialLink[];
-}
-
-interface Layout {
-	id: number;
-	documentId: string;
-	createdAt: string;
-	updatedAt: string;
-	publishedAt: string;
-	footer: Footer;
-}
-
 interface FooterProps {
-	layout: Layout;
+	footer: FooterModel;
 }
 
-export default function Footer({ layout }: FooterProps) {
-	const footer = layout?.footer;
+export default function Footer({ footer }: FooterProps) {
 	const currentYear = new Date().getFullYear();
 
 	if (!footer) {

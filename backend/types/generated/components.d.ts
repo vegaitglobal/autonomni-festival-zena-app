@@ -1,5 +1,42 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface LayoutFooter extends Struct.ComponentSchema {
+  collectionName: 'components_layout_footers';
+  info: {
+    displayName: 'footer';
+    icon: 'write';
+  };
+  attributes: {
+    emailLink: Schema.Attribute.Component<'shared.link', false>;
+    footerLogo: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    footerSocialLinks: Schema.Attribute.Component<'shared.social-links', true>;
+    footerSubtitle: Schema.Attribute.String;
+    footerTitle: Schema.Attribute.String;
+    listLinks: Schema.Attribute.Component<'shared.list-links', false>;
+    policy: Schema.Attribute.Component<'shared.file-link', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 2;
+        },
+        number
+      >;
+  };
+}
+
+export interface LayoutHeader extends Struct.ComponentSchema {
+  collectionName: 'components_layout_headers';
+  info: {
+    displayName: 'header';
+    icon: 'doctor';
+  };
+  attributes: {
+    headerLogo: Schema.Attribute.Media<'images'>;
+    listLinks: Schema.Attribute.Component<'shared.list-links', false>;
+  };
+}
+
 export interface PageComponentsAnimationSeparator
   extends Struct.ComponentSchema {
   collectionName: 'components_page_components_animation_separators';
@@ -117,62 +154,6 @@ export interface ProgramComponentsProgramTimeline
   attributes: {};
 }
 
-declare module '@strapi/strapi' {
-  export module Public {
-    export interface ComponentSchemas {
-      'page-components.animation-separator': PageComponentsAnimationSeparator;
-      'page-components.hero-video': PageComponentsHeroVideo;
-      'page-components.large-rich-text': PageComponentsLargeRichText;
-      'page-components.latest-program': PageComponentsLatestProgram;
-      'page-components.latest-program-timeline': PageComponentsLatestProgramTimeline;
-      'page-components.medium-rich-text': PageComponentsMediumRichText;
-      'page-components.small-rich-text': PageComponentsSmallRichText;
-      'program-components.about-program': ProgramComponentsAboutProgram;
-      'program-components.dialogue-slider': ProgramComponentsDialogueSlider;
-      'program-components.program-timeline': ProgramComponentsProgramTimeline;
-    }
-  }
-}
-
-export interface LayoutFooter extends Struct.ComponentSchema {
-  collectionName: 'components_layout_footers';
-  info: {
-    displayName: 'footer';
-    icon: 'write';
-  };
-  attributes: {
-    emailLink: Schema.Attribute.Component<'shared.link', false>;
-    footerLogo: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    footerSocialLinks: Schema.Attribute.Component<'shared.social-links', true>;
-    footerSubtitle: Schema.Attribute.String;
-    footerTitle: Schema.Attribute.String;
-    listLinks: Schema.Attribute.Component<'shared.list-links', false>;
-    policy: Schema.Attribute.Component<'shared.file-link', true> &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 2;
-        },
-        number
-      >;
-  };
-}
-
-export interface LayoutHeader extends Struct.ComponentSchema {
-  collectionName: 'components_layout_headers';
-  info: {
-    displayName: 'header';
-    icon: 'doctor';
-  };
-  attributes: {
-    headerLogo: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    listLinks: Schema.Attribute.Component<'shared.list-links', false>;
-  };
-}
-
 export interface SharedFileLink extends Struct.ComponentSchema {
   collectionName: 'components_shared_file_links';
   info: {
@@ -180,7 +161,7 @@ export interface SharedFileLink extends Struct.ComponentSchema {
     icon: 'cast';
   };
   attributes: {
-    file: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    file: Schema.Attribute.Media;
     label: Schema.Attribute.String;
   };
 }
@@ -226,6 +207,16 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'layout.footer': LayoutFooter;
       'layout.header': LayoutHeader;
+      'page-components.animation-separator': PageComponentsAnimationSeparator;
+      'page-components.hero-video': PageComponentsHeroVideo;
+      'page-components.large-rich-text': PageComponentsLargeRichText;
+      'page-components.latest-program': PageComponentsLatestProgram;
+      'page-components.latest-program-timeline': PageComponentsLatestProgramTimeline;
+      'page-components.medium-rich-text': PageComponentsMediumRichText;
+      'page-components.small-rich-text': PageComponentsSmallRichText;
+      'program-components.about-program': ProgramComponentsAboutProgram;
+      'program-components.dialogue-slider': ProgramComponentsDialogueSlider;
+      'program-components.program-timeline': ProgramComponentsProgramTimeline;
       'shared.file-link': SharedFileLink;
       'shared.link': SharedLink;
       'shared.list-links': SharedListLinks;

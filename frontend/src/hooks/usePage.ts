@@ -6,7 +6,9 @@ interface UsePageReturn<T> {
 	error: string | null;
 }
 
-export function usePage<T>(fetchFunction: () => Promise<T>): UsePageReturn<T> {
+export function useResource<T>(
+	fetchFunction: () => Promise<T>
+): UsePageReturn<T> {
 	const [content, setContent] = useState<T | null>(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);

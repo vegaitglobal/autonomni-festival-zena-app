@@ -3,48 +3,14 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Header as HeaderModel } from '@/types/apiModels/Layout';
 import './Header.scss';
 
-interface HeaderLink {
-	id: number;
-	label: string;
-	href: string;
-}
-
-interface HeaderLogo {
-	id: number;
-	name: string;
-	alternativeText: string | null;
-	url: string;
-	width: number;
-	height: number;
-}
-
-interface ListLinks {
-	id: number;
-	links: HeaderLink[];
-}
-
-interface Header {
-	id: number;
-	headerLogo: HeaderLogo;
-	listLinks: ListLinks;
-}
-
-interface Layout {
-	id: number;
-	documentId: string;
-	createdAt: string;
-	updatedAt: string;
-	publishedAt: string;
-	header: Header;
-}
-
 interface HeaderProps {
-	layout: Layout;
+	header: HeaderModel;
 }
 
-export default function Header({ layout }: HeaderProps) {
+export default function Header({ header }: HeaderProps) {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	const toggleMenu = () => {
@@ -55,7 +21,6 @@ export default function Header({ layout }: HeaderProps) {
 		setIsMenuOpen(false);
 	};
 
-	const header = layout?.header;
 	const headerLogo = header?.headerLogo;
 	const listLinks = header?.listLinks;
 

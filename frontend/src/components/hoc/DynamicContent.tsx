@@ -1,30 +1,13 @@
-import {
-	ComponentData,
-	ComponentType,
-	PageData,
-} from '@/types/dynamicContent/dynamicContent';
-import { HeroSection } from '../modules/HeroSection';
-import { HeroComponent } from '@/types/components/HeroComponent';
-import { TextComponent } from '../modules/Text';
+import { ComponentData, ComponentType } from '@/types/dynamicContent';
 import { TextComponentData } from '@/types/components/TextComponent';
 import { HeroVideoTypes } from '@/types/components/HeroVideo';
 import { HeroVideo } from '../modules/HeroVideo/HeroVideo';
+import { TextComponent } from '../modules/TextComponent/TextComponent';
 
 const renderComponent = (componentData: ComponentData, index: number) => {
 	const componentType = componentData.__component.split('.')[1] as ComponentType;
 
 	switch (componentType) {
-		case 'hero':
-			return (
-				<HeroSection key={`hero-${index}`} data={componentData as HeroComponent} />
-			);
-		case 'text':
-			return (
-				<TextComponent
-					key={`text-${index}`}
-					data={componentData as TextComponentData}
-				/>
-			);
 		case 'hero-video':
 			return (
 				<HeroVideo
@@ -32,15 +15,26 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 					data={componentData as HeroVideoTypes}
 				/>
 			);
+		case 'rich-text':
+			return (
+				<TextComponent
+					key={`rich-text-${index}`}
+					data={componentData as TextComponentData}
+				/>
+			);
 		default:
 			return null;
 	}
 };
 
-export const DynamicContent = ({ pageData }: { pageData: PageData }) => {
+interface DynamicContentProps {
+	components: ComponentData[];
+}
+
+export const DynamicContent = ({ components }: DynamicContentProps) => {
 	return (
 		<>
-			{pageData.components?.map((component: ComponentData, index: number) =>
+			{components?.map((component: ComponentData, index: number) =>
 				renderComponent(component, index)
 			)}
 		</>

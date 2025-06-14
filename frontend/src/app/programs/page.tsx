@@ -1,5 +1,6 @@
 'use client';
 
+import ProgramsTable from '@/components/modules/ProgramsTable/ProgramsTable';
 import { useResource } from '@/hooks/usePage';
 import { fetchPrograms } from '@/services/programsService';
 import { Program } from '@/types/apiModels/Program';
@@ -19,5 +20,5 @@ export default function Programs() {
 		return <div>No content available</div>;
 	}
 
-	return <div style={{ color: 'white' }}>TODO: list of programs</div>;
+	return <ProgramsTable programs={content} />;
 }

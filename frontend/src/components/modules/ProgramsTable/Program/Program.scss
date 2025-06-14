@@ -1,0 +1,47 @@
+@use '../../../../scss/abstracts' as *;
+
+.program-card {
+	background-color: yellow;
+	width: 80%;
+	margin: 10px auto;
+	padding: 20px;
+	border-radius: 10;
+	color: black;
+
+	@include media-breakpoint-down(sm) {
+		width: 90%;
+	}
+}
+
+.program-card--green {
+	background-color: $green-light;
+}
+
+.program-card--yellow {
+	background-color: $yellow;
+}
+
+.program-card__header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	font-size: 22;
+
+	@include media-breakpoint-down(sm) {
+		flex-direction: column;
+		text-align: center;
+	}
+}
+
+.program-card__year {
+	margin-right: 10px;
+	font-weight: 700;
+}
+
+.program-card__description {
+	margin-top: 12;
+	font-size: 18;
+	font-weight: 300;
+	text-align: center;
+}

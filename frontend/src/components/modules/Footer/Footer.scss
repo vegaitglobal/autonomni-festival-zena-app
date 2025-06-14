@@ -2,7 +2,7 @@
 
 .footer {
 	background-color: $white-snow;
-	padding: 30px 0;
+	// padding: 30px 0;
 	overflow: hidden;
 }
 .footer__black-bg {
@@ -53,7 +53,6 @@
 		top: -75px;
 		left: 0;
 		width: 100%;
-		height: auto;
 		background-image: url('../../../assets/footer-top.png');
 		background-repeat: no-repeat;
 		background-size: 100% auto;
@@ -74,7 +73,6 @@
 		bottom: -75px;
 		left: 0;
 		width: 100%;
-		height: auto;
 		background-image: url('../../../assets/footer-bottom.png');
 		background-repeat: no-repeat;
 		background-size: 100% auto;

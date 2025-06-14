@@ -75,6 +75,8 @@ export default function Footer({ layout }: FooterProps) {
 	const footer = layout?.footer;
 	const currentYear = new Date().getFullYear();
 
+	console.log('Footer data:', footer); // TODO: remove
+
 	if (!footer) {
 		console.error('Footer data not found in layout');
 		return null;
@@ -115,7 +117,7 @@ export default function Footer({ layout }: FooterProps) {
 									<Link href="/" className="footer__img-logo-link">
 										<Image
 											className="footer__img-logo"
-											src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${footer.footerLogo.url}`}
+											src={`${process.env.NEXT_PUBLIC_API_MEDIA_URL}${footer.footerLogo.url}`}
 											alt={footer.footerLogo.alternativeText || 'Footer Logo'}
 											width={footer.footerLogo.width}
 											height={footer.footerLogo.height}

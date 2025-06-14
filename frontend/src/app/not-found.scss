@@ -1,0 +1,109 @@
+@use '../scss/abstracts' as *;
+
+.outer__wrapper {
+  height: 100vh;
+}
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bgImage {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-image: url('../assets/pinkBackground.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 0;
+  height: 100%;
+}
+
+.content {
+  position: relative; 
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4rem 3rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.errorCode {
+  display: flex;
+  justify-content: center;
+  font-size: 270px;
+  font-weight: 800;
+  margin: 0;
+  color: #000;
+}
+
+.richText {
+  p {
+    font-size: 48px;
+    color: #333;
+    margin-top: 1.2rem;
+
+    strong {
+      color: #000;
+      font-weight: bold;
+    }
+  }
+}
+
+.wrapper {
+  z-index: 1;
+}
+
+.imagesHolder
+{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  &:before {
+    content: '';
+      background-image: url('../assets/greenDrawing.svg');
+
+      position: absolute;
+      height: 350px;
+      width: 200px;
+      top: 30%;
+      right: 15%;
+      background-repeat: no-repeat;
+      z-index: 3;
+  }
+  @include media-breakpoint-down(sm) {
+    &:before {
+      height: 55px;
+      width: 70px;
+    }
+  }
+
+  &:after {
+    content: '';
+      background-image: url('../assets/coralDrawing.svg');
+
+      position: absolute;
+      height: 350px;
+      width: 200px;
+      top: 45%;
+      left: 15%;
+      background-repeat: no-repeat;
+      z-index: 3;
+  }
+  @include media-breakpoint-down(sm) {
+    &:after {
+      height: 55px;
+      width: 70px;
+    }
+  }
+}

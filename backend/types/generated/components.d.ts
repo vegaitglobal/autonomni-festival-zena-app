@@ -91,6 +91,32 @@ export interface PageComponentsSmallRichText extends Struct.ComponentSchema {
   };
 }
 
+export interface ProgramComponentsAboutProgram extends Struct.ComponentSchema {
+  collectionName: 'components_program_components_about_programs';
+  info: {
+    displayName: 'aboutProgram';
+  };
+  attributes: {};
+}
+
+export interface ProgramComponentsDialogueSlider
+  extends Struct.ComponentSchema {
+  collectionName: 'components_program_components_dialogue_sliders';
+  info: {
+    displayName: 'dialogueSlider';
+  };
+  attributes: {};
+}
+
+export interface ProgramComponentsProgramTimeline
+  extends Struct.ComponentSchema {
+  collectionName: 'components_program_components_program_timelines';
+  info: {
+    displayName: 'programTimeline';
+  };
+  attributes: {};
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -101,6 +127,9 @@ declare module '@strapi/strapi' {
       'page-components.latest-program-timeline': PageComponentsLatestProgramTimeline;
       'page-components.medium-rich-text': PageComponentsMediumRichText;
       'page-components.small-rich-text': PageComponentsSmallRichText;
+      'program-components.about-program': ProgramComponentsAboutProgram;
+      'program-components.dialogue-slider': ProgramComponentsDialogueSlider;
+      'program-components.program-timeline': ProgramComponentsProgramTimeline;
     }
   }
 }

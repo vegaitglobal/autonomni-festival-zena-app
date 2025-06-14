@@ -1,8 +1,8 @@
 // ----------  variables
 // ------------------------------------------------------------------------------
 
-$font-default: var(--font-lexend), "Lexend", sans-serif;
-$font-secondary: var(--font-montserrat), "Montserrat", sans-serif;
+$font-default: var(--font-lexend), 'Lexend', sans-serif;
+$font-secondary: var(--font-montserrat), 'Montserrat', sans-serif;
 
 // Font weight
 $light: 300;
@@ -14,12 +14,15 @@ $bold: 700;
 // Primary
 $white: #fff;
 $black: #000;
+$white-snow: #f7f5ed;
 $british-blue: #007faa;
+$bone: #dfdcc9;
 $british-blue-dark: #017299;
 $red: #f00;
-$green-light: #02874B;
-$pink-light: #EB7676;
-$orange: #FF7B5C;
+$green-light: #02874b;
+$pink-light: #eb7676;
+$orange: #ff7b5c;
+$sisal: #d4d1ba;
 // Secondary
 $yellow: #fff5b2;
 $pink: #ffd7cd;

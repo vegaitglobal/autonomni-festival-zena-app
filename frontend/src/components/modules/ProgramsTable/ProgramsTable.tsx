@@ -11,7 +11,7 @@ interface ProgramsTableProps {
 }
 
 export default function ProgramsTable({ programs }: ProgramsTableProps) {
-	const bgHeigh = programs.length * 330;
+	const bgHeight = programs.length * 330;
 	const paddingTop = bgHeigh / 10;
 	return (
 		<>

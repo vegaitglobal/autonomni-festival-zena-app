@@ -8,4 +8,6 @@ export const fetchHomePage = () =>
 export const fetchAboutUsPage = () =>
 	fetchResource('about-us-page', DEFAULT_DEEP_POPULATE);
 
+export const fetchContactPage = () => fetchResource('contact-page')
+
 export const fetchNotFoundPage = () => fetchResource('not-found-page');

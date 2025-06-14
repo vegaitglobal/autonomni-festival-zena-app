@@ -13,16 +13,8 @@
   align-items: center;
 }
 
-.bgImage {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: auto;
-  background-image: url('../assets/pinkBackground.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: 0;
-  height: 100%;
+.bg {
+  background-color: #EFD5F2;
 }
 
 .content {
@@ -44,6 +36,10 @@
   font-weight: 800;
   margin: 0;
   color: #000;
+
+  @include media-breakpoint-down(sm) {     
+      font-size: 96px;
+  }
 }
 
 .richText {
@@ -56,6 +52,10 @@
       color: #000;
       font-weight: bold;
     }
+
+    @include media-breakpoint-down(sm) {     
+        font-size: 22px;
+    }
   }
 }
 
@@ -63,47 +63,221 @@
   z-index: 1;
 }
 
-.imagesHolder
-{
+// .imagesHolder {
+//   position: absolute;
+//   inset: 0;
+//   width: 100%;
+//   height: 100%;
+
+//   .img1,
+//   .img2,
+//   .img3,
+//   .img4,
+//   .img5 {
+//     position: absolute;
+//     background-repeat: no-repeat;
+//     background-size: contain;
+//     width: 20vw;
+//     height: 35vh;
+//     max-width: 200px;
+//     max-height: 350px;
+//     z-index: 3;
+//   }
+
+//   .img1 {
+//     background-image: url('../assets/orangeDrawing.svg');
+//     top: 20%;
+//     left: 30%;
+
+//     @include media-breakpoint-down(sm) {
+//       top: 25%;
+//       left: 15%;
+//       width: 30vw;
+//       height: 25vh;
+//     }
+//   }
+
+//   .img2 {
+//     background-image: url('../assets/coralDrawing.svg');
+//     top: 45%;
+//     left: 15%;
+
+//     @include media-breakpoint-down(sm) {
+//       top: 45%;
+//       left: 10%;
+//       width: 15vw;
+//       height: 15vh;
+//     }
+//   }
+
+//   .img3 {
+//     background-image: url('../assets/greenDrawing.svg');
+//     top: 30%;
+//     right: 15%;
+
+//     @include media-breakpoint-down(sm) {
+//       top: 30%;
+//       right: 5%;
+//     }
+//   }
+
+//   .img4 {
+//     background-image: url('../assets/yellowDrawing.svg');
+//     top: 15%;
+//     right: 30%;
+
+//     @include media-breakpoint-down(sm) {
+//       top: 25%;
+//       right: 20%;
+//     }
+//   }
+
+//   .img5 {
+//     background-image: url('../assets/backArrow.svg');
+//     top: 60%;
+//     right: 20%;
+//     cursor: pointer;
+//     border: none;
+//     background-color: transparent;
+//     z-index: 4;
+
+//     &:hover {
+//       transform: scale(1.05);
+//     }
+
+//     @include media-breakpoint-down(sm) {
+//       top: 57%;
+//       right: 2%;
+//       width: 25vw;
+//       height: 15vh;
+//     }
+//   }
+// }
+
+.imagesHolder {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  &:before {
-    content: '';
-      background-image: url('../assets/greenDrawing.svg');
 
-      position: absolute;
-      height: 350px;
-      width: 200px;
-      top: 30%;
-      right: 15%;
-      background-repeat: no-repeat;
-      z-index: 3;
+  .img1,
+  .img2,
+  .img3,
+  .img4,
+  .img5 {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20vw;
+    height: 35vh;
+    max-width: 200px;
+    max-height: 350px;
+    z-index: 3;
   }
-  @include media-breakpoint-down(sm) {
-    &:before {
-      height: 55px;
-      width: 70px;
+
+  .img1 {
+    background-image: url('../assets/orangeDrawing.svg');
+    top: 10%;
+    left: 30%;
+
+    @include media-breakpoint-down(sm) {
+      top: 20%;
+      left: 15%;
+      width: 30vw;
+      height: 25vh;
+    }
+
+     @include media-breakpoint-between(md, lg) {
+      top: 15%;
+      left: 22%;
+      width: 25vw;
+      height: 30vh;
     }
   }
 
-  &:after {
-    content: '';
-      background-image: url('../assets/coralDrawing.svg');
+  .img2 {
+    background-image: url('../assets/coralDrawing.svg');
+    top: 47%;
+    left: 15%;
 
-      position: absolute;
-      height: 350px;
-      width: 200px;
-      top: 45%;
-      left: 15%;
-      background-repeat: no-repeat;
-      z-index: 3;
+    @include media-breakpoint-down(sm) {
+      top: 65%;
+      left: 10%;
+      width: 15vw;
+      height: 15vh;
+    }
+
+     @include media-breakpoint-between(md, lg) {
+      left: 5%;
+      width: 18vw;
+      height: 20vh;
+    }
+
+     @include media-breakpoint-down(xl) {
+      top: 75%;
+    }
   }
-  @include media-breakpoint-down(sm) {
-    &:after {
-      height: 55px;
-      width: 70px;
+
+  .img3 {
+    background-image: url('../assets/greenDrawing.svg');
+    top: 30%;
+    right: 15%;
+
+    @include media-breakpoint-down(sm) {
+      top: 30%;
+      right: 5%;
+    }
+
+     @include media-breakpoint-between(md, lg) {
+      top: 28%;
+      right: 5%;
+      width: 18vw;
+      height: 30vh;
+    }
+  }
+
+  .img4 {
+    background-image: url('../assets/yellowDrawing.svg');
+    top: 15%;
+    right: 30%;
+
+    @include media-breakpoint-down(sm) {
+      top: 25%;
+      right: 20%;
+    }
+
+     @include media-breakpoint-between(md, lg) {
+      top: 18%;
+      right: 25%;
+      width: 20vw;
+      height: 30vh;
+    }
+  }
+
+  .img5 {
+    background-image: url('../assets/backArrow.svg');
+    top: 75%;
+    right: 20%;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    z-index: 4;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @include media-breakpoint-down(sm) {
+      top: 65%;
+      right: 2%;
+      width: 25vw;
+      height: 15vh;
+    }
+
+     @include media-breakpoint-between(md, lg) {
+      right: 3%;
+      width: 20vw;
+      height: 20vh;
     }
   }
 }

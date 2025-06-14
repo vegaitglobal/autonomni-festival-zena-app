@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_program_components_events",
+  "info": {
+    "displayName": "event"
+  },
+  "options": {},
+  "attributes": {
+    "startTime": {
+      "type": "time",
+      "required": true
+    },
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "speakers": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

@@ -96,7 +96,21 @@ export interface ProgramComponentsAboutProgram extends Struct.ComponentSchema {
   info: {
     displayName: 'aboutProgram';
   };
-  attributes: {};
+  attributes: {
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ProgramComponentsDaySchedule extends Struct.ComponentSchema {
+  collectionName: 'components_program_components_day_schedules';
+  info: {
+    displayName: 'daySchedule';
+  };
+  attributes: {
+    date: Schema.Attribute.Date;
+    events: Schema.Attribute.Component<'program-components.event', true>;
+  };
 }
 
 export interface ProgramComponentsDialogueSlider
@@ -105,7 +119,22 @@ export interface ProgramComponentsDialogueSlider
   info: {
     displayName: 'dialogueSlider';
   };
-  attributes: {};
+  attributes: {
+    images: Schema.Attribute.Media<'images', true>;
+  };
+}
+
+export interface ProgramComponentsEvent extends Struct.ComponentSchema {
+  collectionName: 'components_program_components_events';
+  info: {
+    displayName: 'event';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    speakers: Schema.Attribute.Text;
+    startTime: Schema.Attribute.Time & Schema.Attribute.Required;
+    title: Schema.Attribute.Text;
+  };
 }
 
 export interface ProgramComponentsProgramTimeline
@@ -114,7 +143,12 @@ export interface ProgramComponentsProgramTimeline
   info: {
     displayName: 'programTimeline';
   };
-  attributes: {};
+  attributes: {
+    schedule: Schema.Attribute.Component<
+      'program-components.day-schedule',
+      true
+    >;
+  };
 }
 
 declare module '@strapi/strapi' {
@@ -128,7 +162,9 @@ declare module '@strapi/strapi' {
       'page-components.medium-rich-text': PageComponentsMediumRichText;
       'page-components.small-rich-text': PageComponentsSmallRichText;
       'program-components.about-program': ProgramComponentsAboutProgram;
+      'program-components.day-schedule': ProgramComponentsDaySchedule;
       'program-components.dialogue-slider': ProgramComponentsDialogueSlider;
+      'program-components.event': ProgramComponentsEvent;
       'program-components.program-timeline': ProgramComponentsProgramTimeline;
     }
   }

@@ -4,6 +4,13 @@
     "displayName": "aboutProgram"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
   "config": {}
 }

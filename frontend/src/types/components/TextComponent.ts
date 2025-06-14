@@ -1,11 +1,7 @@
 import { BaseComponent } from './BaseComponent';
 
 export interface TextComponentData extends BaseComponent {
+	color: string;
 	text: string;
-	backgroundImage: {
-		id: number;
-		url: string;
-		alternativeText?: string;
-	};
-	showImage: boolean;
+	title: string;
 }

@@ -93,7 +93,7 @@ export interface PageComponentsRichText extends Struct.ComponentSchema {
     color: Schema.Attribute.Enumeration<['beige', 'green', 'pink']>;
     text: Schema.Attribute.RichText &
       Schema.Attribute.SetMinMaxLength<{
-        maxLength: 700;
+        maxLength: 1000;
       }>;
     title: Schema.Attribute.String;
   };

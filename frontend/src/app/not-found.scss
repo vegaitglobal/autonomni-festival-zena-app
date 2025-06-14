@@ -42,6 +42,19 @@
 	}
 }
 
+.errorCode {
+  display: flex;
+  justify-content: center;
+  font-size: 270px;
+  font-weight: 800;
+  margin: 0;
+  color: #000;
+
+   @include media-breakpoint-down(sm) {     
+      font-size: 96px;
+  }
+}
+
 .richText {
 	p {
 		font-size: 48px;

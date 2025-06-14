@@ -1,0 +1,191 @@
+@use '../../../scss/abstracts' as *;
+
+.outer__wrapper {
+  height: 100vh;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg {
+  background-color: #EFD5F2;
+}
+
+.content {
+  position: relative; 
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4rem 3rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.errorCode {
+  display: flex;
+  justify-content: center;
+  font-size: 270px;
+  font-weight: 800;
+  margin: 0;
+  color: #000;
+
+  @include media-breakpoint-down(sm) {     
+      font-size: 96px;
+  }
+}
+
+.wrapper {
+  z-index: 1;
+
+   p {
+    font-size: 48px;
+    color: #333;
+    margin-top: 1.2rem;
+
+    strong {
+      color: #000;
+      font-weight: bold;
+    }
+
+    @include media-breakpoint-down(sm) {     
+        font-size: 22px;
+    }
+  }
+}
+
+.imagesHolder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  .img1,
+  .img2,
+  .img3,
+  .img4,
+  .img5 {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20vw;
+    height: 35vh;
+    max-width: 200px;
+    max-height: 350px;
+    z-index: 3;
+  }
+
+  .img1 {
+    background-image: url('../../../assets/orangeDrawing.svg');
+    top: 10%;
+    left: 30%;
+
+    @include media-breakpoint-down(sm) {
+      top: 20%;
+      left: 15%;
+      width: 30vw;
+      height: 25vh;
+    }
+
+     @include media-breakpoint-between(md, lg) {
+      top: 15%;
+      left: 22%;
+      width: 25vw;
+      height: 30vh;
+    }
+  }
+
+  .img2 {
+    background-image: url('../../../assets/coralDrawing.svg');
+    top: 47%;
+    left: 15%;
+
+    @include media-breakpoint-down(sm) {
+      top: 65%;
+      left: 10%;
+      width: 15vw;
+      height: 15vh;
+    }
+
+     @include media-breakpoint-between(md, lg) {
+      left: 5%;
+      width: 18vw;
+      height: 20vh;
+    }
+
+     @include media-breakpoint-down(xl) {
+      top: 75%;
+    }
+  }
+
+  .img3 {
+    background-image: url('../../../assets/greenDrawing.svg');
+    top: 30%;
+    right: 15%;
+
+    @include media-breakpoint-down(sm) {
+      top: 30%;
+      right: 5%;
+    }
+
+     @include media-breakpoint-between(md, lg) {
+      top: 28%;
+      right: 5%;
+      width: 18vw;
+      height: 30vh;
+    }
+  }
+
+  .img4 {
+    background-image: url('../../../assets/yellowDrawing.svg');
+    top: 15%;
+    right: 30%;
+
+    @include media-breakpoint-down(sm) {
+      top: 25%;
+      right: 20%;
+    }
+
+     @include media-breakpoint-between(md, lg) {
+      top: 18%;
+      right: 25%;
+      width: 20vw;
+      height: 30vh;
+    }
+  }
+
+  .img5 {
+    background-image: url('../../../assets/backArrow.svg');
+    top: 75%;
+    right: 20%;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    z-index: 4;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @include media-breakpoint-down(sm) {
+      top: 65%;
+      right: 2%;
+      width: 25vw;
+      height: 15vh;
+    }
+
+     @include media-breakpoint-between(md, lg) {
+      right: 3%;
+      width: 20vw;
+      height: 20vh;
+    }
+  }
+}

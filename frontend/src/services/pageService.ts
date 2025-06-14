@@ -1,8 +1,11 @@
 import { fetchResource } from './apiService';
 
-export const fetchHomePage = () =>
-	fetchResource('home-page', ['populate[components][populate]=*']);
+const DEFAULT_DEEP_POPULATE = ['populate[components][populate]=*'];
 
-export const fetchAboutUsPage = () => fetchResource('about-us-page');
+export const fetchHomePage = () =>
+	fetchResource('home-page', DEFAULT_DEEP_POPULATE);
+
+export const fetchAboutUsPage = () =>
+	fetchResource('about-us-page', DEFAULT_DEEP_POPULATE);
 
 export const fetchNotFoundPage = () => fetchResource('not-found-page');

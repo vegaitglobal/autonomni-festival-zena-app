@@ -1,23 +1,20 @@
 'use client';
 
-import { useResource } from '@/hooks/usePage';
+import AboutUs from '@/components/modules/AboutUs/AboutUs';
 import { fetchAboutUsPage } from '@/services/pageService';
+
+import { useResource } from '@/hooks/usePage';
 import { AboutUsPage } from '@/types/apiModels/AboutUsPage';
+import { useRouter } from 'next/navigation';
 
-export default function AboutUs() {
+export default function About() {
 	const { content, loading, error } = useResource<AboutUsPage>(fetchAboutUsPage);
+	const router = useRouter();
 
-	if (loading) {
-		return <div>Loading...</div>;
-	}
-
-	if (error) {
-		return <div>Error: {error}</div>;
-	}
-
+	if (loading) return <div>Loading...</div>;
+	if (error) return <div>Error: {error}</div>;
 	if (!content) {
-		return <div>No content available</div>;
+		router.push('/not-found');
 	}
-
-	return <div style={{ color: 'white' }}>TODO: ABOUT US CONTENT</div>;
+	return <AboutUs {...content?.components} />;
 }

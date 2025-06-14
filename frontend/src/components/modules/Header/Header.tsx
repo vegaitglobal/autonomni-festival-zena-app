@@ -72,7 +72,7 @@ export default function Header({ layout }: HeaderProps) {
 						<Link href="/" className="header__home" onClick={closeMenu}>
 							<Image
 								className="header__logo"
-								src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${headerLogo.url}`}
+								src={`${process.env.NEXT_PUBLIC_API_MEDIA_URL}${headerLogo.url}`}
 								alt={headerLogo.alternativeText || 'Logo'}
 								width={headerLogo.width}
 								height={headerLogo.height}

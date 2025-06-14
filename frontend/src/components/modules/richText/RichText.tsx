@@ -14,9 +14,10 @@ export type RichTextNode = {
 
 type Props = {
 	content: RichTextNode[];
+	className?: string;
 };
 
-export default function RichTextRenderer({ content }: Props) {
+export default function RichTextRenderer({ content, className }: Props) {
 	const renderNode = (node: RichTextNode, index: number): React.ReactNode => {
 		const { type, children, text, bold, italic, underline, url } = node;
 
@@ -31,7 +32,6 @@ export default function RichTextRenderer({ content }: Props) {
 		}
 
 		const renderedChildren = children?.map(renderNode);
-
 		switch (type) {
 			case 'paragraph':
 				return <p key={index}>{renderedChildren}</p>;
@@ -52,5 +52,5 @@ export default function RichTextRenderer({ content }: Props) {
 		}
 	};
 
-	return <div>{content.map(renderNode)}</div>;
+	return <div className={className}>{content.map(renderNode)}</div>;
 }

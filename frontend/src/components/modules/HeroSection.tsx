@@ -11,7 +11,7 @@ export const HeroSection = ({ data }: HeroSectionProps) => {
 
 			{data.backgroundImage && (
 				<img
-					src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data.backgroundImage.url}`}
+					src={`${process.env.NEXT_PUBLIC_API_MEDIA_URL}${data.backgroundImage.url}`}
 					alt={data.backgroundImage.alternativeText || data.title}
 				/>
 			)}

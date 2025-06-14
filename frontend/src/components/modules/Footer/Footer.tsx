@@ -115,7 +115,7 @@ export default function Footer({ layout }: FooterProps) {
 									<Link href="/" className="footer__img-logo-link">
 										<Image
 											className="footer__img-logo"
-											src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${footer.footerLogo.url}`}
+											src={`${process.env.NEXT_PUBLIC_API_MEDIA_URL}${footer.footerLogo.url}`}
 											alt={footer.footerLogo.alternativeText || 'Footer Logo'}
 											width={footer.footerLogo.width}
 											height={footer.footerLogo.height}

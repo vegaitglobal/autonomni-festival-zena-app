@@ -25,14 +25,9 @@ const fetchPage = async <K extends keyof PageMap>(
 	}
 };
 
-export const fetchHomePage = (): Promise<BasePage> => {
-	return fetchPage('home-page', DEFAULT_DEEP_POPULATE);
-};
+export const fetchHomePage = () =>
+	fetchPage('home-page', DEFAULT_DEEP_POPULATE);
 
-export const fetchAboutPage = (): Promise<BasePage> => {
-	return fetchPage('about-page');
-};
+export const fetchAboutPage = () => fetchPage('about-page');
 
-export const fetchNotFoundPage = (): Promise<NotFoundPageProps> => {
-	return fetchPage('not-found-page');
-};
+export const fetchNotFoundPage = () => fetchPage('not-found-page');

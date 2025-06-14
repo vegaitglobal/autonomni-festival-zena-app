@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_list_links",
+  "info": {
+    "displayName": "listLinks",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "links": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

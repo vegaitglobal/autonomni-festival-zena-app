@@ -7,7 +7,6 @@ import { usePage } from '@/hooks/usePage';
 import { fetchNotFoundPage } from '@/services/pageService';
 import { BasePage } from '@/types/pages/BasePage';
 import './not-found.scss';
-import { WrappedNextRouterError } from 'next/dist/server/route-modules/app-route/module';
 
 export type NotFoundPageProps = BasePage & {
 	title: string;

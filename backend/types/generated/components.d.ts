@@ -33,7 +33,7 @@ export interface LayoutHeader extends Struct.ComponentSchema {
   };
   attributes: {
     headerLogo: Schema.Attribute.Media<'images'>;
-    listLinks: Schema.Attribute.Component<'shared.list-links', false>;
+    menuLinks: Schema.Attribute.Component<'shared.list-links', false>;
   };
 }
 

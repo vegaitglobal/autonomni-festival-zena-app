@@ -3,6 +3,7 @@
 import { usePage } from '@/hooks/usePage';
 import { fetchLayout } from '@/services/layoutService';
 import Header from './Header/Header';
+import Footer from './Footer/Footer';
 
 export default function LayoutWrapper({
 	children,
@@ -20,7 +21,7 @@ export default function LayoutWrapper({
 		<>
 			<Header layout={layout} />
 			<main>{children}</main>
-			{/* <Footer layout={layout} /> */}
+			<Footer layout={layout} />
 		</>
 	);
 }

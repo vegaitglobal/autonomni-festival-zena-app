@@ -1,4 +1,4 @@
-@use '../abstracts' as *;
+@use '../../../scss/abstracts' as *;
 
 .header {
 	padding: 30px 0 35px;
@@ -95,10 +95,24 @@
 	left: 0;
 	right: 0;
 	z-index: 1;
-	background-color: $bone;
+	background-color: $sisal;
 	padding: 80px 60px;
 	display: flex;
 	justify-content: center;
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: -75px;
+		left: 0;
+		width: 100%;
+		height: auto;
+		background-image: url('../../../assets/nav-bottom.png');
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		background-position: bottom center;
+		z-index: 0;
+		height: 100%;
+	}
 	@include media-breakpoint-down(md) {
 		left: -20px;
 		right: -20px;

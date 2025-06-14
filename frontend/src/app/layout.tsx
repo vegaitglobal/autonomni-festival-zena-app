@@ -31,12 +31,6 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={`${lexend.variable} ${montserrat.variable}`}>
 				<LayoutWrapper>{children}</LayoutWrapper>
-				<h1>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-					perspiciatis dolorum quis at nemo? Magnam asperiores error minima ipsa?
-					Ratione dolore possimus nihil odit soluta voluptate maiores mollitia iure
-					voluptates!
-				</h1>
 			</body>
 		</html>
 	);

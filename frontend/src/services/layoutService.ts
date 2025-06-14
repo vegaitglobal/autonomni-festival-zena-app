@@ -7,6 +7,7 @@ const LAYOUT_POPULATE_CONFIG = [
 	'populate[footer][populate][listLinks][populate]=*',
 	'populate[footer][populate][footerLogo][populate]=*',
 	'populate[footer][populate][policy][populate]=*',
+	'populate[footer][populate][emailLink][populate]=*',
 	'populate[footer][populate][footerSocialLinks][populate]=*',
 ];
 

@@ -35,7 +35,7 @@ export const HeroVideo = ({ data }: HeroVideoProps) => {
 				<video
 					ref={videoRef}
 					className="hero-video__video"
-					src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data.video.url}`}
+					src={`${process.env.NEXT_PUBLIC_API_MEDIA_URL}${data.video.url}`}
 					onClick={handleVideoClick}
 					onEnded={handleVideoEnded}
 					preload="metadata"

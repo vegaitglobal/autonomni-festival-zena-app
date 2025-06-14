@@ -8,6 +8,18 @@ body {
 	color: $black;
 }
 
+.layout__wrapper {
+	background-color: $white-snow;
+}
+
+.inner__wrapper {
+	margin: 0 30px;
+	background: $black;
+	@include media-breakpoint-down(sm) {
+		margin: 0 20px;
+	}
+}
+
 .body-error {
 	height: 100svh;
 	display: flex;

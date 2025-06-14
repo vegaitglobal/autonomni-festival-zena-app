@@ -21,15 +21,8 @@ export default function Home() {
 	}
 
 	return (
-		<div>
+		<>
 			<DynamicContent pageData={content} />
-
-			<details>
-				<summary>Debug JSON</summary>
-				<pre>
-					<code>{JSON.stringify(content, null, 2)}</code>
-				</pre>
-			</details>
-		</div>
+		</>
 	);
 }

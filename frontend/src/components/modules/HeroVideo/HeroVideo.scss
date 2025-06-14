@@ -1,10 +1,9 @@
 @use '../../../scss/abstracts' as *;
 
 .hero-video {
-	padding: 0 30px;
 	background-color: $white-snow;
 	@include media-breakpoint-down(md) {
-		padding: 0 15px 30px 15px;
+		padding: 0 0 30px 0;
 	}
 }
 

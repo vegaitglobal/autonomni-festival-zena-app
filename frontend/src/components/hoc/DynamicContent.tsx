@@ -39,10 +39,10 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 
 export const DynamicContent = ({ pageData }: { pageData: PageData }) => {
 	return (
-		<div>
+		<>
 			{pageData.components?.map((component: ComponentData, index: number) =>
 				renderComponent(component, index)
 			)}
-		</div>
+		</>
 	);
 };

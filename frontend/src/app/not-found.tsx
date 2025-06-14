@@ -1,22 +1,15 @@
 'use client';
 
-import RichTextRenderer, {
-	RichTextNode,
-} from '@/components/modules/richText/RichText';
-import { usePage } from '@/hooks/usePage';
+import RichTextRenderer from '@/components/modules/richText/RichText';
+import { useResource } from '@/hooks/usePage';
 import { fetchNotFoundPage } from '@/services/pageService';
-import { BasePage } from '@/types/pages/BasePage';
 import './not-found.scss';
 import { useRouter } from 'next/navigation';
-
-export type NotFoundPageProps = BasePage & {
-	title: string;
-	content: RichTextNode[];
-};
+import { NotFoundPage } from '@/types/apiModels/NotFound';
 
 export default function NotFound() {
 	const { content, loading, error } =
-		usePage<NotFoundPageProps>(fetchNotFoundPage);
+		useResource<NotFoundPage>(fetchNotFoundPage);
 	const router = useRouter();
 
 	if (loading) return <div>Loading...</div>;
@@ -38,7 +31,7 @@ export default function NotFound() {
 							}}
 						></button>
 					</div>
-					<h1 className="errorCode">{content.title}</h1>
+					<h1 className="title">{content.title}</h1>
 					<RichTextRenderer content={content.content} className="richText" />
 				</div>
 			</div>

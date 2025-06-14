@@ -94,7 +94,6 @@ export default function Header({ layout }: HeaderProps) {
 
 					{listLinks?.links && (
 						<nav className="nav">
-							<img src="" alt="" />
 							<ul className="nav__list" role="menubar">
 								{listLinks.links.map((link) => (
 									<li key={link.id} className="nav__item" role="menuitem">

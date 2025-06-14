@@ -15,7 +15,7 @@ export default function LayoutWrapper({
 	if (loading) return <div>Loading...</div>;
 	if (error) return <div>Error loading layout: {error}</div>;
 
-	console.log(layout);
+	console.log("Layout:", layout); // TODO: remove
 
 	return (
 		<>

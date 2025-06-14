@@ -64,7 +64,7 @@ export interface Footer {
 	id: number;
 	footerTitle: string;
 	footerSubtitle: string;
-	listLinks: MenuLinks;
+	menuLinks: MenuLinks;
 	footerLogo: FooterLogo;
 	policy: PolicyItem[];
 	emailLink: EmailLink;

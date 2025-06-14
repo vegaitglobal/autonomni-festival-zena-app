@@ -67,7 +67,7 @@ export default function Footer({ footer }: FooterProps) {
 
 							<div className="footer__top-col footer__top-col--links">
 								<div className="footer__top-links">
-									{footer.listLinks?.links?.map((link) => (
+									{footer.menuLinks?.links?.map((link) => (
 										<Link key={link.id} className="footer__top-link" href={link.href}>
 											{link.label}
 										</Link>

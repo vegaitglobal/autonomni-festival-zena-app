@@ -22,7 +22,7 @@
         "audios"
       ]
     },
-    "listLinks": {
+    "menuLinks": {
       "type": "component",
       "component": "shared.list-links",
       "repeatable": false

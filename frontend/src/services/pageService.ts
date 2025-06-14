@@ -1,10 +1,13 @@
 import { api } from '@/libs/axios';
-import { BasePage } from '@/types/pages/BasePage';
+import { fetchResource } from './apiService';
+import { HomePage } from '@/types/apiModels/HomePage';
+import { AboutUsPage } from '@/types/apiModels/AboutUsPage';
+import { NotFound } from '@/types/apiModels/NotFound';
 
 interface PageMap {
-	'home-page': BasePage;
-	'about-us-page': BasePage;
-	'not-found-page': BasePage;
+	'home-page': HomePage;
+	'about-us-page': AboutUsPage;
+	'not-found-page': NotFound;
 }
 
 const DEFAULT_DEEP_POPULATE = ['populate[components][populate]=*'];
@@ -28,6 +31,6 @@ export const fetchHomePage = () =>
 	fetchResource('home-page', ['populate[components][populate]=*']);
 
 export const fetchAboutPage = () =>
-	fetchPage('about-us-page', DEFAULT_DEEP_POPULATE);
+	fetchResource('about-us-page', DEFAULT_DEEP_POPULATE);
 
 export const fetchNotFoundPage = () => fetchResource('not-found-page');

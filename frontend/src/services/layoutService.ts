@@ -2,7 +2,7 @@ import { fetchResource } from './apiService';
 
 export const fetchLayout = () => {
 	const queryParams = [
-		'populate[header][populate][listLinks][populate]=*',
+		'populate[header][populate][menuLinks][populate]=*',
 		'populate[header][populate][headerLogo][populate]=*',
 		'populate[footer][populate][listLinks][populate]=*',
 		'populate[footer][populate][footerLogo][populate]=*',

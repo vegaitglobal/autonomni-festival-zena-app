@@ -20,11 +20,9 @@
       "components": [
         "page-components.hero-video",
         "page-components.latest-program-timeline",
-        "page-components.small-rich-text",
-        "page-components.medium-rich-text",
         "page-components.latest-program",
-        "page-components.large-rich-text",
-        "page-components.animation-separator"
+        "page-components.animation-separator",
+        "page-components.rich-text"
       ]
     }
   }

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_page_components_rich_texts",
+  "info": {
+    "displayName": "Rich Text",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "richtext",
+      "maxLength": 700
+    },
+    "title": {
+      "type": "string"
+    },
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "beige",
+        "green",
+        "pink"
+      ]
+    }
+  },
+  "config": {}
+}

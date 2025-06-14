@@ -129,6 +129,7 @@
 .nav__list {
 	display: flex;
 	flex-direction: column;
+	z-index: 2;
 }
 .nav__item {
 	display: block;

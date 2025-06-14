@@ -16,5 +16,5 @@ export default function About() {
 	if (!content) {
 		router.push('/not-found');
 	}
-	return <SimpleText {...content?.components} />;
+	return <SimpleText components={content!.components} />;
 }

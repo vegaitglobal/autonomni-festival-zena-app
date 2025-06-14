@@ -18,5 +18,5 @@ export default function Contact() {
 		router.push('/not-found');
 	}
 
-	return <SimpleText {...content?.components} />;
+	return <SimpleText components={content!.components} />;
 }

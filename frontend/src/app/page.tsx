@@ -1,12 +1,12 @@
 'use client';
 
-import { fetchHomePage } from '@/services/pageService';
 import { DynamicContent } from '@/components/hoc/DynamicContent';
 import { usePage } from '@/hooks/usePage';
+import { fetchNotFoundPage } from '@/services/pageService';
 import { BasePage } from '@/types/pages/BasePage';
 
 export default function Home() {
-	const { content, loading, error } = usePage<BasePage>(fetchHomePage);
+	const { content, loading, error } = usePage<BasePage>(fetchNotFoundPage);
 
 	if (loading) {
 		return <div>Loading...</div>;

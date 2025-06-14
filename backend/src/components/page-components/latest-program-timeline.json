@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_page_components_latest_program_timelines",
+  "info": {
+    "displayName": "Latest Program Timeline",
+    "icon": "clock"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_page_components_small_rich_texts",
+  "info": {
+    "displayName": "Small Rich Text",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "maxLength": 300
+    },
+    "title": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "config": {}
+}

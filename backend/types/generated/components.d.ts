@@ -14,7 +14,7 @@ export interface LayoutFooter extends Struct.ComponentSchema {
     footerSocialLinks: Schema.Attribute.Component<'shared.social-links', true>;
     footerSubtitle: Schema.Attribute.String;
     footerTitle: Schema.Attribute.String;
-    listLinks: Schema.Attribute.Component<'shared.list-links', false>;
+    menuLinks: Schema.Attribute.Component<'shared.list-links', false>;
     policy: Schema.Attribute.Component<'shared.file-link', true> &
       Schema.Attribute.SetMinMax<
         {
@@ -33,7 +33,7 @@ export interface LayoutHeader extends Struct.ComponentSchema {
   };
   attributes: {
     headerLogo: Schema.Attribute.Media<'images'>;
-    listLinks: Schema.Attribute.Component<'shared.list-links', false>;
+    menuLinks: Schema.Attribute.Component<'shared.list-links', false>;
   };
 }
 
@@ -93,7 +93,7 @@ export interface PageComponentsRichText extends Struct.ComponentSchema {
     color: Schema.Attribute.Enumeration<['beige', 'green', 'pink']>;
     text: Schema.Attribute.RichText &
       Schema.Attribute.SetMinMaxLength<{
-        maxLength: 700;
+        maxLength: 1000;
       }>;
     title: Schema.Attribute.String;
   };

@@ -25,9 +25,9 @@ const fetchPage = async <K extends keyof PageMap>(
 };
 
 export const fetchHomePage = () =>
-	fetchPage('home-page', DEFAULT_DEEP_POPULATE);
+	fetchResource('home-page', ['populate[components][populate]=*']);
 
 export const fetchAboutPage = () =>
 	fetchPage('about-us-page', DEFAULT_DEEP_POPULATE);
 
-export const fetchNotFoundPage = () => fetchPage('not-found-page');
+export const fetchNotFoundPage = () => fetchResource('not-found-page');

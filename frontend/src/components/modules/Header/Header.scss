@@ -32,6 +32,7 @@
 	position: relative;
 	z-index: 1000;
 	width: 140px;
+	height: 90px;
 	@include media-breakpoint-down(md) {
 		width: 65px;
 		height: 30px;

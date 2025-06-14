@@ -1,84 +1,17 @@
-@use '../../../scss/abstracts/variables' as *;
+
 @use '../../../scss/abstracts' as *;
-
-.container {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-x: hidden; 
-  inset: 0
-}
-
-.bg {
-  background-color: $pink-light-background;
-}
-
-.title {
-  color: $pink-light;
-  display: flex;
-  justify-content: center;
-  font-size: 48px;
-  font-weight: 600;
-  margin: 0;
-
-  @include media-breakpoint-down(lg) {
-    font-size: 40px;
-  }
-
-  @include media-breakpoint-down(md) {
-    font-size: 32px;
-  }
-
-  @include media-breakpoint-down(sm) {
-    font-size: 24px;
-  }
-}
-
-.box {
-  width: 100%;
-  max-width: 1200px;
-  text-align: left;
-  padding: 0 1rem;
-
-  h2 {
-    font-size: 44px;
-    font-weight: 300;
-
-    @include media-breakpoint-down(lg) {
-      font-size: 40px;
+.about__wrap {
+    .text-component--pink  {
+        margin-top: 300px;
     }
-
     @include media-breakpoint-down(md) {
-      font-size: 28px;
+        .text-component--pink {
+            margin-top: 200px;
+        }
     }
-
     @include media-breakpoint-down(sm) {
-      font-size: 22px;
+        .text-component--pink {
+            margin-top: 100px;
+        }
     }
-  }
-
-  p {
-    font-size: 32px;
-    margin-top: 1.2rem;
-    font-weight: 300;
-
-    @include media-breakpoint-down(lg) {
-      font-size: 26px;
-    }
-
-    @include media-breakpoint-down(md) {
-      font-size: 20px;
-    }
-
-    @include media-breakpoint-down(sm) {
-      font-size: 16px;
-    }
-  }
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
 }

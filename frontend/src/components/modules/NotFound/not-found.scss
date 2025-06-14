@@ -15,19 +15,25 @@
 }
 
 .bg {
-  background-color: #EFD5F2;
+  background-color: $purle-light-background;
+  width: calc(100% + 60px);
+  margin-left: -30px;
+  @include media-breakpoint-down(sm) {
+    width: calc(100% + 40px);
+    margin-left: -20px;
+  }
 }
 
 .content {
   position: relative; 
   z-index: 1;
-  background: rgba(255, 255, 255, 0.9);
+  background: $white;
   padding: 4rem 3rem;
   border-radius: 1.5rem;
   text-align: center;
   max-width: 700px;
   width: 100%;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 30px $black;
 }
 
 .errorCode {
@@ -36,7 +42,7 @@
   font-size: 270px;
   font-weight: 800;
   margin: 0;
-  color: #000;
+  color: $black;
 
   @include media-breakpoint-down(sm) {     
       font-size: 96px;
@@ -48,11 +54,11 @@
 
    p {
     font-size: 48px;
-    color: #333;
+    color: $black-3;
     margin-top: 1.2rem;
 
     strong {
-      color: #000;
+      color: $black;
       font-weight: bold;
     }
 

@@ -2,6 +2,9 @@ import { ComponentData, ComponentType } from '@/types/dynamicContent';
 import { TextComponentData } from '@/types/components/TextComponent';
 import { HeroVideoTypes } from '@/types/components/HeroVideo';
 import { HeroVideo } from '../modules/HeroVideo/HeroVideo';
+import { Suspense } from 'react';
+import VideoPlayerSkeleton from '../modules/VideoPlayer/VideoPlayerSkeleton';
+import { VideoPlayer } from '../modules/VideoPlayer/VideoPlayer';
 import { TextComponent } from '../modules/TextComponent/TextComponent';
 
 const renderComponent = (componentData: ComponentData, index: number) => {
@@ -10,10 +13,11 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 	switch (componentType) {
 		case 'hero-video':
 			return (
-				<HeroVideo
-					key={`hero-video-${index}`}
-					data={componentData as HeroVideoTypes}
-				/>
+				<Suspense fallback={<VideoPlayerSkeleton />} key={`hero-video-${index}`}>
+					<VideoPlayer
+						data = {componentData as HeroVideoTypes}
+					/>
+      			</Suspense>
 			);
 		case 'rich-text':
 			return (

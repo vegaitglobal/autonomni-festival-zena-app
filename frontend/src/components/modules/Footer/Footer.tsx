@@ -75,8 +75,6 @@ export default function Footer({ layout }: FooterProps) {
 	const footer = layout?.footer;
 	const currentYear = new Date().getFullYear();
 
-	console.log('Footer data:', footer); // TODO: remove
-
 	if (!footer) {
 		console.error('Footer data not found in layout');
 		return null;

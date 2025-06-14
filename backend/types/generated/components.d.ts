@@ -19,7 +19,7 @@ export interface PageComponentsHeroVideo extends Struct.ComponentSchema {
     icon: 'play';
   };
   attributes: {
-    video: Schema.Attribute.Media<'files' | 'videos'>;
+    video: Schema.Attribute.Media<'videos'>;
   };
 }
 

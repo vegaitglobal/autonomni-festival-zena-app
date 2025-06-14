@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-06-13T21:03:00.952Z"
+    "x-generation-date": "2025-06-14T08:12:38.550Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -3688,6 +3688,21 @@
                     },
                     {
                       "$ref": "#/components/schemas/PageComponentsLatestProgramTimelineComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PageComponentsSmallRichTextComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PageComponentsMediumRichTextComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PageComponentsLatestProgramComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PageComponentsLargeRichTextComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PageComponentsAnimationSeparatorComponent"
                     }
                   ]
                 },
@@ -3695,7 +3710,12 @@
                   "propertyName": "__component",
                   "mapping": {
                     "page-components.hero-video": "#/components/schemas/PageComponentsHeroVideoComponent",
-                    "page-components.latest-program-timeline": "#/components/schemas/PageComponentsLatestProgramTimelineComponent"
+                    "page-components.latest-program-timeline": "#/components/schemas/PageComponentsLatestProgramTimelineComponent",
+                    "page-components.small-rich-text": "#/components/schemas/PageComponentsSmallRichTextComponent",
+                    "page-components.medium-rich-text": "#/components/schemas/PageComponentsMediumRichTextComponent",
+                    "page-components.latest-program": "#/components/schemas/PageComponentsLatestProgramComponent",
+                    "page-components.large-rich-text": "#/components/schemas/PageComponentsLargeRichTextComponent",
+                    "page-components.animation-separator": "#/components/schemas/PageComponentsAnimationSeparatorComponent"
                   }
                 }
               },
@@ -3779,6 +3799,21 @@
                 },
                 {
                   "$ref": "#/components/schemas/PageComponentsLatestProgramTimelineComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PageComponentsSmallRichTextComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PageComponentsMediumRichTextComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PageComponentsLatestProgramComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PageComponentsLargeRichTextComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PageComponentsAnimationSeparatorComponent"
                 }
               ]
             },
@@ -3786,7 +3821,12 @@
               "propertyName": "__component",
               "mapping": {
                 "page-components.hero-video": "#/components/schemas/PageComponentsHeroVideoComponent",
-                "page-components.latest-program-timeline": "#/components/schemas/PageComponentsLatestProgramTimelineComponent"
+                "page-components.latest-program-timeline": "#/components/schemas/PageComponentsLatestProgramTimelineComponent",
+                "page-components.small-rich-text": "#/components/schemas/PageComponentsSmallRichTextComponent",
+                "page-components.medium-rich-text": "#/components/schemas/PageComponentsMediumRichTextComponent",
+                "page-components.latest-program": "#/components/schemas/PageComponentsLatestProgramComponent",
+                "page-components.large-rich-text": "#/components/schemas/PageComponentsLargeRichTextComponent",
+                "page-components.animation-separator": "#/components/schemas/PageComponentsAnimationSeparatorComponent"
               }
             }
           },
@@ -3850,6 +3890,21 @@
                       },
                       {
                         "$ref": "#/components/schemas/PageComponentsLatestProgramTimelineComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/PageComponentsSmallRichTextComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/PageComponentsMediumRichTextComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/PageComponentsLatestProgramComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/PageComponentsLargeRichTextComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/PageComponentsAnimationSeparatorComponent"
                       }
                     ]
                   },
@@ -3857,7 +3912,12 @@
                     "propertyName": "__component",
                     "mapping": {
                       "page-components.hero-video": "#/components/schemas/PageComponentsHeroVideoComponent",
-                      "page-components.latest-program-timeline": "#/components/schemas/PageComponentsLatestProgramTimelineComponent"
+                      "page-components.latest-program-timeline": "#/components/schemas/PageComponentsLatestProgramTimelineComponent",
+                      "page-components.small-rich-text": "#/components/schemas/PageComponentsSmallRichTextComponent",
+                      "page-components.medium-rich-text": "#/components/schemas/PageComponentsMediumRichTextComponent",
+                      "page-components.latest-program": "#/components/schemas/PageComponentsLatestProgramComponent",
+                      "page-components.large-rich-text": "#/components/schemas/PageComponentsLargeRichTextComponent",
+                      "page-components.animation-separator": "#/components/schemas/PageComponentsAnimationSeparatorComponent"
                     }
                   }
                 },
@@ -4085,6 +4145,104 @@
           },
           "title": {
             "type": "string"
+          }
+        }
+      },
+      "PageComponentsSmallRichTextComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string",
+            "enum": [
+              "page-components.small-rich-text"
+            ]
+          },
+          "content": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        }
+      },
+      "PageComponentsMediumRichTextComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string",
+            "enum": [
+              "page-components.medium-rich-text"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          }
+        }
+      },
+      "PageComponentsLatestProgramComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string",
+            "enum": [
+              "page-components.latest-program"
+            ]
+          },
+          "title": {
+            "type": "string"
+          }
+        }
+      },
+      "PageComponentsLargeRichTextComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string",
+            "enum": [
+              "page-components.large-rich-text"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          }
+        }
+      },
+      "PageComponentsAnimationSeparatorComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string",
+            "enum": [
+              "page-components.animation-separator"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "logoBush",
+              "logoStar"
+            ]
           }
         }
       },

@@ -439,7 +439,15 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   };
   attributes: {
     components: Schema.Attribute.DynamicZone<
-      ['page-components.hero-video', 'page-components.latest-program-timeline']
+      [
+        'page-components.hero-video',
+        'page-components.latest-program-timeline',
+        'page-components.small-rich-text',
+        'page-components.medium-rich-text',
+        'page-components.latest-program',
+        'page-components.large-rich-text',
+        'page-components.animation-separator',
+      ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

@@ -1,9 +1,4 @@
-import {
-	ComponentData,
-	ComponentType,
-	PageData,
-} from '@/types/dynamicContent/dynamicContent';
-
+import { ComponentData, ComponentType } from '@/types/dynamicContent';
 import { TextComponentData } from '@/types/components/TextComponent';
 import { HeroVideoTypes } from '@/types/components/HeroVideo';
 import { HeroVideo } from '../modules/HeroVideo/HeroVideo';
@@ -32,10 +27,14 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 	}
 };
 
-export const DynamicContent = ({ pageData }: { pageData: PageData }) => {
+interface DynamicContentProps {
+	components: ComponentData[];
+}
+
+export const DynamicContent = ({ components }: DynamicContentProps) => {
 	return (
 		<>
-			{pageData.components?.map((component: ComponentData, index: number) =>
+			{components?.map((component: ComponentData, index: number) =>
 				renderComponent(component, index)
 			)}
 		</>

@@ -439,7 +439,15 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   };
   attributes: {
     components: Schema.Attribute.DynamicZone<
-      ['page-components.hero-video', 'page-components.latest-program-timeline']
+      [
+        'page-components.hero-video',
+        'page-components.latest-program-timeline',
+        'page-components.small-rich-text',
+        'page-components.medium-rich-text',
+        'page-components.latest-program',
+        'page-components.large-rich-text',
+        'page-components.animation-separator',
+      ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -452,6 +460,35 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiLayoutLayout extends Struct.SingleTypeSchema {
+  collectionName: 'layouts';
+  info: {
+    displayName: 'Layout';
+    pluralName: 'layouts';
+    singularName: 'layout';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    footer: Schema.Attribute.Component<'layout.footer', false>;
+    header: Schema.Attribute.Component<'layout.header', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::layout.layout'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1035,6 +1072,7 @@ declare module '@strapi/strapi' {
       'api::about-us-page.about-us-page': ApiAboutUsPageAboutUsPage;
       'api::contact-page.contact-page': ApiContactPageContactPage;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::layout.layout': ApiLayoutLayout;
       'api::not-found-page.not-found-page': ApiNotFoundPageNotFoundPage;
       'api::program.program': ApiProgramProgram;
       'plugin::content-releases.release': PluginContentReleasesRelease;

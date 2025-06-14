@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_file_links",
+  "info": {
+    "displayName": "fileLink",
+    "icon": "cast"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "file": {
+      "type": "media",
+      "multiple": false
+    }
+  },
+  "config": {}
+}

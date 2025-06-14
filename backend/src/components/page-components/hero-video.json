@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_page_components_hero_videos",
+  "info": {
+    "displayName": "Hero Video",
+    "icon": "play"
+  },
+  "options": {},
+  "attributes": {
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    }
+  },
+  "config": {}
+}

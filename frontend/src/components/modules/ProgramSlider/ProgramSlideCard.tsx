@@ -2,10 +2,8 @@ import { Program } from '@/types/apiModels/Program';
 import { useRef } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
 import arrowRight from '@/assets/arrow-right.png';
-import arrowRotate from '@/assets/slider-image-arrow.svg';
-import 'swiper/css';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
+import { ImageSwiper } from '../ImageSwiper/ImageSwiper';
 
 interface ProgramSlideCardProps {
 	program: Program;
@@ -30,12 +28,6 @@ export const ProgramSlideCard = ({ program }: ProgramSlideCardProps) => {
 	const title = aboutComponent?.title;
 	const scheduleDate = timelineComponent?.schedule?.[0]?.date;
 	const images = dialogueComponent?.images || [];
-
-	const handleNextSlide = () => {
-		if (swiperRef.current) {
-			swiperRef.current.slideNext();
-		}
-	};
 
 	return (
 		<div className="program-card">
@@ -68,39 +60,16 @@ export const ProgramSlideCard = ({ program }: ProgramSlideCardProps) => {
 					</a>
 				</div>
 			</div>
-			{images.length > 0 && (
-				<div className="program-card__images">
-					{images.length > 1 && (
-						<button
-							className="program-card__next-btn"
-							onClick={handleNextSlide}
-							type="button"
-							aria-label="Next image"
-						>
-							<Image src={arrowRotate} alt="Next" width={70} height={70} />
-						</button>
-					)}
-					<Swiper
-						spaceBetween={10}
-						slidesPerView={1.2}
-						loop={images.length > 1}
-						onSwiper={(swiper) => (swiperRef.current = swiper)}
-						className="program-card__images-swiper"
-					>
-						{images.map((image, index) => (
-							<SwiperSlide key={image.id || index}>
-								<div className="program-card__image">
-									<img
-										src={`${process.env.NEXT_PUBLIC_API_MEDIA_URL}${image.url}`}
-										alt={image.alternativeText || title || ''}
-										loading="lazy"
-									/>
-								</div>
-							</SwiperSlide>
-						))}
-					</Swiper>
-				</div>
-			)}
+			<ImageSwiper
+				images={images}
+				showButton={true}
+				buttonClassName="program-card__next-btn"
+				className="program-card__images"
+				imageClassName="program-card__image"
+				spaceBetween={10}
+				slidesPerView={1.2}
+				altText={title || ''}
+			/>
 		</div>
 	);
 };

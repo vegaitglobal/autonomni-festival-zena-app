@@ -15,6 +15,43 @@
 
 .program-details-bg--green {
 	background-color: $green-light;
+	&::after {
+		content: '';
+		position: absolute;
+		top: -65px;
+		left: 0;
+		width: 100%;
+		background-image: url('../../../assets/single-program-top.png');
+		z-index: 0;
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		background-position: top center;
+		z-index: 0;
+		height: 100%;
+		z-index: 0;
+	}
+	&::before {
+		content: '';
+		position: absolute;
+		bottom: -90px;
+		left: 0;
+		width: 100%;
+		background-image: url('../../../assets/single-program-bottom.png');
+		z-index: 0;
+		height: 130px;
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		background-position: top center;
+		z-index: 0;
+	}
+	@include media-breakpoint-down(sm) {
+		&::after {
+			top: -20px;
+		}
+		&::before {
+			bottom: -115px;
+		}
+	}
 }
 
 .program-details-top-img {
@@ -23,6 +60,7 @@
 	top: -15%;
 	height: 300;
 	width: 300;
+	z-index: 1;
 
 	@include media-breakpoint-down(md) {
 		height: 150;

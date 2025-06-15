@@ -4,7 +4,7 @@ export interface ProgramSliderData extends BaseComponent {
 	title: string;
 }
 
-interface BaseStrapiComponent {
+export interface BaseStrapiComponent {
 	id: number;
 	__component: string;
 }

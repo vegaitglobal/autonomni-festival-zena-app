@@ -48,7 +48,7 @@ export const ProgramSlideCard = ({ program }: ProgramSlideCardProps) => {
 					<h3 className="program-card__title">
 						{title}
 						{scheduleDate &&
-							` - ${new Date(scheduleDate).toLocaleDateString('sr-RS', {
+							` - ${new Date(scheduleDate).toLocaleDateString('sr-Latn-RS', {
 								day: 'numeric',
 								month: 'long',
 								year: 'numeric',
@@ -81,7 +81,7 @@ export const ProgramSlideCard = ({ program }: ProgramSlideCardProps) => {
 						</button>
 					)}
 					<Swiper
-						spaceBetween={0}
+						spaceBetween={40}
 						slidesPerView={1.2}
 						loop={images.length > 1}
 						onSwiper={(swiper) => (swiperRef.current = swiper)}

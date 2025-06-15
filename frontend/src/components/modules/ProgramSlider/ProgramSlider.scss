@@ -3,6 +3,8 @@
 .program-slider {
 	position: relative;
 	padding: 100px 0;
+	width: calc(100% + 60px);
+	margin-left: -30px;
 	.swiper-pagination {
 		.swiper-pagination-bullet {
 			height: 30px;

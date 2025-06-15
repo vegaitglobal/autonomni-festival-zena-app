@@ -32,9 +32,6 @@ export default function ProgramDetails({ year }: ProgramDetailsProps) {
 		return <div>No content available</div>;
 	}
 
-	
-	
-
 	function renderTopImage() {
 		switch (program!.theme) {
 			case 'green':

@@ -47,22 +47,22 @@
 
 @media (min-width: $sm) {
    .separator {
-        min-height: 450px;
+        min-height: 300px;
     }
     .separator-logo {
-        width: 250px; 
+        width: 200px; 
     }
     .separator-background-image {
         .separator--bush & {
-            width: 700px; 
+            width: 300px; 
             height: auto;
-            top: 50px;
-            right: 180px;
+            top: 10px;
+            right: 30px;
         }
         .separator--star & {
-            width: 180px;
+            width: 150px;
             height: auto;
-            top: 90px;
+            top: 100px;
             right: 20%;
         }
     }
@@ -70,22 +70,22 @@
 
 @media (min-width: $md) {
     .separator {
-        min-height: 480px;
+        min-height: 450px;
     }
     .separator-logo {
-        width: 320px;
+        width: 300px;
     }
     .separator-background-image {
         .separator--bush & {
             width: 400px;
             top: 10px;
-            right: 200px;
+            right: 130px;
         }
         .separator--star & {
             width: 220px;
             height: auto;
             top: 180px;
-            right: 28%;
+            right: 150px;
         }
     }
 }
@@ -95,7 +95,7 @@
         min-height: 400px;
     }
     .separator-logo {
-        width: 380px;
+        width: 350px;
         height: auto;
     }
     .separator-background-image {
@@ -106,10 +106,10 @@
             right: 150px;
         }
         .separator--star & {
-            width: 260px; 
+            width: 200px; 
             height: auto;
             top: 190px;
-            right: 23%;
+            right: 350px;
         }
     }
 }

@@ -1,7 +1,62 @@
+@use '../../../scss/abstracts' as *;
+
 .programs-slider {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -75px;
+    left: 0;
+    width: 100%;
+    background-image: url('../../../assets/dark-green-bottom.png');
+    z-index: 0;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: bottom center;
+    z-index: 0;
+    height: 100%;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -75px;
+    left: 0;
+    width: 100%;
+    background-image: url('../../../assets/dark-green-top.png');
+    z-index: 0;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: top center;
+    z-index: 0;
+    height: 100%;
+  }
+
+  @include media-breakpoint-down(md) {
+    &::after {
+      top: -50px;
+    }
+
+    &::before {
+      bottom: -50px;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &::after {
+      top: -20px;
+    }
+
+    &::before {
+      bottom: -20px;
+    }
+  }
+
   &__container {
     margin: 0 auto;
-    background-color: #5b8c86;
+    background-color: #5E9697;
   }
 
   &__header {
@@ -9,7 +64,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem 5rem;
-    background-color: #5b8c86;
+    background-color: #5E9697;
 
     &-title {
       font-size: 27px;
@@ -44,7 +99,7 @@
   }
 
   &__slide {
-    background-color: #5b8c86;
+    background-color: #5E9697;
     padding-top: 60px;
     font-family: Arial, sans-serif;
     color: #000;

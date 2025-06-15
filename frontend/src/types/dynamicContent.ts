@@ -2,11 +2,13 @@ import { ProgramSliderData } from './components/ProgramSliderData';
 import { AboutProgramComponent } from '@/types/components/AboutProgramComponent';
 import { HeroVideoComponent } from '@/types/components/HeroVideoComponent';
 import { TextComponentData } from '@/types/components/TextComponent';
+import { SeparatorComponentData } from './components/SeparatorComponent';
 
 export type ComponentData =
 	| TextComponentData
 	| HeroVideoComponent
 	| AboutProgramComponent
+	| SeparatorComponentData
 	| ProgramSliderData;
 
 export type ComponentType =
@@ -14,7 +16,8 @@ export type ComponentType =
 	| 'text'
 	| 'hero-video'
 	| 'rich-text'
-	| 'latest-program';
+	| 'latest-program'
+	| 'animation-separator';
 
 export interface PageData {
 	components: ComponentData[];

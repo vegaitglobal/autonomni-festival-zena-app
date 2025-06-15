@@ -5,6 +5,8 @@ import { HeroVideo } from '../modules/HeroVideo/HeroVideo';
 import { TextComponent } from '../modules/TextComponent/TextComponent';
 import { ProgramSlider } from '../modules/ProgramSlider/ProgramSlider';
 import { ProgramSliderData } from '@/types/components/ProgramSliderData';
+import { Separator } from '../modules/Separator/Separator';
+import { SeparatorComponentData } from '@/types/components/SeparatorComponent';
 
 const renderComponent = (componentData: ComponentData, index: number) => {
 	const componentType = componentData.__component.split('.')[1] as ComponentType;
@@ -26,6 +28,13 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 			);
 		case 'latest-program':
 			return <ProgramSlider key={`latest-program-${index}`} />;
+		case 'animation-separator':
+			return (
+				<Separator
+					key={`separator-${index}`}
+					data={componentData as SeparatorComponentData}
+				/>
+			);
 		default:
 			return null;
 	}

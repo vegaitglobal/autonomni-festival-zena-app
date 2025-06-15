@@ -1,0 +1,50 @@
+@use '../../../scss/abstracts' as *;
+
+.separator {
+    position: relative;
+    width: 100%;
+    min-height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.combined-separator-svg {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+
+    width: 350px;
+    height: auto; 
+    z-index: 2; 
+}
+
+@media (min-width: $sm) {
+    .separator {
+        min-height: 450px;
+    }
+    .combined-separator-svg {
+        width: 500px;
+    }
+}
+
+@media (min-width: $md) {
+    .separator {
+        min-height: 400px;
+    }
+    .combined-separator-svg {
+        width: 500px;
+    }
+}
+
+@media (min-width: $lg) {
+    .separator {
+        min-height: 400px;
+    }
+    .combined-separator-svg {
+        width: 500px; 
+    }
+}
+

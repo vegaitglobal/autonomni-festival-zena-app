@@ -118,6 +118,11 @@
 		left: -20px;
 		right: -20px;
 	}
+	@include media-breakpoint-down(sm) {
+		&::after {
+			bottom: -25px;
+		}
+	}
 }
 .nav__shape {
 	position: absolute;

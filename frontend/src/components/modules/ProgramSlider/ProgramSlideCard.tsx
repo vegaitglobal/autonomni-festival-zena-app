@@ -81,7 +81,7 @@ export const ProgramSlideCard = ({ program }: ProgramSlideCardProps) => {
 						</button>
 					)}
 					<Swiper
-						spaceBetween={40}
+						spaceBetween={10}
 						slidesPerView={1.2}
 						loop={images.length > 1}
 						onSwiper={(swiper) => (swiperRef.current = swiper)}

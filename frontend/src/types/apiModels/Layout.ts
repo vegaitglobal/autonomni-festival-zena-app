@@ -1,4 +1,4 @@
-import { BaseAPIModel } from './BaseAPIModel';
+import { BaseAPIModel } from '@/types/apiModels/BaseAPIModel';
 
 interface MenuLink {
 	id: number;

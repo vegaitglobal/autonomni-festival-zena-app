@@ -1,21 +1,22 @@
-import { AboutProgram } from './apiModels/Program';
-import { HeroComponent } from './components/HeroComponent';
-import { HeroVideoTypes } from './components/HeroVideo';
+import { ProgramSliderData } from './components/ProgramSliderData';
+import { AboutProgramComponent } from '@/types/components/AboutProgramComponent';
+import { HeroVideoComponent } from '@/types/components/HeroVideoComponent';
+import { TextComponentData } from '@/types/components/TextComponent';
 import { SeparatorComponentData } from './components/SeparatorComponent';
-import { TextComponentData } from './components/TextComponent';
 
 export type ComponentData =
-	| HeroComponent
 	| TextComponentData
-	| HeroVideoTypes
-	| AboutProgram
-	| SeparatorComponentData;
+	| HeroVideoComponent
+	| AboutProgramComponent
+	| SeparatorComponentData
+	| ProgramSliderData;
 
 export type ComponentType =
 	| 'hero'
 	| 'text'
 	| 'hero-video'
 	| 'rich-text'
+	| 'latest-program'
 	| 'animation-separator';
 
 export interface PageData {

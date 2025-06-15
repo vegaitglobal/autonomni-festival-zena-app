@@ -1,16 +1,10 @@
-import { BaseAPIModel } from './BaseAPIModel';
-import { ComponentData } from '../dynamicContent';
-import { BaseComponent } from '../components/BaseComponent';
+import { ProgramComponent } from '../components/ProgramSliderData';
+import { BaseAPIModel } from '@/types/apiModels/BaseAPIModel';
 
-type ProgramTheme = 'green' | 'pink';
-
-export interface AboutProgram extends BaseComponent {
-	title: string;
-	description: string;
-}
+export type ProgramTheme = 'green' | 'pink';
 
 export interface Program extends BaseAPIModel {
 	year: string;
 	theme: ProgramTheme;
-	components: ComponentData[];
+	components: ProgramComponent[];
 }

@@ -8,8 +8,8 @@ interface SimpleTextProps {
 
 export default function SimpleText({ components }: SimpleTextProps) {
 	return (
-		<div className="about__wrap">
+		<>
 			<DynamicContent components={components} />
-		</div>
+		</>
 	);
 }

@@ -1,0 +1,10 @@
+@use '../../../scss/abstracts' as *;
+
+.animation {
+	position: absolute;
+	bottom: -50%;
+
+	@include media-breakpoint-down(sm) {
+		display: none;
+	}
+}

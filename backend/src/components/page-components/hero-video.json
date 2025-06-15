@@ -12,6 +12,9 @@
       "allowedTypes": [
         "videos"
       ]
+    },
+    "url": {
+      "type": "string"
     }
   },
   "config": {}

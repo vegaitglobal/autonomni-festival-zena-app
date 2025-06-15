@@ -8,7 +8,7 @@
 }
 
 .text-component-content-wrapper {
-	padding: 80px 60px;
+	padding: 120px 60px;
 	position: relative;
 	z-index: 2;
 	@include media-breakpoint-down(sm) {
@@ -87,7 +87,7 @@
 			margin-right: 0px;
 		}
 		&::after {
-			top: -35px;
+			top: -30px;
 		}
 		&::before {
 			height: 100px;
@@ -117,7 +117,6 @@
 		left: 0;
 		width: 100%;
 		background-image: url('../../../assets/pink-top.png');
-		z-index: 0;
 		background-repeat: no-repeat;
 		background-size: 100% auto;
 		background-position: top center;
@@ -136,12 +135,11 @@
 		background-repeat: no-repeat;
 		background-size: 100% auto;
 		background-position: bottom center;
-		z-index: 0;
 	}
 	@media (min-width: 1450px) {
 		&::after {
 			background-size: 130%;
-			top: -340px;
+			top: -250px;
 		}
 		&::before {
 			background-size: 130%;
@@ -184,10 +182,10 @@
 			width: 100%;
 		}
 		&::after {
-			top: -70px;
+			top: -50px;
 		}
 		&::before {
-			bottom: -70px;
+			bottom: -50px;
 		}
 		.text-component__decorative-image {
 			top: -5%;
@@ -256,7 +254,7 @@
 }
 
 .text-component__rte {
-	font-size: 40px;
+	font-size: 30px;
 	font-weight: $light;
 	p {
 		margin-bottom: 30px;

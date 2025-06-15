@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_page_components_program_sliders",
+  "info": {
+    "displayName": "programSlider",
+    "icon": "slideshow"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

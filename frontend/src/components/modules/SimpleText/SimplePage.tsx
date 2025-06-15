@@ -1,12 +1,12 @@
 import { DynamicContent } from '@/components/hoc/DynamicContent';
 import { ComponentData } from '@/types/dynamicContent';
-import './SimpleText.scss';
+import './SimplePage.scss';
 
-interface SimpleTextProps {
+interface SimplePageProps {
 	components: ComponentData[];
 }
 
-export default function SimpleText({ components }: SimpleTextProps) {
+export default function SimplePage({ components }: SimplePageProps) {
 	return (
 		<div className="about__wrap">
 			<DynamicContent components={components} />

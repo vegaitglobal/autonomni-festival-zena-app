@@ -1,7 +1,7 @@
 'use client';
 
 import {
-	AboutProgram,
+	AboutProgramComponent,
 	Program as ProgramModel,
 } from '@/types/apiModels/Program';
 import arrowRight from '@/assets/arrow-right.png';
@@ -14,7 +14,7 @@ interface ProgramCardProps {
 }
 
 export default function Program({ program, color }: ProgramCardProps) {
-	const aboutProgram = program.components[0] as AboutProgram;
+	const aboutProgram = program.components[0] as AboutProgramComponent;
 
 	return (
 		<a

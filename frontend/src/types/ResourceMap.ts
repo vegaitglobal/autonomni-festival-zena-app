@@ -2,8 +2,8 @@ import { HomePage } from '@/types/apiModels/HomePage';
 import { Layout } from '@/types/apiModels/Layout';
 import { NotFoundPage } from '@/types/apiModels/NotFound';
 import { Program } from '@/types/apiModels/Program';
-import { AboutUsPage } from './apiModels/AboutUsPage';
-import { ContactPage } from './apiModels/ContactPage';
+import { AboutUsPage } from '@/types/apiModels/AboutUsPage';
+import { ContactPage } from '@/types/apiModels/ContactPage';
 
 export interface ApiResourcesMap {
 	'home-page': HomePage;

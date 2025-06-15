@@ -1,4 +1,4 @@
-import { fetchResource } from './apiService';
+import { fetchResource } from '@/services/apiService';
 
 export const fetchPrograms = () => {
 	const queryParams = [

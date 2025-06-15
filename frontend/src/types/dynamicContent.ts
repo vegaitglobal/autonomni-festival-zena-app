@@ -1,13 +1,13 @@
-import { AbutProgram } from './apiModels/Program';
-import { HeroComponent } from './components/HeroComponent';
-import { HeroVideoTypes } from './components/HeroVideo';
-import { TextComponentData } from './components/TextComponent';
+import { AboutProgramComponent } from '@/types/components/AboutProgramComponent';
+import { HeroComponent } from '@/types/components/HeroComponent';
+import { HeroVideoComponent } from '@/types/components/HeroVideoComponent';
+import { TextComponentData } from '@/types/components/TextComponent';
 
 export type ComponentData =
 	| HeroComponent
 	| TextComponentData
-	| HeroVideoTypes
-	| AbutProgram;
+	| HeroVideoComponent
+	| AboutProgramComponent;
 
 export type ComponentType = 'hero' | 'text' | 'hero-video' | 'rich-text';
 

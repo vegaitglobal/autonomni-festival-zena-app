@@ -29,6 +29,8 @@ export const Animation = ({
 				height: height,
 				width: width,
 				position: 'absolute',
+				// top: '-150%',
+				bottom: '-100%',
 			}}
 		>
 			{View}

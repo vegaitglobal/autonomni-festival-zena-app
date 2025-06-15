@@ -32,8 +32,8 @@ export default function ProgramDetails({ year }: ProgramDetailsProps) {
 		return <div>No content available</div>;
 	}
 
-	console.log('params year:', year);
-	console.log('program details:', program);
+	
+	
 
 	function renderTopImage() {
 		switch (program!.theme) {

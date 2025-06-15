@@ -12,7 +12,7 @@ export default function ProgramsTable({ programs }: ProgramsTableProps) {
 	return (
 		<>
 			<div className="programs-table">
-				<div className="programs-table-wrapper">
+				<div className="programs-table-wrapper background-layout">
 					<h1 className="programs__title">PROGRAMI</h1>
 					{programs.map((program, index) => {
 						const color = index % 2 ? 'green' : 'yellow';

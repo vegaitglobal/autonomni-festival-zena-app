@@ -61,6 +61,7 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 				/>
 			);
 		case 'latest-program-timeline':
+		case 'program-timeline':
 			return (
 				<LatestProgramTimeline
 					key={`latest-program-timeline-${index}`}

@@ -1,7 +1,12 @@
 @use '../../../scss/abstracts' as *;
 
-.programs-slider {
+.latest-program-timeline {
 	position: relative;
+	margin-bottom: 200px;
+
+	@include media-breakpoint-down(md) {
+		margin-bottom: 100px;
+	}
 
 	&::before {
 		content: '';
@@ -63,7 +68,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 0 1rem 5rem;
+		padding: 0 40px;
 		background-color: #5e9697;
 
 		&-title {
@@ -267,11 +272,4 @@
 			}
 		}
 	}
-
-	// @media (max-width: 480px) {
-	// 	&__date-badge {
-	// 		left: -40%;
-	// 		transform: translateY(-50%);
-	// 	}
-	// }
 }

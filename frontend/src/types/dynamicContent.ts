@@ -29,7 +29,8 @@ export type ComponentType =
 	| 'animation-separator'
 	| 'about-program'
 	| 'dialogue-slider'
-	| 'latest-program-timeline';
+	| 'latest-program-timeline'
+	| 'program-timeline';
 
 export interface PageData {
 	components: ComponentData[];

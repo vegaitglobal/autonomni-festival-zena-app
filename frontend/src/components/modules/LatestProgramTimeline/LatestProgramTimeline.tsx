@@ -120,40 +120,42 @@ export const LatestProgramTimeline = ({ data }: LatestProgramTimelineProps) => {
 	};
 
 	return (
-		<div className="programs-slider background-layout">
-			<div className="programs-slider__header">
-				<h2 className="programs-slider__header-title">SATNICA {program.year}</h2>
+		<div className="latest-program-timeline background-layout">
+			<div className="latest-program-timeline__header">
+				<h2 className="latest-program-timeline__header-title">
+					SATNICA {program.year}
+				</h2>
 				<button
-					className="programs-slider__header-button"
+					className="latest-program-timeline__header-button"
 					onClick={() => router.push(`/programs/${program.year}`)}
 				/>
 			</div>
-			<div className="programs-slider__container">
+			<div className="latest-program-timeline__container">
 				<Swiper
 					modules={[Pagination]}
 					pagination={{ clickable: true, dynamicBullets: true }}
 					spaceBetween={0}
 					slidesPerView={1}
 					onSwiper={(s) => (swiperRef.current = s)}
-					className="programs-slider__swiper"
+					className="latest-program-timeline__swiper"
 				>
 					{eventPairs.map((pair, slideIdx) => (
 						<SwiperSlide key={slideIdx}>
-							<div className="programs-slider__slide">
-								<div className="programs-slider__badge-row">
+							<div className="latest-program-timeline__slide">
+								<div className="latest-program-timeline__badge-row">
 									{pair.showDate && (
 										<div
-											className="programs-slider__date-badge"
+											className="latest-program-timeline__date-badge"
 											style={{ backgroundImage: `url("${dateBrush.src}")` }}
 										>
 											{formatDate(pair.events[0].date)}
 										</div>
 									)}
-									<div className="programs-slider__divider-line" />
+									<div className="latest-program-timeline__divider-line" />
 									{pair.events.map((ev, i) => (
 										<div
 											key={i}
-											className="programs-slider__time-badge"
+											className="latest-program-timeline__time-badge"
 											style={
 												{
 													'--time-badge-left': positions[i],
@@ -165,22 +167,28 @@ export const LatestProgramTimeline = ({ data }: LatestProgramTimelineProps) => {
 										</div>
 									))}
 								</div>
-								<div className="programs-slider__badge-row" style={{ height: '100px' }}>
+								<div
+									className="latest-program-timeline__badge-row"
+									style={{ height: '100px' }}
+								>
 									{pair.events.map((ev, i) => (
 										<div
 											key={i}
-											className="programs-slider__event-title"
+											className="latest-program-timeline__event-title"
 											style={{ '--time-badge-left': positions[i] } as React.CSSProperties}
 										>
 											{ev.title}
 										</div>
 									))}
 								</div>
-								<div className="programs-slider__badge-row" style={{ height: '100px' }}>
+								<div
+									className="latest-program-timeline__badge-row"
+									style={{ height: '100px' }}
+								>
 									{pair.events.map((ev, i) => (
 										<div
 											key={i}
-											className="programs-slider__event-speakers"
+											className="latest-program-timeline__event-speakers"
 											style={{ '--time-badge-left': positions[i] } as React.CSSProperties}
 										>
 											{ev.speakers}

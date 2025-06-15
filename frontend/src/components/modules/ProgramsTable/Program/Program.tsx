@@ -1,12 +1,10 @@
 'use client';
 
-import {
-	AboutProgramComponent,
-	Program as ProgramModel,
-} from '@/types/apiModels/Program';
+import { Program as ProgramModel } from '@/types/apiModels/Program';
 import arrowRight from '@/assets/arrow-right.png';
 import Image from 'next/image';
 import './Program.scss';
+import { AboutProgramComponent } from '@/types/components/AboutProgramComponent';
 
 interface ProgramCardProps {
 	program: ProgramModel;
@@ -25,7 +23,7 @@ export default function Program({ program, color }: ProgramCardProps) {
 				<p className="program-card__year">{program.year}</p>
 				<p>{aboutProgram.title}</p>
 			</div>
-			<p className="program-card__description">{aboutProgram.description}</p>
+			<p className="program-card__description">{aboutProgram.text}</p>
 			<Image
 				className="program-card__arrow"
 				src={arrowRight}

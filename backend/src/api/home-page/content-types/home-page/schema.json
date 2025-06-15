@@ -19,10 +19,10 @@
       "type": "dynamiczone",
       "components": [
         "page-components.latest-program-timeline",
-        "page-components.latest-program",
         "page-components.animation-separator",
         "page-components.rich-text",
-        "page-components.hero-video"
+        "page-components.hero-video",
+        "page-components.program-slider"
       ]
     }
   }

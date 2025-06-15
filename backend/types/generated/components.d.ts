@@ -61,23 +61,23 @@ export interface PageComponentsHeroVideo extends Struct.ComponentSchema {
   };
 }
 
-export interface PageComponentsLatestProgram extends Struct.ComponentSchema {
-  collectionName: 'components_page_components_latest_programs';
-  info: {
-    displayName: 'Latest Program';
-    icon: 'file';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-  };
-}
-
 export interface PageComponentsLatestProgramTimeline
   extends Struct.ComponentSchema {
   collectionName: 'components_page_components_latest_program_timelines';
   info: {
     displayName: 'Latest Program Timeline';
     icon: 'clock';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponentsProgramSlider extends Struct.ComponentSchema {
+  collectionName: 'components_page_components_program_sliders';
+  info: {
+    displayName: 'programSlider';
+    icon: 'slideshow';
   };
   attributes: {
     title: Schema.Attribute.String;
@@ -106,8 +106,8 @@ export interface ProgramComponentsAboutProgram extends Struct.ComponentSchema {
     displayName: 'aboutProgram';
   };
   attributes: {
-    description: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
+    text: Schema.Attribute.RichText & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -215,8 +215,8 @@ declare module '@strapi/strapi' {
       'layout.header': LayoutHeader;
       'page-components.animation-separator': PageComponentsAnimationSeparator;
       'page-components.hero-video': PageComponentsHeroVideo;
-      'page-components.latest-program': PageComponentsLatestProgram;
       'page-components.latest-program-timeline': PageComponentsLatestProgramTimeline;
+      'page-components.program-slider': PageComponentsProgramSlider;
       'page-components.rich-text': PageComponentsRichText;
       'program-components.about-program': ProgramComponentsAboutProgram;
       'program-components.day-schedule': ProgramComponentsDaySchedule;

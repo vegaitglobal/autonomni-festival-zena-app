@@ -443,7 +443,6 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     components: Schema.Attribute.DynamicZone<
       [
         'page-components.latest-program-timeline',
-        'page-components.latest-program',
         'page-components.animation-separator',
         'page-components.rich-text',
         'page-components.hero-video',

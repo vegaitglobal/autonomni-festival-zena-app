@@ -2,7 +2,7 @@
 
 import { fetchContactPage } from '@/services/pageService';
 
-import SimpleText from '@/components/modules/SimpleText/SimpleText';
+import SimplePage from '@/components/modules/SimpleText/SimplePage';
 import { useResource } from '@/hooks/usePage';
 import { ContactPage } from '@/types/apiModels/ContactPage';
 import { useRouter } from 'next/navigation';
@@ -18,5 +18,5 @@ export default function Contact() {
 		router.push('/not-found');
 	}
 
-	return <SimpleText components={content!.components} />;
+	return <SimplePage components={content!.components} />;
 }

@@ -6,7 +6,7 @@ import {
 import { AboutProgramComponent } from '@/types/components/AboutProgramComponent';
 import { HeroVideoComponent } from '@/types/components/HeroVideoComponent';
 import { TextComponentData } from '@/types/components/TextComponent';
-import { SeparatorComponentData } from './components/SeparatorComponent';
+import { SeparatorComponentData } from '@/types/components/SeparatorComponent';
 import { ProgramImageSliderData } from './components/ProgramImageSliderData';
 
 export type ComponentData =
@@ -24,8 +24,9 @@ export type ComponentType =
 	| 'text'
 	| 'hero-video'
 	| 'rich-text'
-	| 'latest-program'
+	| 'program-slider'
 	| 'animation-separator'
+	| 'about-program'
 	| 'dialogue-slider';
 
 export interface PageData {

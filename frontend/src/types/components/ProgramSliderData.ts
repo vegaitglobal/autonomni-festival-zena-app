@@ -23,6 +23,7 @@ export interface DialogueSliderComponent extends BaseStrapiComponent {
 export interface ProgramTimelineComponent extends BaseStrapiComponent {
 	__component: 'program-components.program-timeline';
 	schedule?: ScheduleItem[];
+	title: string;
 }
 
 export interface ScheduleItem {

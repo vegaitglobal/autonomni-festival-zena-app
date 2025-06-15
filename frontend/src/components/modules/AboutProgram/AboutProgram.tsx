@@ -1,6 +1,6 @@
-import { AboutProgramComponent } from '@/types/components/ProgramSliderData';
 import ReactMarkdown from 'react-markdown';
 import './AboutProgram.scss';
+import { AboutProgramComponent } from '@/types/components/AboutProgramComponent';
 
 interface AboutProgramProps {
 	data: AboutProgramComponent;

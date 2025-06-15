@@ -8,11 +8,12 @@ import { TextComponent } from '@/components/modules/TextComponent/TextComponent'
 import { ProgramSlider } from '@/components/modules/ProgramSlider/ProgramSlider';
 import { Separator } from '@/components/modules/Separator/Separator';
 import { SeparatorComponentData } from '@/types/components/SeparatorComponent';
-import { AboutProgramComponent } from '@/types/components/AboutProgramComponent';
+
 import AboutProgram from '@/components/modules/AboutProgram/AboutProgram';
 import ProgramImageSlider from '@/components/modules/ProgramImageSlider/ProgramImageSlider';
 import { ProgramImageSliderData } from '@/types/components/ProgramImageSliderData';
 import { ProgramTimelineComponent } from '@/types/components/ProgramSliderData';
+import { AboutProgramComponent } from '@/types/components/AboutProgramComponent';
 
 const renderComponent = (componentData: ComponentData, index: number) => {
 	const componentType = componentData.__component.split('.')[1] as ComponentType;
@@ -33,12 +34,7 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 				/>
 			);
 		case 'program-slider':
-			return (
-				<ProgramSlider
-					key={`programs-slider-${index}`}
-					data={componentData as ProgramSliderData}
-				/>
-			);
+			return <ProgramSlider key={`programs-slider-${index}`} />;
 		case 'animation-separator':
 			return (
 				<Separator

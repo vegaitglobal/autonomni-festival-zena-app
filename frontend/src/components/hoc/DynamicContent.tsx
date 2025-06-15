@@ -1,6 +1,8 @@
 import { ComponentData, ComponentType } from '@/types/dynamicContent';
 import { TextComponentData } from '@/types/components/TextComponent';
 import { HeroVideoComponent } from '@/types/components/HeroVideoComponent';
+import { LatestProgramTimeline } from '../modules/LatestProgramTimeline/LatestProgramTimeline';
+import { ProgramSliderData } from '@/types/components/ProgramComponent';
 import { HeroVideo } from '@/components/modules/HeroVideo/HeroVideo';
 import { TextComponent } from '@/components/modules/TextComponent/TextComponent';
 import { ProgramSlider } from '@/components/modules/ProgramSlider/ProgramSlider';
@@ -10,6 +12,7 @@ import { AboutProgramComponent } from '@/types/components/AboutProgramComponent'
 import AboutProgram from '@/components/modules/AboutProgram/AboutProgram';
 import ProgramImageSlider from '@/components/modules/ProgramImageSlider/ProgramImageSlider';
 import { ProgramImageSliderData } from '@/types/components/ProgramImageSliderData';
+import { ProgramTimelineComponent } from '@/types/components/ProgramSliderData';
 
 const renderComponent = (componentData: ComponentData, index: number) => {
 	const componentType = componentData.__component.split('.')[1] as ComponentType;
@@ -18,7 +21,7 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 		case 'hero-video':
 			return (
 				<HeroVideo
-					data = {componentData as HeroVideoComponent}
+					data={componentData as HeroVideoComponent}
 					key={`hero-video-${index}`}
 				/>
 			);
@@ -30,7 +33,12 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 				/>
 			);
 		case 'program-slider':
-			return <ProgramSlider key={`program-slider-${index}`} />;
+			return (
+				<ProgramSlider
+					key={`programs-slider-${index}`}
+					data={componentData as ProgramSliderData}
+				/>
+			);
 		case 'animation-separator':
 			return (
 				<Separator
@@ -50,6 +58,13 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 				<ProgramImageSlider
 					key={`dialogue-slider-${index}`}
 					data={componentData as ProgramImageSliderData}
+				/>
+			);
+		case 'latest-program-timeline':
+			return (
+				<LatestProgramTimeline
+					key={`latest-program-timeline-${index}`}
+					data={componentData as ProgramTimelineComponent}
 				/>
 			);
 		default:

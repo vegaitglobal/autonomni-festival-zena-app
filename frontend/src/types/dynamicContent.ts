@@ -24,10 +24,12 @@ export type ComponentType =
 	| 'text'
 	| 'hero-video'
 	| 'rich-text'
+	| 'animation-separator'
 	| 'program-slider'
 	| 'animation-separator'
 	| 'about-program'
-	| 'dialogue-slider';
+	| 'dialogue-slider'
+	| 'latest-program-timeline';
 
 export interface PageData {
 	components: ComponentData[];

@@ -1,0 +1,15 @@
+@use '../../../scss/abstracts' as *;
+.program-image-slider {
+	margin: 200px 0;
+	position: relative;
+	z-index: 2;
+	.program-card__images {
+		width: 80%;
+		margin: 0 auto;
+	}
+	@include media-breakpoint-down(md) {
+		.program-card__images {
+			width: 100%;
+		}
+	}
+}

@@ -12,11 +12,13 @@ export default function ProgramsTable({ programs }: ProgramsTableProps) {
 	return (
 		<>
 			<div className="programs-table">
-				<h1 className="programs__title">PROGRAMI</h1>
-				{programs.map((program, index) => {
-					const color = index % 2 ? 'green' : 'yellow';
-					return <Program program={program} key={program.year} color={color} />;
-				})}
+				<div className="programs-table-wrapper background-layout">
+					<h1 className="programs__title">PROGRAMI</h1>
+					{programs.map((program, index) => {
+						const color = index % 2 ? 'green' : 'yellow';
+						return <Program program={program} key={program.year} color={color} />;
+					})}
+				</div>
 			</div>
 		</>
 	);

@@ -1,6 +1,6 @@
 import { DynamicContent } from '@/components/hoc/DynamicContent';
-import './SimpleText.scss';
 import { ComponentData } from '@/types/dynamicContent';
+import './SimpleText.scss';
 
 interface SimpleTextProps {
 	components: ComponentData[];

@@ -8,7 +8,7 @@ export default function NotFound({ ...props }) {
 	console.log(props);
 	return (
 		<div className="outer__wrapper">
-			<div className="container bg">
+			<div className="container background-layout bg">
 				<div className="wrapper">
 					<div className="imagesHolder">
 						{[...Array(4)].map((_, i) => (

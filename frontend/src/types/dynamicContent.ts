@@ -1,14 +1,32 @@
-import { HeroComponent } from './components/HeroComponent';
-import { HeroVideoTypes } from './components/HeroVideo';
-import { TextComponentData } from './components/TextComponent';
+import {
+	DialogueSliderComponent,
+	ProgramSliderData,
+	ProgramTimelineComponent,
+} from './components/ProgramSliderData';
+import { AboutProgramComponent } from '@/types/components/AboutProgramComponent';
+import { HeroVideoComponent } from '@/types/components/HeroVideoComponent';
+import { TextComponentData } from '@/types/components/TextComponent';
+import { SeparatorComponentData } from './components/SeparatorComponent';
+import { ProgramImageSliderData } from './components/ProgramImageSliderData';
 
 export type ComponentData =
-	| HeroComponent
 	| TextComponentData
-	| HeroVideoTypes
-	| TextComponentData;
+	| HeroVideoComponent
+	| AboutProgramComponent
+	| SeparatorComponentData
+	| ProgramSliderData
+	| ProgramImageSliderData
+	| DialogueSliderComponent
+	| ProgramTimelineComponent;
 
-export type ComponentType = 'hero' | 'text' | 'hero-video' | 'rich-text';
+export type ComponentType =
+	| 'hero'
+	| 'text'
+	| 'hero-video'
+	| 'rich-text'
+	| 'latest-program'
+	| 'animation-separator'
+	| 'dialogue-slider';
 
 export interface PageData {
 	components: ComponentData[];

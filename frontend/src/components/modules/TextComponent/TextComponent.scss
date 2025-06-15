@@ -1,9 +1,10 @@
 @use '../../../scss/abstracts' as *;
 
 .text-component {
-	width: calc(100% + 60px);
-	margin-left: -30px;
-	margin-bottom: 350px;
+	margin-bottom: 300px;
+	@include media-breakpoint-down(sm) {
+		margin-bottom: 150px;
+	}
 }
 
 .text-component-content-wrapper {

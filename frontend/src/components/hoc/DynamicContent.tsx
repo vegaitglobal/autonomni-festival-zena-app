@@ -1,10 +1,16 @@
 import { ComponentData, ComponentType } from '@/types/dynamicContent';
 import { TextComponentData } from '@/types/components/TextComponent';
-import { HeroVideoTypes } from '@/types/components/HeroVideo';
+import { HeroVideoComponent } from '@/types/components/HeroVideoComponent';
 import { HeroVideo } from '../modules/HeroVideo/HeroVideo';
 import { Suspense } from 'react';
 import HeroVideoSkeleton from '../modules/HeroVideo/HeroVideoSkeleton';
 import { TextComponent } from '../modules/TextComponent/TextComponent';
+import { ProgramSlider } from '../modules/ProgramSlider/ProgramSlider';
+import { ProgramSliderData } from '@/types/components/ProgramSliderData';
+import { Separator } from '../modules/Separator/Separator';
+import { SeparatorComponentData } from '@/types/components/SeparatorComponent';
+import ProgramImageSlider from '../modules/ProgramImageSlider/ProgramImageSlider';
+import { ProgramImageSliderData } from '@/types/components/ProgramImageSliderData';
 
 const renderComponent = (componentData: ComponentData, index: number) => {
 	const componentType = componentData.__component.split('.')[1] as ComponentType;
@@ -14,7 +20,7 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 			return (
 				<Suspense fallback={<HeroVideoSkeleton />} key={`hero-video-${index}`}>
 					<HeroVideo
-						data = {componentData as HeroVideoTypes}
+						data = {componentData as HeroVideoComponent}
 					/>
       			</Suspense>
 			);
@@ -23,6 +29,22 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 				<TextComponent
 					key={`rich-text-${index}`}
 					data={componentData as TextComponentData}
+				/>
+			);
+		case 'latest-program':
+			return <ProgramSlider key={`latest-program-${index}`} />;
+		case 'animation-separator':
+			return (
+				<Separator
+					key={`separator-${index}`}
+					data={componentData as SeparatorComponentData}
+				/>
+			);
+		case 'dialogue-slider':
+			return (
+				<ProgramImageSlider
+					key={`dialogue-slider-${index}`}
+					data={componentData as ProgramImageSliderData}
 				/>
 			);
 		default:

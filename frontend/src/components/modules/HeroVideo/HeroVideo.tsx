@@ -1,13 +1,13 @@
 // components/VideoPlayer.tsx
 import { useState, useRef } from 'react';
 
-import { HeroVideoTypes } from '@/types/components/HeroVideo';
+import { HeroVideoComponent } from '@/types/components/HeroVideoComponent';
 import { VideoOverlay } from './VideoOverlay'
 import './HeroVideo.scss';
 import React from 'react';
 
 interface HeroVideoProps {
-	data: HeroVideoTypes;
+	data: HeroVideoComponent;
 }
 
 export const HeroVideo = ({ data }: HeroVideoProps) => {

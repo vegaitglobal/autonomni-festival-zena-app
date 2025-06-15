@@ -1,17 +1,19 @@
 import { useLottie } from 'lottie-react';
-import './Animation.scss';
+
 interface AnimationProps {
 	animationData: object;
 	loop?: boolean;
 	autoplay?: boolean;
-	className?: string;
+	width?: number;
+	height?: number;
 }
 
 export const Animation = ({
 	animationData,
 	loop = true,
 	autoplay = true,
-	className,
+	height = 470,
+	width = 670,
 }: AnimationProps) => {
 	const options = {
 		animationData: animationData,
@@ -21,5 +23,15 @@ export const Animation = ({
 
 	const { View } = useLottie(options);
 
-	return <div className={className}>{View}</div>;
+	return (
+		<div
+			style={{
+				height: height,
+				width: width,
+				position: 'absolute',
+			}}
+		>
+			{View}
+		</div>
+	);
 };

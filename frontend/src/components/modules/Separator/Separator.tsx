@@ -13,11 +13,13 @@ export const Separator = ({ data }: SeparatorProps) => {
 	const separatorConfigs = {
 		logoBush: {
 			image: AnimationYellowLogo,
-			className: 'separator--bush',
+			height: 460,
+			width: 670,
 		},
 		logoStart: {
 			image: AnimationYellowLogo,
-			className: 'separator--star',
+			height: 460,
+			width: 670,
 		},
 	};
 
@@ -26,8 +28,12 @@ export const Separator = ({ data }: SeparatorProps) => {
 		separatorConfigs.logoStart;
 
 	return (
-		<div className={`separator ${config.className}`}>
-			<Animation animationData={config.image} className={config.className} />
+		<div className="separator">
+			<Animation
+				animationData={config.image}
+				height={config.height}
+				width={config.width}
+			/>
 		</div>
 	);
 };

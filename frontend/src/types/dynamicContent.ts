@@ -24,7 +24,7 @@ export type ComponentType =
 	| 'text'
 	| 'hero-video'
 	| 'rich-text'
-	| 'latest-program'
+	| 'program-slider'
 	| 'animation-separator'
 	| 'about-program'
 	| 'dialogue-slider';

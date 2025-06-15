@@ -29,8 +29,8 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 					data={componentData as TextComponentData}
 				/>
 			);
-		case 'latest-program':
-			return <ProgramSlider key={`latest-program-${index}`} />;
+		case 'program-slider':
+			return <ProgramSlider key={`program-slider-${index}`} />;
 		case 'animation-separator':
 			return (
 				<Separator

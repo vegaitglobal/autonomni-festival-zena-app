@@ -25,7 +25,7 @@ export default function Program({ program, color }: ProgramCardProps) {
 				<p className="program-card__year">{program.year}</p>
 				<p>{aboutProgram.title}</p>
 			</div>
-			<p className="program-card__description">{aboutProgram.description}</p>
+			<p className="program-card__description">{aboutProgram.text}</p>
 			<Image
 				className="program-card__arrow"
 				src={arrowRight}

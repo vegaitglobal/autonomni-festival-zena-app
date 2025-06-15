@@ -7,6 +7,11 @@
 	min-height: 500px;
 	margin-top: 50px;
 	margin-bottom: 50px;
+	padding-top: 100px;
+
+	@include media-breakpoint-down(md) {
+		padding-top: 30px;
+	}
 }
 
 .program-details-bg--pink {
@@ -57,14 +62,14 @@
 .program-details-top-img {
 	position: absolute;
 	right: 10%;
-	top: -15%;
-	height: 300;
-	width: 300;
+	height: 200;
+	width: 200;
+	top: -40;
 	z-index: 1;
 
-	@include media-breakpoint-down(md) {
+	@include media-breakpoint-down(sm) {
 		height: 150;
 		width: 150;
-		top: -8%;
+		top: -40;
 	}
 }

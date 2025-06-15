@@ -44,7 +44,7 @@ export default function ProgramDetails({ year }: ProgramDetailsProps) {
 						src={starDarkGreen}
 						height={100}
 						width={100}
-						alt="green bush"
+						alt="dark green star"
 					/>
 				);
 			case 'pink':

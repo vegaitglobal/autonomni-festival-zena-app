@@ -10,7 +10,7 @@ import { SeparatorComponentData } from '@/types/components/SeparatorComponent';
 
 const renderComponent = (componentData: ComponentData, index: number) => {
 	const componentType = componentData.__component.split('.')[1] as ComponentType;
-	console.log(componentData);
+
 	switch (componentType) {
 		case 'hero-video':
 			return (

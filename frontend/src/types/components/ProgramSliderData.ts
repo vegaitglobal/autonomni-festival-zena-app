@@ -4,7 +4,7 @@ export interface ProgramSliderData extends BaseComponent {
 	title: string;
 }
 
-interface BaseStrapiComponent {
+export interface BaseStrapiComponent {
 	id: number;
 	__component: string;
 }
@@ -12,7 +12,7 @@ interface BaseStrapiComponent {
 export interface AboutProgramComponent extends BaseStrapiComponent {
 	__component: 'program-components.about-program';
 	title: string;
-	description: string;
+	text: string;
 }
 
 export interface DialogueSliderComponent extends BaseStrapiComponent {

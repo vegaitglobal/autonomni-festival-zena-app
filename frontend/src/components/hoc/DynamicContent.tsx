@@ -1,12 +1,15 @@
 import { ComponentData, ComponentType } from '@/types/dynamicContent';
 import { TextComponentData } from '@/types/components/TextComponent';
 import { HeroVideoComponent } from '@/types/components/HeroVideoComponent';
-import { HeroVideo } from '../modules/HeroVideo/HeroVideo';
-import { TextComponent } from '../modules/TextComponent/TextComponent';
-import { ProgramSlider } from '../modules/ProgramSlider/ProgramSlider';
-import { ProgramSliderData } from '@/types/components/ProgramSliderData';
-import { Separator } from '../modules/Separator/Separator';
+import { HeroVideo } from '@/components/modules/HeroVideo/HeroVideo';
+import { TextComponent } from '@/components/modules/TextComponent/TextComponent';
+import { ProgramSlider } from '@/components/modules/ProgramSlider/ProgramSlider';
+import { Separator } from '@/components/modules/Separator/Separator';
 import { SeparatorComponentData } from '@/types/components/SeparatorComponent';
+import { AboutProgramComponent } from '@/types/components/AboutProgramComponent';
+import AboutProgram from '@/components/modules/AboutProgram/AboutProgram';
+import ProgramImageSlider from '@/components/modules/ProgramImageSlider/ProgramImageSlider';
+import { ProgramImageSliderData } from '@/types/components/ProgramImageSliderData';
 
 const renderComponent = (componentData: ComponentData, index: number) => {
 	const componentType = componentData.__component.split('.')[1] as ComponentType;
@@ -33,6 +36,20 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 				<Separator
 					key={`separator-${index}`}
 					data={componentData as SeparatorComponentData}
+				/>
+			);
+		case 'about-program':
+			return (
+				<AboutProgram
+					key={`about-program-${index}`}
+					data={componentData as AboutProgramComponent}
+				/>
+			);
+		case 'dialogue-slider':
+			return (
+				<ProgramImageSlider
+					key={`dialogue-slider-${index}`}
+					data={componentData as ProgramImageSliderData}
 				/>
 			);
 		default:

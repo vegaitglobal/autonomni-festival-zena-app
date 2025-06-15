@@ -1,0 +1,162 @@
+@use '../../../scss/abstracts' as *;
+
+.program-slider {
+	position: relative;
+	padding: 100px 0;
+	.swiper-pagination {
+		.swiper-pagination-bullet {
+			height: 30px;
+			width: 30px;
+			transform: scale(1);
+			background-color: transparent;
+			border: 1px solid $black;
+			left: 0 !important;
+		}
+		.swiper-pagination-bullet-active-main {
+			background-color: $pink-light;
+		}
+	}
+	&::after {
+		content: '';
+		position: absolute;
+		top: -65px;
+		left: 0;
+		width: 100%;
+		background-image: url('../../../assets/slider-top-image.png');
+		z-index: 0;
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		background-position: top center;
+		z-index: 0;
+		height: 100%;
+	}
+	&::before {
+		content: '';
+		position: absolute;
+		bottom: -65px;
+		left: 0;
+		width: 100%;
+		background-image: url('../../../assets/slider-bottom-image.png');
+		z-index: 0;
+		height: 100%;
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		background-position: bottom center;
+		z-index: 0;
+	}
+	@include media-breakpoint-down(md) {
+		padding: 50px 0;
+		&::before {
+			bottom: -50px;
+		}
+	}
+	@include media-breakpoint-down(sm) {
+		&::after {
+			top: -30px;
+		}
+		&::before {
+			bottom: -30px;
+		}
+	}
+}
+
+.program-slider--green {
+	background-color: $green-light;
+}
+
+.program-slider--pink {
+	background-color: $purle-light-background;
+}
+
+.program-card__image {
+	width: 100%;
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.program-card {
+	display: flex;
+	@include media-breakpoint-down(md) {
+		flex-direction: column;
+	}
+}
+
+.program-card__content {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 30px;
+	@include media-breakpoint-down(md) {
+		width: 100%;
+		margin-bottom: 50px;
+	}
+}
+
+.program-card__images {
+	width: 50%;
+	display: flex;
+	align-items: flex-start;
+	@include media-breakpoint-down(md) {
+		width: 100%;
+	}
+}
+
+.program-card__year {
+	font-size: 128px;
+	font-weight: $semi-bold;
+	@include media-breakpoint-down(md) {
+		font-size: 64px;
+	}
+}
+
+.program-card__tag {
+	font-size: 36px;
+	font-weight: $semi-bold;
+	text-transform: uppercase;
+	color: $pink-light;
+	@include media-breakpoint-down(md) {
+		font-size: 24px;
+	}
+}
+
+.program-card__title {
+	font-size: 40px;
+	font-weight: $light;
+	margin-bottom: 10px;
+	@include media-breakpoint-down(md) {
+		font-size: 24px;
+	}
+}
+
+.program-card__link {
+	color: $black;
+}
+
+.program-card__link-arrow {
+	margin-left: 10px;
+}
+
+.program-card__content-text {
+	margin: 100px 0;
+	@include media-breakpoint-down(md) {
+		margin: 50px 0;
+	}
+	@include media-breakpoint-down(sm) {
+		margin: 30px 0;
+	}
+}
+
+.program-slider__swiper {
+	@include media-breakpoint-down(sm) {
+		padding-bottom: 50px;
+	}
+}
+
+.program-slider__container {
+	.program-slider__swiper {
+		padding-bottom: 70px;
+	}
+}

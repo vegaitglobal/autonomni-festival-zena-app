@@ -11,3 +11,11 @@ export const fetchAboutUsPage = () =>
 export const fetchContactPage = () => fetchResource('contact-page')
 
 export const fetchNotFoundPage = () => fetchResource('not-found-page');
+
+export const fetchProgramsWithComponents = () =>
+    fetchResource('programs', [
+        'populate=components',
+        'populate=components.images',
+        'populate=components.schedule',
+        'populate=components.schedule.events',
+    ]);

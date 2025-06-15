@@ -3,6 +3,8 @@ import { TextComponentData } from '@/types/components/TextComponent';
 import { HeroVideoTypes } from '@/types/components/HeroVideo';
 import { HeroVideo } from '../modules/HeroVideo/HeroVideo';
 import { TextComponent } from '../modules/TextComponent/TextComponent';
+import { ProgramsSlider } from '../modules/LatestProgramTimeline/LatestProgram';
+import { ProgramSliderData } from '@/types/components/ProgramComponent';
 
 const renderComponent = (componentData: ComponentData, index: number) => {
 	const componentType = componentData.__component.split('.')[1] as ComponentType;
@@ -21,6 +23,12 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 					key={`rich-text-${index}`}
 					data={componentData as TextComponentData}
 				/>
+			);
+		case 'latest-program':
+			return (
+				<ProgramsSlider
+					key={`programs-slider-${index}`}
+					data={componentData as ProgramSliderData} />
 			);
 		default:
 			return null;

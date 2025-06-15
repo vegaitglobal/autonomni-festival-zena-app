@@ -551,11 +551,14 @@ export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    theme: Schema.Attribute.Enumeration<['green', 'pink']>;
+    theme: Schema.Attribute.Enumeration<['green', 'pink']> &
+      Schema.Attribute.DefaultTo<'green'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    year: Schema.Attribute.String;
+    year: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
   };
 }
 

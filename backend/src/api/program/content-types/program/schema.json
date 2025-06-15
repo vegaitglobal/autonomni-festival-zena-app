@@ -13,6 +13,7 @@
   "attributes": {
     "theme": {
       "type": "enumeration",
+      "default": "green",
       "enum": [
         "green",
         "pink"
@@ -27,7 +28,9 @@
       ]
     },
     "year": {
-      "type": "string"
+      "type": "integer",
+      "required": true,
+      "unique": true
     }
   }
 }

@@ -1,4 +1,5 @@
 import { useLottie } from 'lottie-react';
+import './Animation.scss';
 
 interface AnimationProps {
 	animationData: object;
@@ -25,12 +26,10 @@ export const Animation = ({
 
 	return (
 		<div
+			className="animation"
 			style={{
 				height: height,
 				width: width,
-				position: 'absolute',
-				// top: '-150%',
-				bottom: '-100%',
 			}}
 		>
 			{View}

@@ -12,19 +12,19 @@ interface ProgramsTableProps {
 
 export default function ProgramsTable({ programs }: ProgramsTableProps) {
 	const bgHeight = programs.length * 330;
-	const paddingTop = bgHeigh / 10;
+	const paddingTop = bgHeight / 10;
 	return (
 		<>
 			<div
 				className="programs-table"
-				style={{ height: bgHeigh, paddingTop: paddingTop }}
+				style={{ height: bgHeight, paddingTop: paddingTop }}
 			>
 				<Image
 					src={greenBackground}
 					alt="green background"
 					className="programs-table-bg"
 					width={1000}
-					height={bgHeigh}
+					height={bgHeight}
 				/>
 				<h1 className="programs__title">PROGRAMI</h1>
 				{programs.map((program, index) => {

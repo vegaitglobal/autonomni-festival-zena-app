@@ -7,6 +7,8 @@ import { ProgramSlider } from '../modules/ProgramSlider/ProgramSlider';
 import { ProgramSliderData } from '@/types/components/ProgramSliderData';
 import { Separator } from '../modules/Separator/Separator';
 import { SeparatorComponentData } from '@/types/components/SeparatorComponent';
+import ProgramImageSlider from '../modules/ProgramImageSlider/ProgramImageSlider';
+import { ProgramImageSliderData } from '@/types/components/ProgramImageSliderData';
 
 const renderComponent = (componentData: ComponentData, index: number) => {
 	const componentType = componentData.__component.split('.')[1] as ComponentType;
@@ -33,6 +35,13 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 				<Separator
 					key={`separator-${index}`}
 					data={componentData as SeparatorComponentData}
+				/>
+			);
+		case 'dialogue-slider':
+			return (
+				<ProgramImageSlider
+					key={`dialogue-slider-${index}`}
+					data={componentData as ProgramImageSliderData}
 				/>
 			);
 		default:

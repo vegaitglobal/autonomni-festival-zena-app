@@ -1,0 +1,32 @@
+@use '../../../scss/abstracts' as *;
+
+.program-details-bg {
+	position: relative;
+	width: 104%;
+	margin-left: -2%;
+	min-height: 500px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.program-details-bg--pink {
+	background-color: $purple-light-background;
+}
+
+.program-details-bg--green {
+	background-color: $green-light;
+}
+
+.program-details-top-img {
+	position: absolute;
+	right: 10%;
+	top: -15%;
+	height: 300;
+	width: 300;
+
+	@include media-breakpoint-down(md) {
+		height: 150;
+		width: 150;
+		top: -8%;
+	}
+}

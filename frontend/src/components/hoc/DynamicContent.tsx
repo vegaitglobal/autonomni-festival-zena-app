@@ -1,6 +1,6 @@
 import { ComponentData, ComponentType } from '@/types/dynamicContent';
 import { TextComponentData } from '@/types/components/TextComponent';
-import { HeroVideoTypes } from '@/types/components/HeroVideo';
+import { HeroVideoComponent } from '@/types/components/HeroVideoComponent';
 import { HeroVideo } from '../modules/HeroVideo/HeroVideo';
 import { TextComponent } from '../modules/TextComponent/TextComponent';
 
@@ -12,7 +12,7 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 			return (
 				<HeroVideo
 					key={`hero-video-${index}`}
-					data={componentData as HeroVideoTypes}
+					data={componentData as HeroVideoComponent}
 				/>
 			);
 		case 'rich-text':

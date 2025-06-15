@@ -1,12 +1,7 @@
-import { BaseAPIModel } from './BaseAPIModel';
-import { ComponentData } from '../dynamicContent';
+import { BaseAPIModel } from '@/types/apiModels/BaseAPIModel';
+import { ComponentData } from '@/types/dynamicContent';
 
-type ProgramTheme = 'green' | 'pink';
-
-export interface AboutProgram {
-	title: string;
-	description: string;
-}
+export type ProgramTheme = 'green' | 'pink';
 
 export interface Program extends BaseAPIModel {
 	year: string;

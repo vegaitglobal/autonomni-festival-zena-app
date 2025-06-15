@@ -1,7 +1,5 @@
-import GreenBush from '@/assets/greenBush.svg';
-import YellowLogo from '@/assets/logoYellow.svg';
-import OrangeLogo from '@/assets/orangeLogo.svg';
-import YellowStar from '@/assets/yellowStar.svg';
+import OrangeLogo from '@/assets/orangeLogoWithStar.svg';
+import YellowLogo from '@/assets/yellowLogoWithBush.svg';
 import { SeparatorComponentData } from '@/types/components/SeparatorComponent';
 import Image from 'next/image';
 import './Separator.scss';
@@ -15,13 +13,11 @@ export const Separator = ({ data }: SeparatorProps) => {
 
 	const separatorConfigs = {
 		logoBush: {
-			image: GreenBush,
-			logo: YellowLogo,
+			image: OrangeLogo,
 			className: 'separator--bush',
 		},
 		logoStart: {
-			image: YellowStar,
-			logo: OrangeLogo,
+			image: YellowLogo,
 			className: 'separator--star',
 		},
 	};
@@ -33,18 +29,11 @@ export const Separator = ({ data }: SeparatorProps) => {
 	return (
 		<div className={`separator ${config.className}`}>
 			<Image
-				src={config.logo.src}
-				alt="Autonomni Festival Zena Logo"
-				className="separator-logo"
-				width={400}
-				height={363}
-			/>
-			<Image
 				src={config.image.src}
-				alt="Decorative element"
-				className="separator-background-image"
-				width={240}
-				height={270}
+				alt="Combined AFŽ Logo and Background"
+				className="combined-separator-svg"
+				width={1}
+				height={1}
 			/>
 		</div>
 	);

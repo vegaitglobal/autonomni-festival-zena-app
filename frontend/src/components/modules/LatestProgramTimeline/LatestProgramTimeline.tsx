@@ -14,10 +14,10 @@ import { ProgramSliderData } from '@/types/components/ProgramComponent';
 import { Pagination } from 'swiper/modules';
 import dateBrush from '@/assets/date-brush-background.png';
 import eventTimeBg from '@/assets/event-time-background.png';
-import './LatestProgram.scss';
+import './LatestProgramTimeline.scss';
 import { useRouter } from 'next/navigation';
 
-interface LatestProgramProps {
+interface LatestProgramTimelineProps {
 	data: ProgramSliderData;
 }
 
@@ -47,7 +47,7 @@ type Entry = {
 	speakers: string;
 };
 
-export const ProgramsSlider = ({ data }: LatestProgramProps) => {
+export const LatestProgramTimeline = ({ data }: LatestProgramTimelineProps) => {
 	const router = useRouter();
 	const { content, loading, error } = useResource<Program[]>(
 		fetchProgramsWithComponents

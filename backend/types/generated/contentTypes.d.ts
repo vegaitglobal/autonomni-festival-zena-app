@@ -446,6 +446,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
         'page-components.animation-separator',
         'page-components.rich-text',
         'page-components.hero-video',
+        'page-components.program-slider',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

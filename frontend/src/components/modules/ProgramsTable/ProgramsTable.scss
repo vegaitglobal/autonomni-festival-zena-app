@@ -11,8 +11,6 @@
 	flex-direction: column;
 	background-color: $green;
 	padding: 50px 0;
-	width: calc(100% + 60px);
-	margin-left: -30px;
 	position: relative;
 	&::after {
 		content: '';
@@ -52,8 +50,6 @@
 		}
 	}
 	@include media-breakpoint-down(sm) {
-		width: calc(100% + 40px);
-		margin-left: -20px;
 		&::after {
 			top: -20px;
 		}

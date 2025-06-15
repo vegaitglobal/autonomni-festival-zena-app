@@ -1,12 +1,10 @@
-import React from 'react';
-
-const HeroVideoSkeleton = ({ aspectRatio = '16/9' }: { aspectRatio?: string }) => {
+export const HeroVideoSkeleton = ({ aspectRatio = '16/9' }: { aspectRatio?: string }) => {
   const containerStyle: React.CSSProperties = {
     position: 'relative',
     width: '100%',
     paddingBottom: `calc(100% / (${aspectRatio}))`,
-    backgroundColor: '#e0e0e0', // A light gray background for the skeleton
-    borderRadius: '8px', // Optional: adds rounded corners
+    backgroundColor: '#e0e0e0',
+    borderRadius: '8px',
     animation: 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
   };
 
@@ -27,5 +25,3 @@ const HeroVideoSkeleton = ({ aspectRatio = '16/9' }: { aspectRatio?: string }) =
     </div>
   );
 };
-
-export default HeroVideoSkeleton;

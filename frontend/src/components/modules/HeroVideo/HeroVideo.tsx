@@ -1,10 +1,11 @@
 // components/VideoPlayer.tsx
-import { useState, useRef } from 'react';
+import { useState, useRef, Suspense } from 'react';
 
 import { HeroVideoComponent } from '@/types/components/HeroVideoComponent';
 import { VideoOverlay } from './VideoOverlay'
 import './HeroVideo.scss';
 import React from 'react';
+import { HeroVideoSkeleton } from './HeroVideoSkeleton';
 
 interface HeroVideoProps {
 	data: HeroVideoComponent;
@@ -85,30 +86,32 @@ export const HeroVideo = ({ data }: HeroVideoProps) => {
 	}
 
   return (
-	<div className="hero-video">
-		<div className="hero-video__container">
-			{ data.video &&
-				<div onClick={handleVideoClick}>
-					<video
-						ref={videoRef}
-						className="hero-video__video"
-						src={`${process.env.NEXT_PUBLIC_API_MEDIA_URL}${data.video.url}`}
-						onEnded={handleVideoEnded}
-						preload="metadata"
-						playsInline
-					>
-						Vaš browser ne podržava video element.
-					</video>
-					<VideoOverlay isPlaying={isPlaying}/>
-				</div>
-			}
-			{ data.url && !data.video &&
-				<div onClick={togglePlayIFrame}>
-					<div id="youtube" className="hero-video__video"/>
-					<VideoOverlay isPlaying={isPlaying}/>
-				</div>
-			}
+	<Suspense fallback={<HeroVideoSkeleton />}>
+		<div className="hero-video">
+			<div className="hero-video__container">
+				{ data.video &&
+					<div onClick={handleVideoClick}>
+						<video
+							ref={videoRef}
+							className="hero-video__video"
+							src={`${process.env.NEXT_PUBLIC_API_MEDIA_URL}${data.video.url}`}
+							onEnded={handleVideoEnded}
+							preload="metadata"
+							playsInline
+						>
+							Vaš browser ne podržava video element.
+						</video>
+						<VideoOverlay isPlaying={isPlaying}/>
+					</div>
+				}
+				{ data.url && !data.video &&
+					<div onClick={togglePlayIFrame}>
+						<div id="youtube" className="hero-video__video"/>
+						<VideoOverlay isPlaying={isPlaying}/>
+					</div>
+				}
+			</div>
 		</div>
-    </div>
+	</Suspense>
   );
 };

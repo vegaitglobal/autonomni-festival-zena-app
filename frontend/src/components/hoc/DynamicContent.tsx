@@ -18,11 +18,10 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 	switch (componentType) {
 		case 'hero-video':
 			return (
-				<Suspense fallback={<HeroVideoSkeleton />} key={`hero-video-${index}`}>
-					<HeroVideo
-						data = {componentData as HeroVideoComponent}
-					/>
-      			</Suspense>
+				<HeroVideo
+					data = {componentData as HeroVideoComponent}
+					key={`hero-video-${index}`}
+				/>
 			);
 		case 'rich-text':
 			return (

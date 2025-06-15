@@ -39,7 +39,7 @@ export const ProgramSlider = () => {
 	});
 
 	return (
-		<section className={`program-slider program-slider--pink`}>
+		<section className={`program-slider background-layout program-slider--pink`}>
 			<div className="program-slider__container">
 				<Swiper
 					className="program-slider__swiper"

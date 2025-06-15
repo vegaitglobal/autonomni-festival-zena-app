@@ -1,9 +1,9 @@
 import { useState, useRef } from 'react';
-import { HeroVideoTypes } from '@/types/components/HeroVideo';
+import { HeroVideoComponent } from '@/types/components/HeroVideoComponent';
 import './HeroVideo.scss';
 
 interface HeroVideoProps {
-	data: HeroVideoTypes;
+	data: HeroVideoComponent;
 }
 
 export const HeroVideo = ({ data }: HeroVideoProps) => {
@@ -30,7 +30,7 @@ export const HeroVideo = ({ data }: HeroVideoProps) => {
 	};
 
 	return (
-		<div className="hero-video">
+		<section className="hero-video">
 			<div className="hero-video__container">
 				<video
 					ref={videoRef}
@@ -74,6 +74,6 @@ export const HeroVideo = ({ data }: HeroVideoProps) => {
 					</button>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };

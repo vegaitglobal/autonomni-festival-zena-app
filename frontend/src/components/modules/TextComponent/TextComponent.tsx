@@ -32,7 +32,7 @@ export const TextComponent = ({ data }: TextComponentProps) => {
 		colorConfigs[color as keyof typeof colorConfigs] || colorConfigs.beige;
 
 	return (
-		<section className={`text-component ${config.className}`}>
+		<section className={`text-component background-layout ${config.className}`}>
 			<div className="text-component-content-wrapper">
 				<div className="text-component__content">
 					<div className="text-component__content-wrap">

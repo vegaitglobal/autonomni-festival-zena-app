@@ -6,8 +6,10 @@ import { TextComponent } from '@/components/modules/TextComponent/TextComponent'
 import { ProgramSlider } from '@/components/modules/ProgramSlider/ProgramSlider';
 import { Separator } from '@/components/modules/Separator/Separator';
 import { SeparatorComponentData } from '@/types/components/SeparatorComponent';
-import { AboutProgramComponentWithIcon } from '@/types/components/AboutProgramComponent';
+import { AboutProgramComponent } from '@/types/components/AboutProgramComponent';
 import AboutProgram from '@/components/modules/AboutProgram/AboutProgram';
+import ProgramImageSlider from '@/components/modules/ProgramImageSlider/ProgramImageSlider';
+import { ProgramImageSliderData } from '@/types/components/ProgramImageSliderData';
 
 const renderComponent = (componentData: ComponentData, index: number) => {
 	const componentType = componentData.__component.split('.')[1] as ComponentType;
@@ -40,7 +42,14 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 			return (
 				<AboutProgram
 					key={`about-program-${index}`}
-					data={componentData as AboutProgramComponentWithIcon}
+					data={componentData as AboutProgramComponent}
+				/>
+			);
+		case 'dialogue-slider':
+			return (
+				<ProgramImageSlider
+					key={`dialogue-slider-${index}`}
+					data={componentData as ProgramImageSliderData}
 				/>
 			);
 		default:

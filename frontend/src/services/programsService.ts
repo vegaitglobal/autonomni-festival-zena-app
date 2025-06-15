@@ -1,6 +1,4 @@
-import { fetchResource } from './apiService';
-
-export const fetchPrograms = () => fetchResource('programs');
+import { fetchResource } from '@/services/apiService';
 
 export const fetchProgramsWithComponents = () =>
 	fetchResource('programs', [
@@ -9,3 +7,9 @@ export const fetchProgramsWithComponents = () =>
 		'populate=components.schedule',
 		'populate=components.schedule.events',
 	]);
+export const fetchPrograms = () => {
+	const queryParams = [
+		'populate[components][on][program-components.about-program][populate]=*',
+	];
+	return fetchResource('programs', queryParams);
+};

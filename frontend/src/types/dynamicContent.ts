@@ -1,13 +1,12 @@
-import { HeroComponent } from './components/HeroComponent';
-import { HeroVideoTypes } from './components/HeroVideo';
 import { ProgramSliderData } from './components/ProgramSliderData';
-import { TextComponentData } from './components/TextComponent';
+import { AboutProgramComponent } from '@/types/components/AboutProgramComponent';
+import { HeroVideoComponent } from '@/types/components/HeroVideoComponent';
+import { TextComponentData } from '@/types/components/TextComponent';
 
 export type ComponentData =
-	| HeroComponent
 	| TextComponentData
-	| HeroVideoTypes
-	| TextComponentData
+	| HeroVideoComponent
+	| AboutProgramComponent
 	| ProgramSliderData;
 
 export type ComponentType =

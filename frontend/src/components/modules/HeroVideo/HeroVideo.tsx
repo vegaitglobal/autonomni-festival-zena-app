@@ -1,9 +1,9 @@
 import { useState, useRef } from 'react';
-import { HeroVideoTypes } from '@/types/components/HeroVideo';
+import { HeroVideoComponent } from '@/types/components/HeroVideoComponent';
 import './HeroVideo.scss';
 
 interface HeroVideoProps {
-	data: HeroVideoTypes;
+	data: HeroVideoComponent;
 }
 
 export const HeroVideo = ({ data }: HeroVideoProps) => {

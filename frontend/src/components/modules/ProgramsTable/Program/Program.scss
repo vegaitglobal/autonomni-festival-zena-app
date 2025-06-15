@@ -2,12 +2,12 @@
 
 .program-card {
 	position: relative;
-	background-color: yellow;
 	width: 80%;
 	margin: 10px auto;
 	padding: 30px 50px 50px;
 	border-radius: 10;
 	color: black;
+	z-index: 2;
 
 	@include media-breakpoint-down(sm) {
 		width: 90%;

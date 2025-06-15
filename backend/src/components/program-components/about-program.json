@@ -6,10 +6,12 @@
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
-    "description": {
-      "type": "text"
+    "text": {
+      "type": "richtext",
+      "required": true
     }
   },
   "config": {}

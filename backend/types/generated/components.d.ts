@@ -105,8 +105,8 @@ export interface ProgramComponentsAboutProgram extends Struct.ComponentSchema {
     displayName: 'aboutProgram';
   };
   attributes: {
-    description: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
+    text: Schema.Attribute.RichText & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 

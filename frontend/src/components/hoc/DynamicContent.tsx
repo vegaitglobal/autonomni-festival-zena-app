@@ -18,8 +18,8 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 		case 'hero-video':
 			return (
 				<HeroVideo
+					data = {componentData as HeroVideoComponent}
 					key={`hero-video-${index}`}
-					data={componentData as HeroVideoComponent}
 				/>
 			);
 		case 'rich-text':

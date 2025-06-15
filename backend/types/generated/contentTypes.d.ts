@@ -442,11 +442,10 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   attributes: {
     components: Schema.Attribute.DynamicZone<
       [
-        'page-components.hero-video',
         'page-components.latest-program-timeline',
         'page-components.animation-separator',
         'page-components.rich-text',
-        'page-components.program-slider',
+        'page-components.hero-video',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

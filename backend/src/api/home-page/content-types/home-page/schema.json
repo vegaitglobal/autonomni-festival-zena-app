@@ -18,10 +18,10 @@
     "components": {
       "type": "dynamiczone",
       "components": [
-        "page-components.hero-video",
         "page-components.latest-program-timeline",
         "page-components.animation-separator",
         "page-components.rich-text",
+        "page-components.hero-video",
         "page-components.program-slider"
       ]
     }

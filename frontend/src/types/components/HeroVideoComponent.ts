@@ -4,5 +4,5 @@ export interface HeroVideoComponent extends BaseComponent {
 	video: {
 		url: string;
 	};
-	ctaLink: string;
+	url: string;
 }

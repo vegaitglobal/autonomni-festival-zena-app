@@ -3,8 +3,7 @@ import { TextComponentData } from '@/types/components/TextComponent';
 import { HeroVideoTypes } from '@/types/components/HeroVideo';
 import { HeroVideo } from '../modules/HeroVideo/HeroVideo';
 import { Suspense } from 'react';
-import VideoPlayerSkeleton from '../modules/VideoPlayer/VideoPlayerSkeleton';
-import { VideoPlayer } from '../modules/VideoPlayer/VideoPlayer';
+import HeroVideoSkeleton from '../modules/HeroVideo/HeroVideoSkeleton';
 import { TextComponent } from '../modules/TextComponent/TextComponent';
 
 const renderComponent = (componentData: ComponentData, index: number) => {
@@ -13,8 +12,8 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 	switch (componentType) {
 		case 'hero-video':
 			return (
-				<Suspense fallback={<VideoPlayerSkeleton />} key={`hero-video-${index}`}>
-					<VideoPlayer
+				<Suspense fallback={<HeroVideoSkeleton />} key={`hero-video-${index}`}>
+					<HeroVideo
 						data = {componentData as HeroVideoTypes}
 					/>
       			</Suspense>

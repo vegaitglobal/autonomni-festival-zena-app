@@ -57,6 +57,7 @@ export interface PageComponentsHeroVideo extends Struct.ComponentSchema {
   };
   attributes: {
     url: Schema.Attribute.String;
+    video: Schema.Attribute.Media<'videos'>;
   };
 }
 

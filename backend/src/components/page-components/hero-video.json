@@ -6,6 +6,13 @@
   },
   "options": {},
   "attributes": {
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
     "url": {
       "type": "string"
     }

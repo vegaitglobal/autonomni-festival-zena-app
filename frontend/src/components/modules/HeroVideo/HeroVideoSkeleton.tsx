@@ -1,8 +1,6 @@
-// components/VideoPlayerSkeleton.tsx
-
 import React from 'react';
 
-const VideoPlayerSkeleton = ({ aspectRatio = '16/9' }: { aspectRatio?: string }) => {
+const HeroVideoSkeleton = ({ aspectRatio = '16/9' }: { aspectRatio?: string }) => {
   const containerStyle: React.CSSProperties = {
     position: 'relative',
     width: '100%',
@@ -30,4 +28,4 @@ const VideoPlayerSkeleton = ({ aspectRatio = '16/9' }: { aspectRatio?: string })
   );
 };
 
-export default VideoPlayerSkeleton;
+export default HeroVideoSkeleton;

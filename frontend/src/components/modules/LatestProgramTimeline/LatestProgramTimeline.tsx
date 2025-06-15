@@ -120,7 +120,7 @@ export const LatestProgramTimeline = ({ data }: LatestProgramTimelineProps) => {
 	};
 
 	return (
-		<div className="programs-slider">
+		<div className="programs-slider background-layout">
 			<div className="programs-slider__header">
 				<h2 className="programs-slider__header-title">SATNICA {program.year}</h2>
 				<button

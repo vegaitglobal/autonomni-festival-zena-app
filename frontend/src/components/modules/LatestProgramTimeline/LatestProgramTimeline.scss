@@ -137,6 +137,7 @@
 		z-index: 2;
 		max-width: 320px;
 		min-width: 180px;
+		margin-left: 20px;
 		@include media-breakpoint-down(sm) {
 			top: -55%;
 			width: 100%;

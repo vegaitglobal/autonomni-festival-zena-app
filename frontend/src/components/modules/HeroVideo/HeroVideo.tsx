@@ -15,6 +15,32 @@ export const HeroVideo = ({ data }: HeroVideoProps) => {
 	const [isPlaying, setIsPlaying] = useState(false);
 	const videoRef = useRef<HTMLVideoElement>(null);
 
+	function getYouTubeVideoId(url: string): string | null {
+		try {
+			const urlObj = new URL(url);
+			const hostname = urlObj.hostname.replace('www.', '').replace('m.', '');
+			
+			if (hostname === 'youtube.com') {
+				if (urlObj.pathname === '/watch') {
+					return urlObj.searchParams.get('v');
+				}
+				const pathMatch = urlObj.pathname.match(/^\/(embed|shorts)\/([a-zA-Z0-9_-]{11})/);
+				if (pathMatch) {
+					return pathMatch[2];
+				}
+			} else if (hostname === 'youtu.be') {
+				const pathMatch = urlObj.pathname.match(/^\/([a-zA-Z0-9_-]{11})/);
+				if (pathMatch) {
+					return pathMatch[1];
+				}
+			}
+			
+			return null;
+		} catch (error) {
+			return null;
+		}
+	}
+
 	if (data.url && !data.video) {
 		const tag = document.createElement("script");
 		tag.id = "iframe-hero-video";
@@ -73,17 +99,6 @@ export const HeroVideo = ({ data }: HeroVideoProps) => {
 	const handleVideoEnded = () => {
 		setIsPlaying(false);
 	};
-
-	function getYouTubeVideoId(url: string): string | null {
-		const regExp = /(?:youtube\.com\/(?:[^\/]+\/.+\/|\?v=|v\/|embed\/|live\/)|youtu\.be\/)([^"&?\/\s]{11})/;
-		const match = url.match(regExp);
-
-		if (match && match[1]) {
-			return match[1];
-		} else {
-			return null;
-		}
-	}
 
   return (
 	<Suspense fallback={<HeroVideoSkeleton />}>

@@ -14,11 +14,9 @@ export const Separator = ({ data }: SeparatorProps) => {
 	const separatorConfigs = {
 		logoBush: {
 			image: OrangeLogo,
-			className: 'separator--bush',
 		},
 		logoStart: {
 			image: YellowLogo,
-			className: 'separator--star',
 		},
 	};
 
@@ -27,11 +25,11 @@ export const Separator = ({ data }: SeparatorProps) => {
 		separatorConfigs.logoStart;
 
 	return (
-		<div className={`separator ${config.className}`}>
+		<div className="separator">
 			<Image
 				src={config.image.src}
 				alt="Combined AFŽ Logo and Background"
-				className="combined-separator-svg"
+				className="separator__image"
 				width={1}
 				height={1}
 			/>

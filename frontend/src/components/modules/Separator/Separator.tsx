@@ -1,6 +1,7 @@
-import AnimationYellowLogo from '@/assets/AnimationYellowLogo.json';
+import OrangeLogo from '@/assets/orangeLogoWithStar.svg';
+import YellowLogo from '@/assets/yellowLogoWithBush.svg';
 import { SeparatorComponentData } from '@/types/components/SeparatorComponent';
-import { Animation } from '../Animation/Animation';
+import Image from 'next/image';
 import './Separator.scss';
 
 interface SeparatorProps {
@@ -12,14 +13,12 @@ export const Separator = ({ data }: SeparatorProps) => {
 
 	const separatorConfigs = {
 		logoBush: {
-			image: AnimationYellowLogo,
-			height: 460,
-			width: 670,
+			image: OrangeLogo,
+			className: 'separator--bush',
 		},
 		logoStart: {
-			image: AnimationYellowLogo,
-			height: 460,
-			width: 670,
+			image: YellowLogo,
+			className: 'separator--star',
 		},
 	};
 
@@ -28,11 +27,13 @@ export const Separator = ({ data }: SeparatorProps) => {
 		separatorConfigs.logoStart;
 
 	return (
-		<div className="separator">
-			<Animation
-				animationData={config.image}
-				height={config.height}
-				width={config.width}
+		<div className={`separator ${config.className}`}>
+			<Image
+				src={config.image.src}
+				alt="Combined AFŽ Logo and Background"
+				className="combined-separator-svg"
+				width={1}
+				height={1}
 			/>
 		</div>
 	);

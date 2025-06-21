@@ -12,7 +12,7 @@ import { Program } from '@/types/apiModels/Program';
 import { Pagination } from 'swiper/modules';
 import dateBrush from '@/assets/date-brush-background.png';
 import eventTimeBg from '@/assets/event-time-background.png';
-import './LatestProgramTimeline.scss';
+import './ProgramTimeline.scss';
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import { findLatestProgram } from '@/services/programService';
@@ -43,7 +43,7 @@ type Entry = {
 	speakers: string;
 };
 
-export const LatestProgramTimeline = () => {
+export const ProgramTimeline = () => {
 	const router = useRouter();
 	const currentPathname = usePathname();
 

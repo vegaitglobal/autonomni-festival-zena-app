@@ -1,7 +1,7 @@
 import { ComponentData, ComponentType } from '@/types/dynamicContent';
 import { TextComponentData } from '@/types/components/TextComponent';
 import { HeroVideoComponent } from '@/types/components/HeroVideoComponent';
-import { LatestProgramTimeline } from '../modules/LatestProgramTimeline/LatestProgramTimeline';
+import { ProgramTimeline } from '../modules/ProgramTimeline/ProgramTimeline';
 import { HeroVideo } from '@/components/modules/HeroVideo/HeroVideo';
 import { TextComponent } from '@/components/modules/TextComponent/TextComponent';
 import { ProgramSlider } from '@/components/modules/ProgramSlider/ProgramSlider';
@@ -55,11 +55,7 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 			);
 		case 'latest-program-timeline':
 		case 'program-timeline':
-			return (
-				<LatestProgramTimeline
-					key={`latest-program-timeline-${index}`}
-				/>
-			);
+			return <ProgramTimeline key={`latest-program-timeline-${index}`} />;
 		default:
 			return null;
 	}

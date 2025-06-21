@@ -32,8 +32,8 @@ export const findLatestProgram = (programs: Program[]): Program | null => {
 	const today = new Date();
 	today.setHours(0, 0, 0, 0);
 
-	let closestFutureProgram: Program | null = null;
-	let closestFutureDate: Date | null = null;
+	let latestProgram: Program | null = null;
+	let latestDate: Date | null = null;
 
 	programs.forEach((program) => {
 		const timelineComponent = program.components?.find(
@@ -45,15 +45,16 @@ export const findLatestProgram = (programs: Program[]): Program | null => {
 				const scheduleDate = new Date(scheduleItem.date);
 				scheduleDate.setHours(0, 0, 0, 0);
 
-				if (scheduleDate >= today) {
-					if (!closestFutureDate || scheduleDate < closestFutureDate) {
-						closestFutureDate = scheduleDate;
-						closestFutureProgram = program;
-					}
+				// Update latest program if:
+				// 1. We haven't found any date yet, OR
+				// 2. This date is more recent than our current latest date
+				if (!latestDate || scheduleDate > latestDate) {
+					latestDate = scheduleDate;
+					latestProgram = program;
 				}
 			});
 		}
 	});
 
-	return closestFutureProgram || programs[0];
+	return latestProgram;
 };

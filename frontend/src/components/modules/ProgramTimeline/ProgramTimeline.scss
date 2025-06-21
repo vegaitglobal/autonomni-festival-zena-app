@@ -1,6 +1,6 @@
 @use '../../../scss/abstracts' as *;
 
-.latest-program-timeline {
+.program-timeline {
 	position: relative;
 	margin-bottom: 200px;
 
@@ -75,8 +75,10 @@
 			font-size: 27px;
 			font-weight: 700;
 			color: #fff;
+			z-index: 1;
 			@include media-breakpoint-down(sm) {
-				font-size: 18px;
+				font-size: 20px;
+				padding: 20px 0 40px;
 			}
 		}
 
@@ -142,7 +144,7 @@
 		z-index: 2;
 		max-width: 320px;
 		min-width: 180px;
-		margin-left: 20px;
+		margin-left: 50px;
 		@include media-breakpoint-down(sm) {
 			top: -55%;
 			width: 100%;
@@ -199,7 +201,7 @@
 		top: 48%;
 		left: var(--time-badge-left);
 		transform: translateX(-50%);
-		max-width: 300px;
+		width: 300px;
 		text-align: left;
 		font-size: 18px;
 		font-weight: 500;
@@ -274,6 +276,6 @@
 	}
 }
 
-.latest-program-timeline__header-button {
+.program-timeline__header-button {
 	z-index: 10;
 }

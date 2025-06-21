@@ -75,8 +75,9 @@ export const ProgramTimeline = () => {
 	if (loading) return <div>loading</div>;
 	if (error) return <div>error</div>;
 
-	const latest = findLatestProgram(content!);
-	const program = Array.isArray(latest) ? latest[0] : latest;
+	const program = findLatestProgram(content!);
+
+	if (!program) return null;
 
 	interface ProgramComponent {
 		__component: string;
@@ -109,7 +110,7 @@ export const ProgramTimeline = () => {
 		}
 	});
 
-	const positions = isMobile ? ['50%'] : ['30%', '70%'];
+	const positions = isMobile ? ['50%'] : ['40%', '75%'];
 	const formatDate = (d: Date): string => {
 		const weekday = d.toLocaleDateString('sr-Latn-RS', { weekday: 'long' });
 		const day = String(d.getDate()).padStart(2, '0');
@@ -118,11 +119,11 @@ export const ProgramTimeline = () => {
 	};
 
 	function renderGoToButton() {
-		const nextPathname = `/programs/${program.year}`;
+		const nextPathname = `/programs/${program!.year}`;
 		if (nextPathname != currentPathname) {
 			return (
 				<button
-					className="latest-program-timeline__header-button"
+					className="program-timeline__header-button"
 					onClick={() => router.push(nextPathname)}
 				/>
 			);
@@ -130,39 +131,37 @@ export const ProgramTimeline = () => {
 	}
 
 	return (
-		<div className="latest-program-timeline background-layout">
-			<div className="latest-program-timeline__header">
-				<h2 className="latest-program-timeline__header-title">
-					SATNICA {program.year}
-				</h2>
+		<div className="program-timeline background-layout">
+			<div className="program-timeline__header">
+				<h2 className="program-timeline__header-title">SATNICA {program.year}</h2>
 				{renderGoToButton()}
 			</div>
-			<div className="latest-program-timeline__container">
+			<div className="program-timeline__container">
 				<Swiper
 					modules={[Pagination]}
 					pagination={{ clickable: true, dynamicBullets: true }}
 					spaceBetween={0}
 					slidesPerView={1}
 					onSwiper={(s) => (swiperRef.current = s)}
-					className="latest-program-timeline__swiper"
+					className="program-timeline__swiper"
 				>
 					{eventPairs.map((pair, slideIdx) => (
 						<SwiperSlide key={slideIdx}>
-							<div className="latest-program-timeline__slide">
-								<div className="latest-program-timeline__badge-row">
+							<div className="program-timeline__slide">
+								<div className="program-timeline__badge-row">
 									{pair.showDate && (
 										<div
-											className="latest-program-timeline__date-badge"
+											className="program-timeline__date-badge"
 											style={{ backgroundImage: `url("${dateBrush.src}")` }}
 										>
 											{formatDate(pair.events[0].date)}
 										</div>
 									)}
-									<div className="latest-program-timeline__divider-line" />
+									<div className="program-timeline__divider-line" />
 									{pair.events.map((ev, i) => (
 										<div
 											key={i}
-											className="latest-program-timeline__time-badge"
+											className="program-timeline__time-badge"
 											style={
 												{
 													'--time-badge-left': positions[i],
@@ -175,13 +174,13 @@ export const ProgramTimeline = () => {
 									))}
 								</div>
 								<div
-									className="latest-program-timeline__badge-row"
+									className="program-timeline__badge-row"
 									style={{ height: '100px' }}
 								>
 									{pair.events.map((ev, i) => (
 										<div
 											key={i}
-											className="latest-program-timeline__event-title"
+											className="program-timeline__event-title"
 											style={{ '--time-badge-left': positions[i] } as React.CSSProperties}
 										>
 											{ev.title}
@@ -189,13 +188,13 @@ export const ProgramTimeline = () => {
 									))}
 								</div>
 								<div
-									className="latest-program-timeline__badge-row"
+									className="program-timeline__badge-row"
 									style={{ height: '100px' }}
 								>
 									{pair.events.map((ev, i) => (
 										<div
 											key={i}
-											className="latest-program-timeline__event-speakers"
+											className="program-timeline__event-speakers"
 											style={{ '--time-badge-left': positions[i] } as React.CSSProperties}
 										>
 											{ev.speakers}

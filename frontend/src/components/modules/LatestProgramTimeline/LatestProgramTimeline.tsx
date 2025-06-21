@@ -15,7 +15,7 @@ import dateBrush from '@/assets/date-brush-background.png';
 import eventTimeBg from '@/assets/event-time-background.png';
 import './LatestProgramTimeline.scss';
 import { useRouter } from 'next/navigation';
-
+import { usePathname } from 'next/navigation';
 
 type TimelineComponent = Extract<
 	Program['components'][number],
@@ -45,6 +45,8 @@ type Entry = {
 
 export const LatestProgramTimeline = () => {
 	const router = useRouter();
+	const currentPathname = usePathname();
+
 	const { content, loading, error } = useResource<Program[]>(
 		fetchProgramsWithComponents
 	);
@@ -115,16 +117,25 @@ export const LatestProgramTimeline = () => {
 		return `${weekday} ${day}.${month}.`;
 	};
 
+	function renderGoToButton() {
+		const nextPathname = `/programs/${program.year}`;
+		if (nextPathname != currentPathname) {
+			return (
+				<button
+					className="latest-program-timeline__header-button"
+					onClick={() => router.push(nextPathname)}
+				/>
+			);
+		}
+	}
+
 	return (
 		<div className="latest-program-timeline background-layout">
 			<div className="latest-program-timeline__header">
 				<h2 className="latest-program-timeline__header-title">
 					SATNICA {program.year}
 				</h2>
-				<button
-					className="latest-program-timeline__header-button"
-					onClick={() => router.push(`/programs/${program.year}`)}
-				/>
+				{renderGoToButton()}
 			</div>
 			<div className="latest-program-timeline__container">
 				<Swiper

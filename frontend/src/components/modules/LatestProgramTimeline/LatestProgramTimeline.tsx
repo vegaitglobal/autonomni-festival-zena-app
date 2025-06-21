@@ -10,16 +10,12 @@ import { useResource } from '@/hooks/usePage';
 import { findLatestProgram } from '@/services/latestProgramService';
 import { fetchProgramsWithComponents } from '@/services/pageService';
 import { Program } from '@/types/apiModels/Program';
-import { ProgramSliderData } from '@/types/components/ProgramComponent';
 import { Pagination } from 'swiper/modules';
 import dateBrush from '@/assets/date-brush-background.png';
 import eventTimeBg from '@/assets/event-time-background.png';
 import './LatestProgramTimeline.scss';
 import { useRouter } from 'next/navigation';
 
-interface LatestProgramTimelineProps {
-	data: ProgramSliderData;
-}
 
 type TimelineComponent = Extract<
 	Program['components'][number],
@@ -47,7 +43,7 @@ type Entry = {
 	speakers: string;
 };
 
-export const LatestProgramTimeline = ({ data }: LatestProgramTimelineProps) => {
+export const LatestProgramTimeline = () => {
 	const router = useRouter();
 	const { content, loading, error } = useResource<Program[]>(
 		fetchProgramsWithComponents

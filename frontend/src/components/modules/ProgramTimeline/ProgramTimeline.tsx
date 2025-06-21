@@ -7,19 +7,18 @@ import 'swiper/css/pagination';
 import { useRef, useEffect, useState } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
 import { useResource } from '@/hooks/usePage';
-import { findLatestProgram } from '@/services/latestProgramService';
-import { fetchProgramsWithComponents } from '@/services/pageService';
 import { Program } from '@/types/apiModels/Program';
-import { ProgramSliderData } from '@/types/components/ProgramComponent';
 import { Pagination } from 'swiper/modules';
 import dateBrush from '@/assets/date-brush-background.png';
 import eventTimeBg from '@/assets/event-time-background.png';
-import './LatestProgramTimeline.scss';
+import './ProgramTimeline.scss';
 import { useRouter } from 'next/navigation';
-
-interface LatestProgramTimelineProps {
-	data: ProgramSliderData;
-}
+import { usePathname } from 'next/navigation';
+import {
+	fetchProgramsWithComponents,
+	findLatestProgram,
+	findProgramByYear,
+} from '@/services/programService';
 
 type TimelineComponent = Extract<
 	Program['components'][number],
@@ -47,11 +46,15 @@ type Entry = {
 	speakers: string;
 };
 
-export const LatestProgramTimeline = ({ data }: LatestProgramTimelineProps) => {
+export const ProgramTimeline = () => {
 	const router = useRouter();
-	const { content, loading, error } = useResource<Program[]>(
-		fetchProgramsWithComponents
-	);
+	const currentPathname = usePathname();
+
+	const {
+		content: programs,
+		loading,
+		error,
+	} = useResource<Program[]>(fetchProgramsWithComponents);
 	const swiperRef = useRef<SwiperType | null>(null);
 	const [isMobile, setIsMobile] = useState(false);
 
@@ -77,8 +80,24 @@ export const LatestProgramTimeline = ({ data }: LatestProgramTimelineProps) => {
 	if (loading) return <div>loading</div>;
 	if (error) return <div>error</div>;
 
-	const latest = findLatestProgram(content!);
-	const program = Array.isArray(latest) ? latest[0] : latest;
+	function getProgram(): Program | null {
+		if (currentPathname == '/') {
+			return findLatestProgram(programs!);
+		}
+
+		const segments = currentPathname.split('/').filter(Boolean);
+		const lastSegment = segments[segments.length - 1];
+		const isYear = /^\d{4}$/.test(lastSegment);
+		if (isYear) {
+			return findProgramByYear(programs!, parseInt(lastSegment));
+		}
+
+		return null;
+	}
+
+	const program = getProgram();
+
+	if (!program) return null;
 
 	interface ProgramComponent {
 		__component: string;
@@ -111,7 +130,7 @@ export const LatestProgramTimeline = ({ data }: LatestProgramTimelineProps) => {
 		}
 	});
 
-	const positions = isMobile ? ['50%'] : ['30%', '70%'];
+	const positions = isMobile ? ['50%'] : ['40%', '75%'];
 	const formatDate = (d: Date): string => {
 		const weekday = d.toLocaleDateString('sr-Latn-RS', { weekday: 'long' });
 		const day = String(d.getDate()).padStart(2, '0');
@@ -119,43 +138,50 @@ export const LatestProgramTimeline = ({ data }: LatestProgramTimelineProps) => {
 		return `${weekday} ${day}.${month}.`;
 	};
 
-	return (
-		<div className="latest-program-timeline background-layout">
-			<div className="latest-program-timeline__header">
-				<h2 className="latest-program-timeline__header-title">
-					SATNICA {program.year}
-				</h2>
+	function renderGoToButton() {
+		const nextPathname = `/programs/${program!.year}`;
+		if (nextPathname != currentPathname) {
+			return (
 				<button
-					className="latest-program-timeline__header-button"
-					onClick={() => router.push(`/programs/${program.year}`)}
+					className="program-timeline__header-button"
+					onClick={() => router.push(nextPathname)}
 				/>
+			);
+		}
+	}
+
+	return (
+		<div className="program-timeline background-layout">
+			<div className="program-timeline__header">
+				<h2 className="program-timeline__header-title">SATNICA {program.year}</h2>
+				{renderGoToButton()}
 			</div>
-			<div className="latest-program-timeline__container">
+			<div className="program-timeline__container">
 				<Swiper
 					modules={[Pagination]}
 					pagination={{ clickable: true, dynamicBullets: true }}
 					spaceBetween={0}
 					slidesPerView={1}
 					onSwiper={(s) => (swiperRef.current = s)}
-					className="latest-program-timeline__swiper"
+					className="program-timeline__swiper"
 				>
 					{eventPairs.map((pair, slideIdx) => (
 						<SwiperSlide key={slideIdx}>
-							<div className="latest-program-timeline__slide">
-								<div className="latest-program-timeline__badge-row">
+							<div className="program-timeline__slide">
+								<div className="program-timeline__badge-row">
 									{pair.showDate && (
 										<div
-											className="latest-program-timeline__date-badge"
+											className="program-timeline__date-badge"
 											style={{ backgroundImage: `url("${dateBrush.src}")` }}
 										>
 											{formatDate(pair.events[0].date)}
 										</div>
 									)}
-									<div className="latest-program-timeline__divider-line" />
+									<div className="program-timeline__divider-line" />
 									{pair.events.map((ev, i) => (
 										<div
 											key={i}
-											className="latest-program-timeline__time-badge"
+											className="program-timeline__time-badge"
 											style={
 												{
 													'--time-badge-left': positions[i],
@@ -168,13 +194,13 @@ export const LatestProgramTimeline = ({ data }: LatestProgramTimelineProps) => {
 									))}
 								</div>
 								<div
-									className="latest-program-timeline__badge-row"
+									className="program-timeline__badge-row"
 									style={{ height: '100px' }}
 								>
 									{pair.events.map((ev, i) => (
 										<div
 											key={i}
-											className="latest-program-timeline__event-title"
+											className="program-timeline__event-title"
 											style={{ '--time-badge-left': positions[i] } as React.CSSProperties}
 										>
 											{ev.title}
@@ -182,13 +208,13 @@ export const LatestProgramTimeline = ({ data }: LatestProgramTimelineProps) => {
 									))}
 								</div>
 								<div
-									className="latest-program-timeline__badge-row"
+									className="program-timeline__badge-row"
 									style={{ height: '100px' }}
 								>
 									{pair.events.map((ev, i) => (
 										<div
 											key={i}
-											className="latest-program-timeline__event-speakers"
+											className="program-timeline__event-speakers"
 											style={{ '--time-badge-left': positions[i] } as React.CSSProperties}
 										>
 											{ev.speakers}

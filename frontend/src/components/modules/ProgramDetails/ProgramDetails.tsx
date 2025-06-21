@@ -1,7 +1,7 @@
 'use client';
 
 import { useResource } from '@/hooks/usePage';
-import { fetchProgramByYear } from '@/services/programsService';
+import { fetchProgramByYear } from '@/services/programService';
 import { Program } from '@/types/apiModels/Program';
 import Image from 'next/image';
 import { DynamicContent } from '@/components/hoc/DynamicContent';

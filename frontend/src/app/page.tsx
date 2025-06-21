@@ -8,8 +8,6 @@ import { HomePage } from '@/types/apiModels/HomePage';
 export default function Home() {
 	const { content, loading, error } = useResource<HomePage>(fetchHomePage);
 
-	console.log('home content', content);
-
 	if (loading) {
 		return <div>Loading...</div>;
 	}

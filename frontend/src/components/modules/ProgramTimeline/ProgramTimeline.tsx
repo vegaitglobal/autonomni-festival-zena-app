@@ -15,7 +15,10 @@ import eventTimeBg from '@/assets/event-time-background.png';
 import './ProgramTimeline.scss';
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
-import { findLatestProgram } from '@/services/programService';
+import {
+	findLatestProgram,
+	findProgramByYear,
+} from '@/services/programService';
 
 type TimelineComponent = Extract<
 	Program['components'][number],
@@ -47,9 +50,11 @@ export const ProgramTimeline = () => {
 	const router = useRouter();
 	const currentPathname = usePathname();
 
-	const { content, loading, error } = useResource<Program[]>(
-		fetchProgramsWithComponents
-	);
+	const {
+		content: programs,
+		loading,
+		error,
+	} = useResource<Program[]>(fetchProgramsWithComponents);
 	const swiperRef = useRef<SwiperType | null>(null);
 	const [isMobile, setIsMobile] = useState(false);
 
@@ -75,7 +80,22 @@ export const ProgramTimeline = () => {
 	if (loading) return <div>loading</div>;
 	if (error) return <div>error</div>;
 
-	const program = findLatestProgram(content!);
+	function getProgram(): Program | null {
+		if (currentPathname == '/') {
+			return findLatestProgram(programs!);
+		}
+
+		const segments = currentPathname.split('/').filter(Boolean);
+		const lastSegment = segments[segments.length - 1];
+		const isYear = /^\d{4}$/.test(lastSegment);
+		if (isYear) {
+			return findProgramByYear(programs!, parseInt(lastSegment));
+		}
+
+		return null;
+	}
+
+	const program = getProgram();
 
 	if (!program) return null;
 

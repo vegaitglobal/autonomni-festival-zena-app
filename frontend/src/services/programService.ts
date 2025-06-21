@@ -58,3 +58,23 @@ export const findLatestProgram = (programs: Program[]): Program | null => {
 
 	return latestProgram;
 };
+
+export const findProgramByYear = (
+	programs: Program[],
+	year: number
+): Program | null => {
+	if (!programs || programs.length === 0) return null;
+
+	const filteredPrograms = programs.filter((program) => {
+		const timelineComponent = program.components?.find(
+			(comp) => comp.__component === 'program-components.program-timeline'
+		);
+
+		return timelineComponent?.schedule?.some((scheduleItem) => {
+			const scheduleDate = new Date(scheduleItem.date);
+			return scheduleDate.getFullYear() === year;
+		});
+	});
+
+	return filteredPrograms.length > 0 ? filteredPrograms[0] : null;
+};

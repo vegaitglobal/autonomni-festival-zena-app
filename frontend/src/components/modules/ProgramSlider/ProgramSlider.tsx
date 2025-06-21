@@ -1,7 +1,7 @@
 'use client';
 
 import { useResource } from '@/hooks/usePage';
-import { fetchProgramsWithComponents } from '@/services/programsService';
+import { fetchProgramsWithComponents } from '@/services/programService';
 import { Program } from '@/types/apiModels/Program';
 import { ProgramSliderData } from '@/types/components/ProgramSliderData';
 import { useRef } from 'react';

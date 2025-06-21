@@ -2,7 +2,7 @@
 
 import ProgramsTable from '@/components/modules/ProgramsTable/ProgramsTable';
 import { useResource } from '@/hooks/usePage';
-import { fetchPrograms } from '@/services/programsService';
+import { fetchPrograms } from '@/services/programService';
 import { Program } from '@/types/apiModels/Program';
 
 export default function Programs() {

@@ -7,7 +7,6 @@ import 'swiper/css/pagination';
 import { useRef, useEffect, useState } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
 import { useResource } from '@/hooks/usePage';
-import { findLatestProgram } from '@/services/latestProgramService';
 import { fetchProgramsWithComponents } from '@/services/pageService';
 import { Program } from '@/types/apiModels/Program';
 import { Pagination } from 'swiper/modules';
@@ -16,6 +15,7 @@ import eventTimeBg from '@/assets/event-time-background.png';
 import './LatestProgramTimeline.scss';
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
+import { findLatestProgram } from '@/services/programService';
 
 type TimelineComponent = Extract<
 	Program['components'][number],

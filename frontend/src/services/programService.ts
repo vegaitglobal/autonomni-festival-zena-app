@@ -1,20 +1,22 @@
 import { fetchResource } from '@/services/apiService';
 import { Program } from '@/types/apiModels/Program';
 
-export const fetchProgramsWithComponents = () => {
-	return fetchResource('programs', [
+export const fetchProgramsWithComponents = async (): Promise<Program[]> => {
+	const programs = await fetchResource('programs', [
 		'populate=components',
 		'populate=components.images',
 		'populate=components.schedule',
 		'populate=components.schedule.events',
 	]);
+	return sortProgramsDesc(programs);
 };
 
-export const fetchPrograms = () => {
+export const fetchPrograms = async (): Promise<Program[]> => {
 	const queryParams = [
 		'populate[components][on][program-components.about-program][populate]=*',
 	];
-	return fetchResource('programs', queryParams);
+	const programs = await fetchResource('programs', queryParams);
+	return sortProgramsDesc(programs);
 };
 
 export const fetchProgramByYear = async (year: number) => {
@@ -69,4 +71,11 @@ export const findProgramByYear = (
 		return program.year === year;
 	});
 	return filteredPrograms.length > 0 ? filteredPrograms[0] : null;
+};
+
+export const sortProgramsDesc = (programs: Program[]): Program[] => {
+	return [...programs].sort((a, b) => {
+		// Sort in descending order (newest first)
+		return b.year - a.year;
+	});
 };

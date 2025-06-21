@@ -7,7 +7,6 @@ import 'swiper/css/pagination';
 import { useRef, useEffect, useState } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
 import { useResource } from '@/hooks/usePage';
-import { fetchProgramsWithComponents } from '@/services/pageService';
 import { Program } from '@/types/apiModels/Program';
 import { Pagination } from 'swiper/modules';
 import dateBrush from '@/assets/date-brush-background.png';
@@ -16,6 +15,7 @@ import './ProgramTimeline.scss';
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import {
+	fetchProgramsWithComponents,
 	findLatestProgram,
 	findProgramByYear,
 } from '@/services/programService';

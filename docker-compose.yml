@@ -22,6 +22,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile.nextjs
+      target: development
     env_file:
       - .env
     ports:
@@ -34,7 +35,7 @@ services:
 
   postgres:
     container_name: afz-postgres
-    image: postgres:15
+    image: postgres:17
     env_file:
       - .env
     volumes:

@@ -1,18 +1,15 @@
 import { ComponentData, ComponentType } from '@/types/dynamicContent';
 import { TextComponentData } from '@/types/components/TextComponent';
 import { HeroVideoComponent } from '@/types/components/HeroVideoComponent';
-import { LatestProgramTimeline } from '../modules/LatestProgramTimeline/LatestProgramTimeline';
-import { ProgramSliderData } from '@/types/components/ProgramComponent';
+import { ProgramTimeline } from '../modules/ProgramTimeline/ProgramTimeline';
 import { HeroVideo } from '@/components/modules/HeroVideo/HeroVideo';
 import { TextComponent } from '@/components/modules/TextComponent/TextComponent';
 import { ProgramSlider } from '@/components/modules/ProgramSlider/ProgramSlider';
 import { Separator } from '@/components/modules/Separator/Separator';
 import { SeparatorComponentData } from '@/types/components/SeparatorComponent';
-
 import AboutProgram from '@/components/modules/AboutProgram/AboutProgram';
 import ProgramImageSlider from '@/components/modules/ProgramImageSlider/ProgramImageSlider';
 import { ProgramImageSliderData } from '@/types/components/ProgramImageSliderData';
-import { ProgramTimelineComponent } from '@/types/components/ProgramSliderData';
 import { AboutProgramComponent } from '@/types/components/AboutProgramComponent';
 
 const renderComponent = (componentData: ComponentData, index: number) => {
@@ -58,12 +55,7 @@ const renderComponent = (componentData: ComponentData, index: number) => {
 			);
 		case 'latest-program-timeline':
 		case 'program-timeline':
-			return (
-				<LatestProgramTimeline
-					key={`latest-program-timeline-${index}`}
-					data={componentData as ProgramTimelineComponent}
-				/>
-			);
+			return <ProgramTimeline key={`latest-program-timeline-${index}`} />;
 		default:
 			return null;
 	}

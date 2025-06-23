@@ -5,7 +5,6 @@ import '../NotFound/not-found.scss';
 
 export default function NotFound({ ...props }) {
 	const router = useRouter();
-	console.log(props);
 	return (
 		<div className="outer__wrapper">
 			<div className="container background-layout bg">

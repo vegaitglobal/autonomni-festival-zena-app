@@ -1,9 +1,8 @@
 'use client';
 
 import { useResource } from '@/hooks/usePage';
-import { fetchProgramsWithComponents } from '@/services/programsService';
+import { fetchProgramsWithComponents } from '@/services/programService';
 import { Program } from '@/types/apiModels/Program';
-import { ProgramSliderData } from '@/types/components/ProgramSliderData';
 import { useRef } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
@@ -16,9 +15,11 @@ import './ProgramSlider.scss';
 
 export const ProgramSlider = () => {
 	const swiperRef = useRef<SwiperType | null>(null);
-	const { content, loading, error } = useResource<Program[]>(
-		fetchProgramsWithComponents
-	);
+	const {
+		content: programs,
+		loading,
+		error,
+	} = useResource<Program[]>(fetchProgramsWithComponents);
 
 	if (loading) {
 		return <div>Loading...</div>;
@@ -28,15 +29,7 @@ export const ProgramSlider = () => {
 		return <div>Error: {error}</div>;
 	}
 
-	if (!content || content.length === 0) {
-		return <div>No content available</div>;
-	}
-
-	const sortedContent = [...content].sort((a, b) => {
-		const yearA = parseInt(a.year);
-		const yearB = parseInt(b.year);
-		return yearA - yearB;
-	});
+	if (!programs || programs.length === 0) return null;
 
 	return (
 		<section className={`program-slider background-layout program-slider--pink`}>
@@ -51,7 +44,7 @@ export const ProgramSlider = () => {
 					slidesPerView={1}
 					onSwiper={(swiper) => (swiperRef.current = swiper)}
 				>
-					{sortedContent.map((program: Program) => (
+					{programs.map((program: Program) => (
 						<SwiperSlide key={program.id}>
 							<ProgramSlideCard program={program} />
 						</SwiperSlide>

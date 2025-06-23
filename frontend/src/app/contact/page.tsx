@@ -6,17 +6,20 @@ import SimplePage from '@/components/modules/SimpleText/SimplePage';
 import { useResource } from '@/hooks/usePage';
 import { ContactPage } from '@/types/apiModels/ContactPage';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function Contact() {
 	const { content, loading, error } = useResource<ContactPage>(fetchContactPage);
 
 	const router = useRouter();
 
-	if (loading) return <div>Loading...</div>;
-	if (error) return <div>Error: {error}</div>;
-	if (!content) {
-		router.push('/not-found');
-	}
+useEffect(() => {
+		if (error || (!loading && !content)) {
+			router.push('/not-found');
+		}
+	}, [error, content, loading, router]);
+
+	if (loading || error) return null;
 
 	return <SimplePage components={content!.components} />;
 }

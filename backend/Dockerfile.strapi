@@ -1,10 +1,61 @@
-FROM node:22
+########################################
+############### BUILDER ################
+########################################
+FROM node:22 AS builder
 
 WORKDIR /srv/app
 
-COPY . .
-RUN npm install
+# Copy package files first for better caching
+COPY package.json package-lock.json ./
 
+# Install all dependencies (including devDependencies)
+RUN npm install --frozen-lockfile
+
+# Copy remaining files
+COPY . .
+
+########################################
+############# DEVELOPMENT ##############
+########################################
+FROM node:22 AS development
+
+WORKDIR /srv/app
+
+# Copy from builder
+COPY --from=builder /srv/app /srv/app
+
+# Expose Strapi dev port
 EXPOSE 1337
 
+# Start in development mode with hot reload
 CMD ["npm", "run", "develop"]
+
+########################################
+############## PRODUCTION ##############
+########################################
+FROM node:22-alpine AS production
+
+WORKDIR /srv/app
+
+# Copy production files
+COPY --from=builder /srv/app/package.json       /srv/app/package-lock.json ./
+COPY --from=builder /srv/app/node_modules       ./node_modules
+COPY --from=builder /srv/app/config             ./config
+COPY --from=builder /srv/app/src                ./src
+COPY --from=builder /srv/app/public             ./public
+#COPY --from=builder /srv/app/.env.production    ./.env
+
+# Install only production dependencies (clean devDependencies)
+RUN npm prune --production
+
+# Runtime user for security (non-root)
+RUN addgroup -g 1001 -S strapi && \
+    adduser -u 1001 -S strapi -G strapi && \
+    chown -R strapi:strapi /srv/app
+USER strapi
+
+# Expose Strapi port
+EXPOSE 1337
+
+# Start in production mode
+CMD ["npm", "start"]

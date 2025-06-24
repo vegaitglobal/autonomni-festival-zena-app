@@ -5,6 +5,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile.strapi
+      target: development
     env_file:
       - .env
     ports:
@@ -35,7 +36,7 @@ services:
 
   postgres:
     container_name: afz-postgres
-    image: postgres:17
+    image: postgres:15 # TODO: Update to 17
     env_file:
       - .env
     volumes:

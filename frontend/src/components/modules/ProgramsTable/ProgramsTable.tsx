@@ -9,15 +9,28 @@ interface ProgramsTableProps {
 }
 
 export default function ProgramsTable({ programs }: ProgramsTableProps) {
+
+	function renderProgram() {
+		if (!programs.length) {
+			return (
+				<p className="programs__no-programs">
+					Trenutno nije objavljen nijedan program
+				</p>
+			)
+		}
+
+		return programs.map((program, index) => {
+			const color = index % 2 ? 'green' : 'yellow';
+			return <Program program={program} key={program.year} color={color} />;
+		});
+	}
+
 	return (
 		<>
 			<div className="programs-table">
 				<div className="programs-table-wrapper background-layout">
 					<h1 className="programs__title">PROGRAMI</h1>
-					{programs.map((program, index) => {
-						const color = index % 2 ? 'green' : 'yellow';
-						return <Program program={program} key={program.year} color={color} />;
-					})}
+					{renderProgram()}
 				</div>
 			</div>
 		</>

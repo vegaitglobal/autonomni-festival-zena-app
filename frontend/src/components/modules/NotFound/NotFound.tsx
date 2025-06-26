@@ -3,8 +3,13 @@ import { useRouter } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import '../NotFound/not-found.scss';
 
-export default function NotFound({ ...props }) {
+interface NotFoundProps {
+	content?: string;
+}
+
+export default function NotFound({ content }: NotFoundProps) {
 	const router = useRouter();
+
 	return (
 		<div className="outer__wrapper">
 			<div className="container background-layout bg">
@@ -21,7 +26,7 @@ export default function NotFound({ ...props }) {
 						></button>
 					</div>
 					<h1 className="errorCode">404</h1>
-					<ReactMarkdown>{props.content}</ReactMarkdown>
+					{content && <ReactMarkdown>{content}</ReactMarkdown>}
 				</div>
 			</div>
 		</div>

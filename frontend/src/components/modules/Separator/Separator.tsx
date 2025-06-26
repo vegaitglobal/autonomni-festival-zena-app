@@ -1,5 +1,5 @@
-import OrangeLogo from '@/assets/orangeLogoWithStar.svg';
-import YellowLogo from '@/assets/yellowLogoWithBush.svg';
+import logoStarSVG from '@/assets/orangeLogoWithStar.svg';
+import logoBushSVG from '@/assets/yellowLogoWithBush.svg';
 import { SeparatorComponentData } from '@/types/components/SeparatorComponent';
 import Image from 'next/image';
 import './Separator.scss';
@@ -13,10 +13,10 @@ export const Separator = ({ data }: SeparatorProps) => {
 
 	const separatorConfigs = {
 		logoBush: {
-			image: OrangeLogo,
+			image: logoBushSVG,
 		},
 		logoStart: {
-			image: YellowLogo,
+			image: logoStarSVG,
 		},
 	};
 

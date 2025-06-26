@@ -1,8 +1,6 @@
-// components/VideoPlayer.tsx
 import { useState, useRef, Suspense } from 'react';
-
 import { HeroVideoComponent } from '@/types/components/HeroVideoComponent';
-import { VideoOverlay } from './VideoOverlay'
+import { VideoOverlay } from './VideoOverlay';
 import './HeroVideo.scss';
 import React from 'react';
 import { HeroVideoSkeleton } from './HeroVideoSkeleton';
@@ -19,7 +17,7 @@ export const HeroVideo = ({ data }: HeroVideoProps) => {
 		try {
 			const urlObj = new URL(url);
 			const hostname = urlObj.hostname.replace('www.', '').replace('m.', '');
-			
+
 			if (hostname === 'youtube.com') {
 				if (urlObj.pathname === '/watch') {
 					return urlObj.searchParams.get('v');
@@ -34,28 +32,31 @@ export const HeroVideo = ({ data }: HeroVideoProps) => {
 					return pathMatch[1];
 				}
 			}
-			
+
 			return null;
+
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		} catch (error) {
 			return null;
 		}
 	}
 
 	if (data.url && !data.video) {
-		const tag = document.createElement("script");
-		tag.id = "iframe-hero-video";
-		tag.src = "https://www.youtube.com/iframe_api";
-		const [firstScriptTag] = document?.getElementsByTagName("script");
-		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-		let player;
+		const tag = document.createElement('script');
+		tag.id = 'iframe-hero-video';
+		tag.src = 'https://www.youtube.com/iframe_api';
+		const [firstScriptTag] = document?.getElementsByTagName('script');
+		firstScriptTag.parentNode!.insertBefore(tag, firstScriptTag);
 
 		window.onPlayerStateChange = (event) => {
 			if (event.data === 0) {
-				handleVideoEnded()
+				handleVideoEnded();
 			}
 		};
+
 		window.onYouTubeIframeAPIReady = () => {
-			player = new window.YT.Player("youtube", {
+			// @ts-expect-error YT is defined by the YouTube API script
+			new window.YT.Player('youtube', {
 				width: 1280,
 				height: 720,
 				videoId: getYouTubeVideoId(data.url),
@@ -66,17 +67,19 @@ export const HeroVideo = ({ data }: HeroVideoProps) => {
 					frameborder: 0,
 				},
 				events: {
-					onStateChange: window.onPlayerStateChange
-				}
+					onStateChange: window.onPlayerStateChange,
+				},
 			});
 		};
-	} 
+	}
 
 	const togglePlayIFrame = () => {
-		const element = document.getElementById("youtube");
-		const func = isPlaying ? "pauseVideo" : "playVideo";
+		const element = document.getElementById('youtube');
+		const func = isPlaying ? 'pauseVideo' : 'playVideo';
 
-		element?.contentWindow.postMessage(`{"event":"command","func":"${func}","args":""}`, '*');
+		(element as HTMLIFrameElement)?.contentWindow?.postMessage(
+			`{"event":"command","func":"${func}","args":""}`, '*'
+		);
 
 		setIsPlaying(!isPlaying);
 	};
@@ -90,7 +93,7 @@ export const HeroVideo = ({ data }: HeroVideoProps) => {
 			}
 			setIsPlaying(!isPlaying);
 		}
-	}
+	};
 
 	const handleVideoClick = () => {
 		togglePlay();

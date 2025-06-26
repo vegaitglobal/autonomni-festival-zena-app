@@ -26,12 +26,6 @@ export interface Header {
 	menuLinks: MenuLinks;
 }
 
-interface FooterLink {
-	id: number;
-	label: string;
-	href: string;
-}
-
 interface FooterLogo {
 	id: number;
 	name: string;

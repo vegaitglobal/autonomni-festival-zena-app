@@ -1,28 +1,26 @@
 import { Program } from '@/types/apiModels/Program';
-import { useRef } from 'react';
-import type { Swiper as SwiperType } from 'swiper';
 import arrowRight from '@/assets/arrow-right.png';
 import Image from 'next/image';
 import { ImageSwiper } from '../ImageSwiper/ImageSwiper';
+import { AboutProgramComponent } from '@/types/components/AboutProgramComponent';
+import { DialogueSliderComponent, ProgramTimelineComponent } from '@/types/components/ProgramSliderData';
 
 interface ProgramSlideCardProps {
 	program: Program;
 }
 
 export const ProgramSlideCard = ({ program }: ProgramSlideCardProps) => {
-	const swiperRef = useRef<SwiperType | null>(null);
-
 	const aboutComponent = program.components?.find(
-		(comp) => comp.__component === 'program-components.about-program'
-	);
+		(comp) => comp.__component === 'program-components.about-program',
+	) as AboutProgramComponent;
 
 	const timelineComponent = program.components?.find(
-		(comp) => comp.__component === 'program-components.program-timeline'
-	);
+		(comp) => comp.__component === 'program-components.program-timeline',
+	) as ProgramTimelineComponent;
 
 	const dialogueComponent = program.components?.find(
-		(comp) => comp.__component === 'program-components.dialogue-slider'
-	);
+		(comp) => comp.__component === 'program-components.dialogue-slider',
+	) as DialogueSliderComponent;
 
 	const year = program.year;
 	const title = aboutComponent?.title;

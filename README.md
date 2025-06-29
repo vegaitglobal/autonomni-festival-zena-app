@@ -46,13 +46,18 @@ A website for the Autonomous Women's Festival (originally "Autonomni Festival
    <br/><br/>
 
 5. Start the containers:
+   <br/><br/>
+    - **development** mode:
+       ```bash
+       docker compose up -d
+       ```
+    - **production** mode:
+        ```bash
+        docker compose -f docker-compose.prod.yml up -d
+        ```
 
-   ```bash
-   docker compose up -d
-   ```
-
-   Now you should be able to access the app in your web browser
-   at http://localhost:3000, and admin panel at http://localhost:1337
+    Now you should be able to access the app in your web browser
+    at http://localhost:3000, and admin panel at http://localhost:1337
 
 ### Allow Next.js to communicate with Strapi
 
@@ -68,8 +73,16 @@ step.**
 4. Copy the new token
 5. Set the token to the environment variable `NEXT_PUBLIC_API_TOKEN` in the
    `.env` file
-6. Restart containers:
+6. If running the project **in development mode, restart containers**:
 
    ```bash
    docker compose down && docker compose up -d
+   ```
+   Otherwise, if running **in production mode, first rebuild the Next.js app**:
+   ```bash
+    docker compose -f docker-compose.prod.yml build frontend --no-cache
+    ```
+   and then **restart the containers**:
+   ```bash
+    docker compose -f docker-compose.prod.yml up -d
    ```

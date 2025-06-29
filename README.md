@@ -35,7 +35,14 @@ A website for the Autonomous Women's Festival (originally "Autonomni Festival
    ```
 
    You can customize the environment variables in the `.env` file, but the
-   defaults should work fine for most users.
+   defaults should work fine for most users during development.
+
+   **However, if you are running the app in production, you should change the
+   `DATABASE_HOST` variable to the database service name defined in
+   `docker-compose.prod.yml`.** Service names in `docker-compose.yml`
+   and `docker-compose.prod.yml` are different because of the potential Docker
+   resource name conflicts. **Also, make sure to change values for database
+   credentials, tokens, and other sensitive information as needed.**
    <br/><br/>
 
 5. Start the containers:

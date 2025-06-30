@@ -46,6 +46,7 @@ COPY --from=builder /srv/app/config             ./config
 COPY --from=builder /srv/app/src                ./src
 COPY --from=builder /srv/app/public             ./public
 COPY --from=builder /srv/app/tsconfig.json      ./tsconfig.json
+COPY --from=builder /srv/app/.env.production    ./.env.production
 
 # Install TypeScript and build the project before pruning devDependencies
 RUN npm install -g typescript && \

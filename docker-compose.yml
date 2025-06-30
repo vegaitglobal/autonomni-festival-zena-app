@@ -8,13 +8,13 @@ services:
       target: development
     ports:
       - "1337:1337"
-    depends_on:
-      - postgres
     volumes:
       - ./backend:/srv/app
     command: sh -c "npm install && npm run dev"
     networks:
       - app-network
+    depends_on:
+      - postgres
 
   nextjs:
     container_name: afz-nextjs

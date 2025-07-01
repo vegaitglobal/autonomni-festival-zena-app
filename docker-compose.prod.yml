@@ -1,0 +1,42 @@
+services:
+
+  backend:
+    container_name: afz-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.strapi
+      target: production
+    ports:
+      - "1337:1337"
+    networks:
+      - app-network
+    depends_on:
+      - database
+
+  frontend:
+    container_name: afz-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.nextjs
+      target: production
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+  database:
+    container_name: afz-database
+    image: postgres:17
+    env_file:
+      - ./database/.env.production
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+volumes:
+  db_data:
+
+networks:
+  app-network:
+    driver: bridge

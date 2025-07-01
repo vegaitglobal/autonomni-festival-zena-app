@@ -5,25 +5,23 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile.strapi
-    env_file:
-      - .env
+      target: development
     ports:
       - "1337:1337"
-    depends_on:
-      - postgres
     volumes:
       - ./backend:/srv/app
     command: sh -c "npm install && npm run dev"
     networks:
       - app-network
+    depends_on:
+      - postgres
 
   nextjs:
     container_name: afz-nextjs
     build:
       context: ./frontend
       dockerfile: Dockerfile.nextjs
-    env_file:
-      - .env
+      target: development
     ports:
       - "3000:3000"
     volumes:
@@ -34,9 +32,9 @@ services:
 
   postgres:
     container_name: afz-postgres
-    image: postgres:15
+    image: postgres:17
     env_file:
-      - .env
+      - ./database/.env.development
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:

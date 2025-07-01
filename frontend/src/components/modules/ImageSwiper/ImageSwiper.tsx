@@ -7,8 +7,14 @@ import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 
+interface ImageType {
+	id?: string | number;
+	url: string;
+	alternativeText?: string;
+}
+
 interface ImageSwiperProps {
-	images: any[];
+	images: ImageType[];
 	showButton?: boolean;
 	className?: string;
 	spaceBetween?: number;
@@ -19,16 +25,17 @@ interface ImageSwiperProps {
 	imageClassName?: string;
 }
 
-export const ImageSwiper = ({
-	images,
-	showButton = true,
-	className,
-	spaceBetween = 10,
-	slidesPerView = 1.2,
-	buttonClassName,
-	imageClassName,
-	altText = '',
-}: ImageSwiperProps) => {
+export const ImageSwiper = (props: ImageSwiperProps) => {
+	const {
+		images,
+		showButton = true,
+		className,
+		spaceBetween = 10,
+		slidesPerView = 1.2,
+		buttonClassName,
+		imageClassName,
+		altText = '',
+	} = props;
 	const swiperRef = useRef<SwiperType | null>(null);
 
 	const handleNextSlide = () => {

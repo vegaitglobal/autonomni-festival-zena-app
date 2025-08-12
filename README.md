@@ -101,3 +101,36 @@ step.**
            ```bash
             docker compose -f docker-compose.prod.yml up -d
            ```
+
+## Set up the project with Node.js environment
+
+The above [Quick Start](#-quick-start) section describes how to set up the
+project using Docker with Docker Compose. This section will show you how to set
+it up backend and fronted with Node.js, but keep the database in a Docker
+container. Below are the steps for setting up the project in **production
+environment**:
+
+1. Install [Docker Engine](https://docs.docker.com/engine/) and
+   [Docker Compose](https://docs.docker.com/compose/) if you're using
+   Linux, or [Docker Desktop](https://docs.docker.com/desktop/) if you're
+   using Windows or macOS.
+   <br/><br/>
+2. [Install Node.js](https://nodejs.org/en/download)
+   <br/><br/>
+3. Create `.env` file based on `.env.development` in `database/` dir:
+   ```bash
+   cp database/.env.development database/.env
+   ```
+   Make sure to set proper values to the environment variables in `.env` file.
+   <br/><br/>
+4. Install TypeScript and build the backend:
+   ```bash
+   npm install -g typescript \
+   npm run build \
+   npm prune --production
+   ```
+
+5. Start the backend:
+   ```bash
+   npm start
+   ```

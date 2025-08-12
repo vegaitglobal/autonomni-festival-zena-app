@@ -106,7 +106,7 @@ step.**
 
 The above [Quick Start](#-quick-start) section describes how to set up the
 project using Docker with Docker Compose. This section will show you how to set
-it up backend and fronted with Node.js, but keep the database in a Docker
+it up backend and frontend with Node.js, but keep the database in a Docker
 container. Below are the steps for setting up the project in **production
 environment**:
 

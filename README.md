@@ -125,7 +125,7 @@ environment**:
 
 3. Start the database container:
    ```bash
-   docker compose -f database/docker-compose.db.yml up -d
+   docker compose -f docker-compose.db.yml up -d
    ```
 
 ### 2. Set up backend:

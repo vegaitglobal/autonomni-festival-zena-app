@@ -1,0 +1,14 @@
+services:
+
+  database:
+    container_name: afz-database
+    image: postgres:17
+    env_file:
+      - ./database/.env
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  db_data:

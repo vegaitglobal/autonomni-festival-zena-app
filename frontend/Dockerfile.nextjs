@@ -30,8 +30,6 @@ COPY . .
 RUN npm install --frozen-lockfile
 RUN npm run build
 
-CMD ["tail", "-f", "/dev/null"]
-
 ########################################
 ############## PRODUCTION ##############
 ########################################

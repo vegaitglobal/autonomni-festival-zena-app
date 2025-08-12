@@ -110,27 +110,86 @@ it up backend and fronted with Node.js, but keep the database in a Docker
 container. Below are the steps for setting up the project in **production
 environment**:
 
+### 1. Set up database:
+
 1. Install [Docker Engine](https://docs.docker.com/engine/) and
    [Docker Compose](https://docs.docker.com/compose/) if you're using
    Linux, or [Docker Desktop](https://docs.docker.com/desktop/) if you're
    using Windows or macOS.
    <br/><br/>
-2. [Install Node.js](https://nodejs.org/en/download)
-   <br/><br/>
-3. Create `.env` file based on `.env.development` in `database/` dir:
+
+2. Create `.env` file based on `.env.development` in `database/` dir:
    ```bash
    cp database/.env.development database/.env
    ```
-   Make sure to set proper values to the environment variables in `.env` file.
-   <br/><br/>
-4. Install TypeScript and build the backend:
+
+3. Start the database container:
    ```bash
-   npm install -g typescript \
-   npm run build \
-   npm prune --production
+   docker compose -f database/docker-compose.db.yml up -d
    ```
 
-5. Start the backend:
+### 2. Set up backend:
+
+1. [Install Node.js](https://nodejs.org/en/download)
+   <br/><br/>
+
+2. Go to the `backend/` directory:
+   ```bash
+   cd backend
+   ```
+
+3. Create `.env` file based on `.env.development`:
+   ```bash
+   cp .env.development .env
+   ```
+
+4. Install dependencies:
+   ```bash
+   npm install --frozen-lockfile
+   ```
+
+5. Build the backend:
+   ```bash
+   npm run build
+   ```
+
+6. Start the backend:
+
+   ```bash
+   npm start
+   ```
+
+7. Regenerate the API token in Strapi and set it to the environment variable
+   `NEXT_PUBLIC_API_TOKEN` in the frontend (see the
+   [Allow Next.js to communicate with Strapi](#allow-nextjs-to-communicate-with-strapi)
+   section above, but skip restarting of the frontend container at the end).
+
+### 3. Set up frontend:
+
+1. [Install Node.js](https://nodejs.org/en/download) (if you haven't already)
+   <br/><br/>
+
+2. Go to the `frontend/` directory:
+   ```bash
+   cd frontend
+   ```
+
+3. Create `.env` file based on `.env.development`:
+   ```bash
+   cp .env.development .env
+   ```
+
+4. Install dependencies:
+   ```bash
+   npm install --frozen-lockfile
+   ```
+   
+5. Build the frontend:
+   ```bash
+   npm run build
+   ```
+
+6. Start the frontend:
    ```bash
    npm start
    ```

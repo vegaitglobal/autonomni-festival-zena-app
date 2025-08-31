@@ -39,7 +39,6 @@ export default function Footer({ footer }: FooterProps) {
 		}
 	};
 
-  console.log(footer.policy[0])
 
 	return (
 		<footer className="footer" id="contact">

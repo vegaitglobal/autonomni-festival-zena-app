@@ -8,6 +8,7 @@ import { DynamicContent } from '@/components/hoc/DynamicContent';
 import halfBottomBushGreen from '@/assets/half-bottom-bush-green.svg';
 import starDarkGreen from '@/assets/star-dark-green.svg';
 import './ProgramDetails.scss';
+import { notFound } from "next/navigation";
 
 interface ProgramDetailsProps {
 	year: number;
@@ -17,19 +18,14 @@ export default function ProgramDetails({ year }: ProgramDetailsProps) {
 	const {
 		content: program,
 		loading,
-		error,
 	} = useResource<Program | null>(() => fetchProgramByYear(year));
 
 	if (loading) {
 		return <div>Loading...</div>;
 	}
 
-	if (error) {
-		return <div>Error: {error}</div>;
-	}
-
 	if (!program) {
-		return <div>No content available</div>;
+		notFound();
 	}
 
 	function renderTopImage() {

@@ -39,6 +39,8 @@ export default function Footer({ footer }: FooterProps) {
 		}
 	};
 
+  console.log(footer.policy[0])
+
 	return (
 		<footer className="footer" id="contact">
 			<div className="wrap">
@@ -95,7 +97,8 @@ export default function Footer({ footer }: FooterProps) {
 									<Link
 										key={policyItem.id}
 										className="footer__link-text"
-										href={policyItem.file || '#'}
+                    target="_blank"
+										href={ `${process.env.NEXT_PUBLIC_API_MEDIA_URL}${ policyItem.file?.url || "#" }` }
 									>
 										{policyItem.label}
 									</Link>

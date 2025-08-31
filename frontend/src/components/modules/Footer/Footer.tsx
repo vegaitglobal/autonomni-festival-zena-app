@@ -96,8 +96,7 @@ export default function Footer({ footer }: FooterProps) {
 									<Link
 										key={policyItem.id}
 										className="footer__link-text"
-                    target="_blank"
-										href={ `${process.env.NEXT_PUBLIC_API_MEDIA_URL}${ policyItem.file?.url || "#" }` }
+										href={`${process.env.NEXT_PUBLIC_API_MEDIA_URL}${policyItem.file?.url || "#"}`}
 									>
 										{policyItem.label}
 									</Link>

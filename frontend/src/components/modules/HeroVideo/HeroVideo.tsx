@@ -1,4 +1,4 @@
-import { useState, useRef, Suspense } from 'react';
+import { useState, useRef, Suspense, useEffect, useCallback } from 'react';
 import { HeroVideoComponent } from '@/types/components/HeroVideoComponent';
 import { VideoOverlay } from './VideoOverlay';
 import './HeroVideo.scss';
@@ -11,7 +11,10 @@ interface HeroVideoProps {
 
 export const HeroVideo = ({ data }: HeroVideoProps) => {
 	const [isPlaying, setIsPlaying] = useState(false);
+	const [isYouTubeReady, setIsYouTubeReady] = useState(false);
 	const videoRef = useRef<HTMLVideoElement>(null);
+	const playerRef = useRef<any>(null);
+	const containerRef = useRef<HTMLDivElement>(null);
 
 	function getYouTubeVideoId(url: string): string | null {
 		try {
@@ -34,57 +37,92 @@ export const HeroVideo = ({ data }: HeroVideoProps) => {
 			}
 
 			return null;
-
-			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		} catch (error) {
 			return null;
 		}
 	}
 
-	if (data.url && !data.video) {
-		const tag = document.createElement('script');
-		tag.id = 'iframe-hero-video';
-		tag.src = 'https://www.youtube.com/iframe_api';
-		const [firstScriptTag] = document?.getElementsByTagName('script');
-		firstScriptTag.parentNode!.insertBefore(tag, firstScriptTag);
+	const initializeYouTubePlayer = useCallback(() => {
+		if (!containerRef.current || !window.YT?.Player || !data.url) return;
 
-		window.onPlayerStateChange = (event) => {
-			if (event.data === 0) {
-				handleVideoEnded();
+		const videoId = getYouTubeVideoId(data.url);
+		if (!videoId) return;
+
+
+		if (playerRef.current?.destroy) {
+			playerRef.current.destroy();
+		}
+
+		playerRef.current = new window.YT.Player(containerRef.current as HTMLElement, {
+			width: 1280,
+			height: 720,
+			videoId: videoId,
+			playerVars: {
+				rel: 0,
+				controls: 0,
+				modestbranding: 1,
+			},
+			events: {
+				onReady: () => {
+					setIsYouTubeReady(true);
+				},
+				onStateChange: (event: any) => {
+					if (event.data === 0) {
+						setIsPlaying(false);
+					}
+				},
+			},
+		});
+	}, [data.url]);
+
+	const loadYouTubeAPI = useCallback(() => {
+		if (window.YT) {
+			initializeYouTubePlayer();
+			return;
+		}
+
+		if (document.querySelector('script[src*="youtube.com/iframe_api"]')) {
+			return;
+		}
+
+		const script = document.createElement('script');
+		script.src = 'https://www.youtube.com/iframe_api';
+		script.async = true;
+
+		(window as any).onYouTubeIframeAPIReady = initializeYouTubePlayer;
+
+		document.head.appendChild(script);
+	}, [initializeYouTubePlayer]);
+
+	useEffect(() => {
+		if (data.url && !data.video) {
+			loadYouTubeAPI();
+		}
+
+		return () => {
+			if (playerRef.current?.destroy) {
+				playerRef.current.destroy();
+				playerRef.current = null;
 			}
 		};
+	}, [data.url, data.video, loadYouTubeAPI]);
 
-		window.onYouTubeIframeAPIReady = () => {
-			// @ts-expect-error YT is defined by the YouTube API script
-			new window.YT.Player('youtube', {
-				width: 1280,
-				height: 720,
-				videoId: getYouTubeVideoId(data.url),
-				playerVars: {
-					rel: 0,
-					controls: 0,
-					modestbranding: 1,
-					frameborder: 0,
-				},
-				events: {
-					onStateChange: window.onPlayerStateChange,
-				},
-			});
-		};
-	}
+	const toggleYouTubeVideo = () => {
+		if (!playerRef.current || !isYouTubeReady) return;
 
-	const togglePlayIFrame = () => {
-		const element = document.getElementById('youtube');
-		const func = isPlaying ? 'pauseVideo' : 'playVideo';
-
-		(element as HTMLIFrameElement)?.contentWindow?.postMessage(
-			`{"event":"command","func":"${func}","args":""}`, '*'
-		);
-
-		setIsPlaying(!isPlaying);
+		try {
+			if (isPlaying) {
+				playerRef.current.pauseVideo();
+			} else {
+				playerRef.current.playVideo();
+			}
+			setIsPlaying(!isPlaying);
+		} catch (error) {
+			console.error('YouTube player error:', error);
+		}
 	};
 
-	const togglePlay = () => {
+	const toggleRegularVideo = () => {
 		if (videoRef.current) {
 			if (isPlaying) {
 				videoRef.current.pause();
@@ -95,41 +133,41 @@ export const HeroVideo = ({ data }: HeroVideoProps) => {
 		}
 	};
 
-	const handleVideoClick = () => {
-		togglePlay();
-	};
-
 	const handleVideoEnded = () => {
 		setIsPlaying(false);
 	};
 
-  return (
-	<Suspense fallback={<HeroVideoSkeleton />}>
-		<div className="hero-video">
-			<div className="hero-video__container">
-				{ data.video &&
-					<div onClick={handleVideoClick}>
-						<video
-							ref={videoRef}
-							className="hero-video__video"
-							src={`${process.env.NEXT_PUBLIC_API_MEDIA_URL}${data.video.url}`}
-							onEnded={handleVideoEnded}
-							preload="metadata"
-							playsInline
-						>
-							Vaš browser ne podržava video element.
-						</video>
-						<VideoOverlay isPlaying={isPlaying}/>
-					</div>
-				}
-				{ data.url && !data.video &&
-					<div onClick={togglePlayIFrame}>
-						<div id="youtube" className="hero-video__video"/>
-						<VideoOverlay isPlaying={isPlaying}/>
-					</div>
-				}
+	return (
+		<Suspense fallback={<HeroVideoSkeleton />}>
+			<div className="hero-video">
+				<div className="hero-video__container">
+					{data.video && (
+						<div onClick={toggleRegularVideo}>
+							<video
+								ref={videoRef}
+								className="hero-video__video"
+								src={`${process.env.NEXT_PUBLIC_API_MEDIA_URL}${data.video.url}`}
+								onEnded={handleVideoEnded}
+								preload="metadata"
+								playsInline
+							>
+								Vaš browser ne podržava video element.
+							</video>
+							<VideoOverlay isPlaying={isPlaying} />
+						</div>
+					)}
+					{data.url && !data.video && (
+						<div onClick={toggleYouTubeVideo}>
+							<div
+								ref={containerRef}
+								id="youtube"
+								className="hero-video__video"
+							/>
+							<VideoOverlay isPlaying={isPlaying} />
+						</div>
+					)}
+				</div>
 			</div>
-		</div>
-	</Suspense>
-  );
+		</Suspense>
+	);
 };

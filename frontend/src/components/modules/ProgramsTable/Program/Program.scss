@@ -1,11 +1,11 @@
 @use '../../../../scss/abstracts' as *;
 
-.program-card {
+.program-card-main {
 	position: relative;
 	width: 80%;
 	margin: 10px auto;
 	padding: 30px 50px 50px;
-	border-radius: 10;
+	border-radius: 10px;
 	color: black;
 	z-index: 2;
 
@@ -28,7 +28,7 @@
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
-	font-size: 22;
+	font-size: 22px;
 
 	@include media-breakpoint-down(sm) {
 		flex-direction: column;
@@ -36,20 +36,20 @@
 	}
 }
 
-.program-card__year {
+.program-card__year-main {
 	margin-right: 10px;
 	font-weight: 700;
 }
 
 .program-card__description {
-	margin-top: 12;
-	font-size: 18;
+	margin-top: 12px;
+	font-size: 18px;
 	font-weight: 300;
 	text-align: center;
 }
 
 .program-card__arrow {
 	position: absolute;
-	bottom: 10;
-	right: 20;
+	bottom: 10px;
+	right: 20px;
 }

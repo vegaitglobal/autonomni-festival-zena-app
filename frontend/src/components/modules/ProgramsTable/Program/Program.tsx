@@ -17,11 +17,11 @@ export default function Program({ program, color }: ProgramCardProps) {
 
 	return (
 		<a
-			className={`program-card program-card--${color}`}
+			className={`program-card-main program-card--${color}`}
 			href={`/programs/${program.year}`}
 		>
 			<div className="program-card__header">
-				<p className="program-card__year">{program.year}</p>
+				<p className="program-card__year-main">{program.year}</p>
 				<p>{aboutProgram.title}</p>
 			</div>
 			<div className="program-card__description">
